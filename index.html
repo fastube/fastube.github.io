@@ -10,17 +10,17 @@
     <meta name="color-scheme" content="light only" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="google" content="notranslate" />
-    <title>FastTube - Premium, No Ads & Fast</title>
-    <meta property="og:title" content="FastTube - Premium, No Ads & Fast" />
-    <meta name="originalTitle" content="FastTube - Premium, No Ads & Fast" />
+    <title>FastTube - Watch & Download Trending Videos</title>
+    <meta property="og:title" content="FastTube - Watch & Download Trending Videos" />
+    <meta name="originalTitle" content="FastTube - Watch & Download Trending Videos" />
     <meta
       name="description"
-      content="Download Youtube videos for Free Youtube Premium without ads and faster"
+        content="Fast download Youtube videos for Free Youtube Premium"
       itemprop="description"
     />
     <meta
       property="og:description"
-      content="Download Youtube videos for Free Youtube Premium without ads and faster"
+      content="Fast download Youtube videos for Free Youtube Premium"
     />
     <meta property="og:site_name" content="fastube" />
     <meta property="og:type" content="website" />
@@ -1325,9 +1325,6 @@
           index1 = 0;
         }
         idplay = idlist[index1];
-        if (index) {
-          player.cueVideoById(idplay);
-        }
 
         ijudul.innerHTML = Data[index1].judul;
         ichannel.innerHTML = Data[index1].channel;
@@ -1345,11 +1342,17 @@
         channellabel.dataset.channeldurasi = Data[index1].channeldurasi;
         icombtn.dataset.jml = Data[index1].komen;
         //icombtn.innerHTML = "Comments ("+Data[index1].komen+")";
+        
         imgchannel(
           Data[index1].channelimg,
           document.getElementById("imgxi"),
           document.querySelector(".ithumb")
         );
+        
+        if (index) {
+          player.loadVideoById(idplay);
+          player.stopVideo();
+        }
 
         if (!arrlist && localStorage.getItem("playlist") != null) {
           arrlist = localStorage.getItem("playlist");
@@ -1367,14 +1370,6 @@
         if (!apikey && localStorage.getItem("apikey") != null) {
           apikey = localStorage.getItem("apikey");
           inputkey.value = apikey;
-        } else if (!apikey) {
-          status.innerHTML = "YouTube API key required!";
-          keterangan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="scale:2.2" width="16" height="16" fill="red" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
-  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
-</svg><span class="ms-3">To get the Youtube API key,<br>follow the instructions in the video!</span>`;
-
-          divhasil.style.translate = "calc(-5 * 100% / 6)";
-          navhasil.dataset.active = "5";
         }
         ceklist();
         ceksubs();
@@ -1403,7 +1398,7 @@
             data1(1);
           }
           status.innerHTML = "YouTube API key required!";
-          keterangan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="scale:2.2" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+          keterangan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="scale:2.2" width="16" height="16" fill="red" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
   <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
 </svg><span class="ms-3">To get the Youtube API key,<br>follow the instructions in the video!</span>`;
         }
@@ -2633,7 +2628,6 @@
           }
           if (!apikey) {
             divapikey();
-            e.preventDefault();
             return;
           }
           if (confirm("Subscribe this channel?")) {
