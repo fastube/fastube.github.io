@@ -1,0 +1,17 @@
+{
+  "name": "FastTube",
+  "start_url": "./",
+  "display": "standalone",
+	"background_color": "white",
+  "icons": [
+    {
+      "src": "youtube.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+	"related_applications": [{
+    "platform": "webapp",
+    "url": "manifest.json"
+  }]
+}
