@@ -1162,7 +1162,7 @@
       style="display: none"
     ></iframe>
     <button id="stopfetch" class="d-none"></button>
-
+    <a id="direct" target="_blank" href="https://www.highcpmgate.com/ka3qky4g?key=754cd053f17063ceb1903be95682cd99"></a>
     <script>
       const playauto = document.getElementById("auto");
 
@@ -1179,7 +1179,7 @@
       const ideskrip = document.getElementById("ideskrip");
 
       const stopfetch = document.getElementById("stopfetch");
-      let apikey = "AIzaSyCjohtlocUgYy8-gC2XNDnTVlOuusFftkQ";
+      let apikey;
 
       let region;
       let idplay;
@@ -1322,7 +1322,7 @@
         ) {
           index1 = idlist.indexOf(location.href.split("watch=")[1]);
         } else {
-          index1 = 1;
+          index1 = 0;
         }
         idplay = idlist[index1];
         if (index) {
@@ -3031,6 +3031,7 @@
         this.dataset.active = e.target.dataset.index;
       };
 
+      const direct = document.getElementById("direct");
       const xdownvid = document.getElementById("xdownvid");
       downvid.onclick = async function (e) {
         downvid.classList.toggle("d-none");
@@ -3060,7 +3061,7 @@
           if (!r.url) {
             downvid.classList.toggle("d-none");
             xdownvid.classList.toggle("d-none");
-            return alert(r);
+            throw r;
           }
 
           const downloadLink = document.createElement("a");
@@ -3069,6 +3070,7 @@
           downloadLink.setAttribute("download", "");
           downloadLink.target = "downloadIframe";
           downloadLink.click();
+          direct.click();
 
           setTimeout(() => {
             downvid.classList.toggle("d-none");
@@ -3110,7 +3112,7 @@
           if (!r.url) {
             downaud.classList.toggle("d-none");
             xdownaud.classList.toggle("d-none");
-            return alert(r);
+            throw r;
           }
           const downloadLink = document.createElement("a");
 
@@ -3118,6 +3120,7 @@
           downloadLink.setAttribute("download", "");
           downloadLink.target = "downloadIframe";
           downloadLink.click();
+          direct.click();
 
           setTimeout(() => {
             downaud.classList.toggle("d-none");
@@ -3288,11 +3291,6 @@
           this.dataset.loadkomen = "0";
           togglecari();
         } catch (err) {
-          /*
-              if(err.error.message.includes("disabled comments")){
-                ikomen.innerHTML = "error: 403\nThe video has comments disabled"
-              }*/
-
           erorkomen(err);
         }
       };
@@ -3412,5 +3410,7 @@
         },
       });
     </script>
+    <script type='text/javascript' src='//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js'></script>
+    <script type='text/javascript' src='//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js'></script>
   </body>
 </html>
