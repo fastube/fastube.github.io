@@ -1485,7 +1485,7 @@
       
       async function init() {
         try {
-          const a = await Fetch("data.json?v="+new Date().getTime());
+          const a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/data.json?v="+new Date().getTime());
           if (!a.data) {
             throw a;
           }
