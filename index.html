@@ -910,6 +910,7 @@
             </div>
             <div class="hasil d-flex flex-column">
               <div id="divhasil" class="mb-1 dnone">
+            <script async="async" data-cfasync="false" src="//pl23470702.highcpmgate.com/2cdcd4d18712251aac3f57c863b6856f/invoke.js"></script>
                 <div
                   class="divplaylist d-flex flex-column"
                   data-index=""
@@ -931,7 +932,9 @@
                   data-imgloaded="0"
                   data-is-loaded="0"
                   data-loading="0"
-                ></div>
+                >
+                  <div id="container-2cdcd4d18712251aac3f57c863b6856f"></div>
+                </div>
                 <div
                   class="d-flex flex-column trending"
                   data-index=""
@@ -1058,7 +1061,7 @@
                   </button>
                 </div>
               </div>
-
+              
               <div
                 id="navhasil"
                 class="d-flex justify-content-center align-items-center"
@@ -1322,6 +1325,9 @@
         }
         if (!index && idlist.includes(watch)) {
           index1 = idlist.indexOf(watch);
+          const a = document.createElement("script");
+          a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
+          document.body.appendChild(a);
         } else {
           index1 = 0;
         }
@@ -1598,6 +1604,7 @@
       const minchevron = 540;
       let okchevron = 0;
       const maxResults = 50;
+      let nativeAds = "";
 
       async function search(url, next, tampil, label, type, imgx) {
         let token = "";
@@ -1703,7 +1710,7 @@
           } else {
             d = r;
           }
-       
+         
           if (!d.items) {
             throw d;
           }
@@ -1724,7 +1731,7 @@
               "&id=" +
               idcs
           );
-
+          
           if (!c.items) {
             throw c;
           }
@@ -1755,7 +1762,11 @@
               parseInt(tampil.dataset.lastindex) + maxResults;
             tampil.querySelector(".nextpage").remove();
           }
-
+          
+          if(nativeAds == "" && document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f")){
+            nativeAds = `<div id="container-2cdcd4d18712251aac3f57c863b6856f">${document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML}</div>`;
+          }
+          
           r.items.forEach((e, i) => {
             if (i >= maxResults) {
               return;
@@ -1780,6 +1791,10 @@
             }
 
             if (type != "subrek") {
+              if((i < 5 && i == r.items.length-1)|| i == 5){
+                xtampil.innerHTML+=nativeAds;
+              }
+              
               xtampil.innerHTML += `<div class="d-flex flex-column position-relative">
                                          <div class="kosong ${
                                            xvideoid == idplay ? "a" : ""
@@ -2197,7 +2212,7 @@
       };
 
       vidchannel.querySelector(".channellabel").onclick = () => {
-        if (fastube.offsetWidth < minchevron && chevron.style.rotate == "") {
+        if (fastube.offsetWidth < minchevron) {
           chevron.click();
         }
       };
@@ -3401,14 +3416,10 @@
       });
       
       function showAds(){
-       // const a = document.createElement("script");
-       // a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
         const b = document.createElement("script");
         b.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
-      //  document.body.appendChild(a);
         document.body.appendChild(b);
       }
     </script>
-    <script type='text/javascript' src='//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js'></script>
   </body>
 </html>
