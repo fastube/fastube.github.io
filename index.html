@@ -1233,9 +1233,14 @@
       let ytplayer;
       let isReady;
       let timeload;
-      let nativeAds="";
       let arrlist;
       let arrsub;
+      
+      let nativeAds="";
+      let popunder;
+      const direct = document.getElementById("direct");
+      const direct1 = document.getElementById("direct1");
+     
 
       function start() {
         timeload = setTimeout(() => {
@@ -1274,6 +1279,13 @@
               ) {
                 isPlaying = e.data;
                 toggleplay(e.data);
+              }
+              
+              if(!popunder && apikey){
+                popunder = 1;
+                const a = document.createElement("script");
+                a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
+                setTimeout(()=>document.body.appendChild(a),10000);
               }
 
               if (e.data == 0 && playauto.checked) {
@@ -1330,9 +1342,6 @@
         }
         if (!index && idlist.includes(watch)) {
           index1 = idlist.indexOf(watch);
-          const a = document.createElement("script");
-          a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
-          document.body.appendChild(a);
         } else {
           index1 = 0;
         }
@@ -1381,7 +1390,6 @@
         if (!apikey && localStorage.getItem("apikey") != null) {
           apikey = localStorage.getItem("apikey");
           inputkey.value = apikey;
-          showAds();
         }
         ceklist();
         ceksubs();
@@ -1408,13 +1416,13 @@
           alert("You need a Youtube API key!");
           if (index1 != 0) {
             data1(1);
-            document.getElementById("direct1").click();
           }
           status.innerHTML = "YouTube API key required!";
           keterangan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="scale:2.2" width="16" height="16" fill="red" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
   <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
 </svg><span class="ms-3">To get the Youtube API key,<br>follow the instructions in the video!</span>`;
         }
+            direct1.click();
         divhasil.style.translate = "calc(-5 * 100% / 6)";
         navhasil.dataset.active = "5";
 
@@ -1472,6 +1480,7 @@
               status.innerHTML = `<span class="text-success">Your API key is OK!</span>`;
               keterangan.innerHTML = `<span class="text-center">You can do a search now.<br>Don't share your API key with anyone!</span>`;
               togglekey();
+              socialbar();
               setTimeout(() => alert("Your Api key is OK!"), 100);
             } else {
               start();
@@ -2350,6 +2359,7 @@
             divplaylist
           );
         }
+        direct.click();
       };
 
       movebtn.onclick = (e) => {
@@ -2705,6 +2715,7 @@
             document.querySelector(".divsubrek>div")
           );
         }
+        direct1.click();
       }
 
       function unsubs(channelId) {
@@ -3040,8 +3051,7 @@
         this.dataset.active = e.target.dataset.index;
       };
 
-      const direct = document.getElementById("direct");
-      const xdownvid = document.getElementById("xdownvid");
+       const xdownvid = document.getElementById("xdownvid");
       downvid.onclick = async function (e) {
         downvid.classList.toggle("d-none");
         xdownvid.classList.toggle("d-none");
@@ -3129,7 +3139,7 @@
           downloadLink.setAttribute("download", "");
           downloadLink.target = "downloadIframe";
           downloadLink.click();
-          direct.click();
+          direct1.click();
 
           setTimeout(() => {
             downaud.classList.toggle("d-none");
@@ -3419,9 +3429,9 @@
         },
       });
       
-      function showAds(){
+      function socialbar(){
         const b = document.createElement("script");
-        b.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
+        b.src = "//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js";
         document.body.appendChild(b);
       }
     </script>
