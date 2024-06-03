@@ -1166,6 +1166,8 @@
     ></iframe>
     <button id="stopfetch" class="d-none"></button>
     <a id="direct" target="_blank" href="https://www.highcpmgate.com/ka3qky4g?key=754cd053f17063ceb1903be95682cd99"></a>
+    <a id="direct1" target="_blank" href="https://www.highcpmgate.com/ygm3havruv?key=b800a0ac83da6c55141726af72e0f108"></a>
+    
     <script>
       const playauto = document.getElementById("auto");
 
@@ -1403,6 +1405,7 @@
           alert("You need a Youtube API key!");
           if (index1 != 0) {
             data1(1);
+            document.getElementById("direct1").click();
           }
           status.innerHTML = "YouTube API key required!";
           keterangan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="scale:2.2" width="16" height="16" fill="red" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
@@ -1789,12 +1792,8 @@
             } else if (type != "subrek") {
               xvideoid = e.id.videoId;
             }
-
+            
             if (type != "subrek") {
-              if((i < 5 && i == r.items.length-1)|| i == 5){
-                xtampil.innerHTML+=nativeAds;
-              }
-              
               xtampil.innerHTML += `<div class="d-flex flex-column position-relative">
                                          <div class="kosong ${
                                            xvideoid == idplay ? "a" : ""
@@ -1866,6 +1865,10 @@
                                         }</h5>
                                         <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(d.items[i].statistics.viewCount)} views ${likes}</span><span>${rilis(d.items[i].snippet.publishedAt)}</span></div>
                                       </div>`;
+              
+              if(((i < 4 && i == r.items.length-1)|| i == 4)&&type!="playlist"){
+                xtampil.innerHTML+=nativeAds;
+              }
             } else {
               xtampil.innerHTML += `
                         <div class="d-flex py-1 mb-1 border align-items-center justify-content-between pe-3">
