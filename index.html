@@ -1320,7 +1320,9 @@
           location.href.includes("watch=") &&
           idlist.includes(location.href.split("watch=")[1])
         ) {
-          index1 = idlist.indexOf(location.href.split("watch=")[1]);
+          let watch=location.href.split("watch=")[1];
+          watch = watch.includes("&")?watch.split("&")[0]:watch;
+          index1 = idlist.indexOf(watch);
         } else {
           index1 = 0;
         }
