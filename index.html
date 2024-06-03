@@ -1315,13 +1315,12 @@
 
       let index1;
       function data1(index) {
-        if (
-          !index &&
-          location.href.includes("watch=") &&
-          idlist.includes(location.href.split("watch=")[1])
-        ) {
-          let watch=location.href.split("watch=")[1];
+        let watch;
+        if(!index &&location.href.includes("watch=")){
+          watch=location.href.split("watch=")[1];
           watch = watch.includes("&")?watch.split("&")[0]:watch;
+        }
+        if (!index && idlist.includes(watch)) {
           index1 = idlist.indexOf(watch);
         } else {
           index1 = 0;
