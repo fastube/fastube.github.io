@@ -1238,6 +1238,7 @@
       
       let nativeAds="";
       let popunder;
+      let sosbar;
       const direct = document.getElementById("direct");
       const direct1 = document.getElementById("direct1");
      
@@ -1474,13 +1475,12 @@
           }
           if (a.regionCode) {
             if (xkey) {
-              !apikey?showAds():0;
               apikey = xkey;
               localStorage.setItem("apikey", apikey);
               status.innerHTML = `<span class="text-success">Your API key is OK!</span>`;
               keterangan.innerHTML = `<span class="text-center">You can do a search now.<br>Don't share your API key with anyone!</span>`;
               togglekey();
-              socialbar();
+              !sosbar?socialbar():0;
               setTimeout(() => alert("Your Api key is OK!"), 100);
             } else {
               start();
@@ -3430,6 +3430,7 @@
       });
       
       function socialbar(){
+        sosbar=1;
         const b = document.createElement("script");
         b.src = "//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js";
         document.body.appendChild(b);
