@@ -1338,11 +1338,14 @@
         });
 
         function toggleplay(e) {
-          document.querySelectorAll(".playing").forEach((el) => {
-            if (e == 1 && el.classList.contains("a")) {
-              el.classList.remove("a");
-            } else if (!el.classList.contains("a")) {
-              el.classList.toggle("a");
+          document
+                .querySelectorAll(
+                  `.kosong[data-video-id="${idplay}"]`
+                ).forEach((el) => {
+            if (e == 1 && el.parentElement.querySelector(".playing").classList.contains("a")) {
+              el.parentElement.querySelector(".playing").classList.remove("a");
+            } else if (e!=1&&!el.parentElement.querySelector(".playing").classList.contains("a")) {
+              el.parentElement.querySelector(".playing").classList.add("a");
             }
           });
         }
@@ -1640,6 +1643,7 @@
       const maxResults = 50;
 
       async function search(url, next, tampil, label, type, imgx) {
+        togglecari();
         if(nativeAds == "" && document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML!=""){
             nativeAds = `<div id="container-2cdcd4d18712251aac3f57c863b6856f">${document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML}</div>`;
           }
@@ -1669,7 +1673,6 @@
           
         let playlistnext;
 
-        togglecari();
         try {
           let r = {};
           if (type != "playlist" && type != "subrek") {
@@ -1713,9 +1716,10 @@
           } else if (r.items.length > maxResults) {
             r.items.pop();
           }
-          let ids = "";
-
-          r.items.forEach((e, i) => {
+          let ids="";
+          function xids(){
+            return new Promise((resolve) => {
+            r.items.forEach((e, i) => {
             if (i < maxResults) {
               if (type == "trending") {
                 ids += e.id;
@@ -1725,9 +1729,15 @@
                 ids += e.id.videoId;
               }
 
-              i < maxResults - 1 ? (ids += ",") : 0;
+              i < maxResults - 1 ? (ids += ",") :0;
+              i==r.items.length-1?resolve():0;
             }
           });
+            });
+          }
+          
+          await xids();
+          
           if (type == "search" && !next) {
             inputcari.blur();
           }
@@ -1751,11 +1761,16 @@
             throw d;
           }
           let idcs = "";
-
+        function xidcs(){
+          return new Promise((resolve) => {
           d.items.forEach((e, i) => {
             idcs += type == "subrek" ? e : e.snippet.channelId;
-            i < maxResults - 1 ? (idcs += ",") : 0;
+            i < maxResults - 1 ? (idcs += ",") :0;
+            i==d.items.length-1?resolve():0;
           });
+          });
+        }
+          await xidcs();
 
           const c = await Fetch(
             "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&key=" +
@@ -1771,7 +1786,16 @@
           if (!c.items) {
             throw c;
           }
-          const idchannels = c.items.map((e) => e.id);
+          const idchannels =[];
+          function idc(){
+            return new Promise((resolve) => {
+              c.items.forEach((e,i) => {
+                idchannels.push(e.id);
+                i==c.items.length-1?resolve():0;
+              });
+            });
+          }
+          await idc();
           if (!playlistnext) {
             tampil.dataset.nextToken = r.nextPageToken;
           }
@@ -1798,7 +1822,9 @@
               parseInt(tampil.dataset.lastindex) + maxResults;
             tampil.querySelector(".nextpage").remove();
           }
-          
+        let show="";
+        function xshow(){
+          return new Promise((resolve) => {
           r.items.forEach((e, i) => {
             if (i >= maxResults) {
               return;
@@ -1823,7 +1849,7 @@
             }
             
             if (type != "subrek") {
-              xtampil.innerHTML += `<div class="d-flex flex-column w-100 position-relative">
+              show += `<div class="d-flex flex-column w-100 position-relative">
                                          <div class="kosong ${
                                            xvideoid == idplay ? "a" : ""
                                          }" style="z-index:1" data-index="${
@@ -1899,7 +1925,7 @@
                 xtampil.innerHTML+=nativeAds;
               }
             } else {
-              xtampil.innerHTML += `
+              show += `
                         <div class="d-flex w-100 py-1 mb-1 border align-items-center justify-content-between pe-3">
                               <div class="position-relative d-flex">
                               <span class="kosong channellabel position-absolute top-0 bottom-0 start-0 end-0" data-channel-id="${e}" data-thumb="${
@@ -1922,12 +1948,17 @@
                             
                             </div>`;
             }
+            i==r.items.length-1?resolve():0;
           });
+          });
+        }
+        await xshow();
 
           if (r.nextPageToken || playlistnext) {
-            xtampil.innerHTML += `<div class="nextpage mb-1">
+            show += `<div class="nextpage mb-1">
                     <div class="spinner-border text-secondary my-1" role="status"><span class="visually-hidden">Loading...</span></div></div>`;
           }
+      xtampil.innerHTML = show;
 
           togglecari();
           imgx.src = "";
@@ -2607,11 +2638,11 @@
               if (icombtn.dataset.loadkomen == "1") {
                 stopfetch.click();
               }
-              document
+              
+                document
                 .querySelectorAll(
                   `.kosong[data-video-id="${e.target.dataset.videoId}"]`
-                )
-                .forEach((el) => {
+                ).forEach((el) => {
                   el.classList.toggle("a");
                 });
               imgchannel(
@@ -3195,24 +3226,6 @@
         downinfo(this);
       };
 
-      const deskom = document.getElementById("deskom");
-      const deskombtn = document.getElementById("deskombtn");
-      deskombtn.onclick = function (e) {
-        if (
-          e.target.id == "icombtn" &&
-          icombtn.dataset.loadkomen != "1" &&
-          btncari.classList.contains("d-none")
-        ) {
-          e.preventDefault();
-          return;
-        }
-        if (e.target.dataset.index) {
-          deskom.style.transform = `translateX(${
-            -e.target.dataset.index * (100 / 2) + "%"
-          })`;
-        }
-      };
-
       let idcomloading;
       icombtn.onclick = async function (e) {
         if (ytplayer && !apikey) {
@@ -3242,7 +3255,8 @@
         this.dataset.loadkomen = "1";
         ikomen.innerHTML = "";
         idcomloading = idplay;
-        setTimeout(() => togglecari(), 100);
+        togglecari();
+       // setTimeout(() => togglecari(), 100);
         try {
           const r = await Fetch(
             "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet,replies,id&textFormat=plainText&maxResults=100&videoId=" +
@@ -3261,48 +3275,8 @@
             }
             throw r;
           }
-          this.innerHTML = "Comments (" + this.dataset.jml + ")";
-          this.dataset.videoId = idplay;
+           this.dataset.videoId = idplay;
           ikomen.innerHTML = "";
-          r.items.forEach((e, i) => {
-            let likes =
-              hitung(e.snippet.topLevelComment.snippet.likeCount.toString()) +
-              " likes";
-            if (e.snippet.topLevelComment.snippet.likeCount == undefined) {
-              likes = "";
-            }
-            let replies = "";
-            if (
-              e.snippet.totalReplyCount > 0 &&
-              e.replies &&
-              e.replies.comments
-            ) {
-              replies = reply(e.replies.comments);
-            }
-            ikomen.innerHTML += `
-                  <div class="d-flex flex-column w-100 px-2 mb-1 border rounded">
-                                  <span class="namakomen" style="font-size: .72em;">${
-                                    e.snippet.topLevelComment.snippet
-                                      .authorDisplayName
-                                  }</span>
-                                  <p class="isikomen mb-0" style="font-size:.9em;white-space: pre-wrap;word-wrap: break-word;">${
-                                    e.snippet.topLevelComment.snippet
-                                      .textDisplay
-                                  }</p>
-                                  <div class="comstats d-flex justify-content-between" style="font-size: .8em;">
-                                    <span>${likes} &#183; ${
-              e.snippet.totalReplyCount
-            } replies</span>
-                                    <span>${rilis(
-                                      e.snippet.topLevelComment.snippet
-                                        .updatedAt
-                                    )}</span>
-                                  </div>
-                                </div>
-                                ${replies}
-                `;
-          });
-
           function reply(rep) {
             let a = "";
             rep.forEach((e, i) => {
@@ -3326,14 +3300,62 @@
             });
             return a;
           }
+          let show ="";
+          function wkomen(){
+          return new Promise((resolve) => {
+          r.items.forEach((e, i) => {
+            let likes =
+              hitung(e.snippet.topLevelComment.snippet.likeCount.toString()) +
+              " likes";
+            if (e.snippet.topLevelComment.snippet.likeCount == undefined) {
+              likes = "";
+            }
+            let replies = "";
+             if (
+              e.snippet.totalReplyCount > 0 &&
+              e.replies &&
+              e.replies.comments
+            ) {
+              replies = reply(e.replies.comments);
+            }
+            show += `
+                  <div class="d-flex flex-column w-100 px-2 mb-1 border rounded">
+                                  <span class="namakomen" style="font-size: .72em;">${
+                                    e.snippet.topLevelComment.snippet
+                                      .authorDisplayName
+                                  }</span>
+                                  <p class="isikomen mb-0" style="font-size:.9em;white-space: pre-wrap;word-wrap: break-word;">${
+                                    e.snippet.topLevelComment.snippet
+                                      .textDisplay
+                                  }</p>
+                                  <div class="comstats d-flex justify-content-between" style="font-size: .8em;">
+                                    <span>${likes} &#183; ${
+              e.snippet.totalReplyCount
+            } replies</span>
+                                    <span>${rilis(
+                                      e.snippet.topLevelComment.snippet
+                                        .updatedAt
+                                    )}</span>
+                                  </div>
+                                </div>
+                                ${replies}
+                `;
+                i==r.items.length-1?resolve():0;
+          });
+          });
+        }
+        await wkomen();
+          ikomen.innerHTML = show;
           this.dataset.loadkomen = "0";
+          this.innerHTML = "Comments (" + this.dataset.jml + ")";
+         
           togglecari();
         } catch (err) {
           erorkomen(err);
         }
       };
 
-      function erorkomen(err) {
+      function erorkomen(err) {console.log(err);
         if (idcomloading == idplay) {
           if (infodown.classList.contains("dnone")) {
             info.click();
@@ -3362,6 +3384,24 @@
           togglecari();
         }
       }
+      
+      const deskom = document.getElementById("deskom");
+      const deskombtn = document.getElementById("deskombtn");
+      deskombtn.onclick = function (e) {
+        if (
+          e.target.id == "icombtn" &&
+          icombtn.dataset.loadkomen != "1" &&
+          btncari.classList.contains("d-none")
+        ) {
+          e.preventDefault();
+          return;
+        }
+        if (e.target.dataset.index) {
+          deskom.style.transform = `translateX(${
+            -e.target.dataset.index * (100 / 2) + "%"
+          })`;
+        }
+      };
 
       chevron.onclick = function () {
         if (!ytplayer) {
