@@ -1284,9 +1284,9 @@
               if (!ytplayer) {
                 clearTimeout(timeload);
                 ytplayer = document.getElementById("ytplayer");
-                if(nativeAds == "" && document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f")){
+                if(nativeAds == "" && document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML!=""){
                     nativeAds = `<div id="container-2cdcd4d18712251aac3f57c863b6856f">${document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML}</div>`;
-                  }
+                }
                 togglecari();
                 register();
               }
@@ -1640,7 +1640,7 @@
       const maxResults = 50;
 
       async function search(url, next, tampil, label, type, imgx) {
-        if(nativeAds == "" && document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f")){
+        if(nativeAds == "" && document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML!=""){
             nativeAds = `<div id="container-2cdcd4d18712251aac3f57c863b6856f">${document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML}</div>`;
           }
         let token = "";
