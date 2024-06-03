@@ -1333,8 +1333,7 @@
             ? ""
             : `<div class="px-2 py-1 w-100 border rounded" style="white-space: pre-wrap;word-wrap: break-word;font-size:.9em;">${Data[index1].deskripsi}</div>`;
         isubs.innerHTML = Data[index1].isubs;
-        iviews.children[0].innerHTML = Data[index1].iviews;
-        iviews.children[1].innerHTML = rilis(Data[index1].publishedAt);
+        iviews.innerHTML = Data[index1].iviews;
         channellabel.dataset.channelId = Data[index1].channelId;
         channellabel.dataset.channel = Data[index1].channel;
         channellabel.dataset.thumb = Data[index1].channelimg;
@@ -1370,6 +1369,7 @@
         if (!apikey && localStorage.getItem("apikey") != null) {
           apikey = localStorage.getItem("apikey");
           inputkey.value = apikey;
+          showAds();
         }
         ceklist();
         ceksubs();
@@ -1453,6 +1453,7 @@
           }
           if (a.regionCode) {
             if (xkey) {
+              !apikey?showAds():0;
               apikey = xkey;
               localStorage.setItem("apikey", apikey);
               status.innerHTML = `<span class="text-success">Your API key is OK!</span>`;
@@ -1484,7 +1485,7 @@
       
       async function init() {
         try {
-          const a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/data.json?v="+new Date().getTime());
+          const a = await Fetch("data.json?v="+new Date().getTime());
           if (!a.data) {
             throw a;
           }
@@ -1847,11 +1848,7 @@
                                         <h5 class="judul mb-0 px-2">${
                                           d.items[i].snippet.localized.title
                                         }</h5>
-                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(
-                                          d.items[i].statistics.viewCount
-                                        )} views ${likes}</span><span>${rilis(
-                d.items[i].snippet.publishedAt
-              )}</span></div>
+                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(d.items[i].statistics.viewCount)} views ${likes}</span><span>${rilis(d.items[i].snippet.publishedAt)}</span></div>
                                       </div>`;
             } else {
               xtampil.innerHTML += `
@@ -2317,9 +2314,7 @@
                                         <h5 class="judul mb-0 px-2">${
                                           ijudul.innerHTML
                                         }</h5>
-                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;">${
-                                          iviews.innerHTML
-                                        }</div>
+                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;">${iviews.innerHTML}</div>
                                       </div>`;
 
         if (
@@ -3403,8 +3398,15 @@
           btncari.click();
         },
       });
+      
+      function showAds(){
+        const a = document.createElement("script");
+        a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
+        const b = document.createElement("script");
+        b.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
+        document.body.appendChild(a);
+        document.body.appendChild(b);
+      }
     </script>
-    <script type='text/javascript' src='//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js'></script>
-    <script type='text/javascript' src='//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js'></script>
   </body>
 </html>
