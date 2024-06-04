@@ -942,8 +942,8 @@
               </div>
             </div>
             <div class="hasil d-flex flex-column">
-              <div id="divhasil" class="mb-1 dnone">
             <script async="async" data-cfasync="false" src="//pl23470702.highcpmgate.com/2cdcd4d18712251aac3f57c863b6856f/invoke.js"></script>
+              <div id="divhasil" class="mb-1 dnone">
                 <div
                   class="divplaylist d-flex flex-column align-items-center"
                   data-index=""
@@ -1261,7 +1261,6 @@
       const movebtn = document.querySelector(".movebtn");
       const infodown = document.querySelector(".infodown");
       let Data;
-      let idlist;
       let ytplayer;
       let isReady;
       let timeload;
@@ -1371,16 +1370,15 @@
       let index1;
       function data1(index) {
         let watch;
-        if(!index &&location.href.includes("watch=")){
-          watch=location.href.split("watch=")[1];
-          watch = watch.includes("&")?watch.split("&")[0]:watch;
+        if(!index &&location.href.includes("#") && parseInt(location.href.split("#")[1])>0){
+          watch=location.href.split("#")[1];
         }
-        if (!index && idlist.includes(watch)) {
-          index1 = idlist.indexOf(watch);
+        if (!index && parseInt(watch)>0 && parseInt(watch)<Data.length) {
+          index1 = watch;
         } else {
           index1 = 0;
         }
-        idplay = idlist[index1];
+        idplay = Data[index1].id;
 
         ijudul.innerHTML = Data[index1].judul;
         ichannel.innerHTML = Data[index1].channel;
@@ -1552,6 +1550,7 @@
       }
     
     const vid0 = {
+            "id":"N18czV5tj5o",
             "judul": "How to Get YouTube API Key",
             "channeldurasi": "<span class='channel'>WebbyFan</span><span>02:26</span>",
             "iviews": "<span>120K views · 2.4K likes</span><span>3 years ago</span>",
@@ -1566,19 +1565,17 @@
       async function init() {
         let a;
         try {
-          if(location.href.includes("watch=") && location.href.split("watch=")[1]!=""){
+          if(location.href.includes("#") && parseInt(location.href.split("#")[1])>0){
            a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/data.json?v="+new Date().getTime());
           }else{
             a = {};
-            a.idlist = [];
-            a.data =[];
+            a.data=[];
           }
           if (!a.data) {
             throw a;
           }
-          a.idlist.unshift("N18czV5tj5o");
-          a.data.unshift(vid0);
-          idlist = a.idlist;
+    
+          a.data[0] = vid0;
           Data = a.data;
           data1();
         } catch (err) {
