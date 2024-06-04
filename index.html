@@ -345,7 +345,12 @@
       .hasil.h100 {
         height: 100%;
       }
-
+      
+      
+        .atas.dnone{
+          position: relative;
+          overflow-x:hidden;
+        }
       iframe,
       .iframe {
         width: 100vw;
@@ -355,6 +360,10 @@
         display: flex;
         top: 0;
         bottom: 0;
+      }
+      .atas.dnone>.iframe{
+        position: absolute;
+        left: 100%;right: -100%;
       }
 
       .header > div {
@@ -450,7 +459,7 @@
         #carousel1 > .carousel-item:first-child{
           padding: 0 7.5vw;
         }
-        .atas {
+        .atas{
           position: relative;
         }
         .iframe {
@@ -643,7 +652,7 @@
                     checked=""
                   />
                   <label class="info-btn form-check-label m-auto d-flex" for="info"
-                    ><img src="info.svg" class="m-auto" style="height: 100%"
+                    ><img src="info.svg" class="m-auto" style="height: 99%"
                   /></label>
                 </span>
                 <span id="mode" class="form-check-label col-2 d-flex"
@@ -1265,7 +1274,7 @@
       const direct = document.getElementById("direct");
       const direct1 = document.getElementById("direct1");
      const idnative = document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f");
-    
+      let adsterra;
 
       function start() {
         timeload = setTimeout(() => {
@@ -1308,9 +1317,7 @@
               
               if(!popunder && apikey){
                 popunder = 1;
-                const a = document.createElement("script");
-                a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
-                setTimeout(()=>document.body.appendChild(a),10000);
+                showpunder();
               }
 
               if (e.data == 0 && playauto.checked) {
@@ -1414,7 +1421,20 @@
           arrsub = "";
           localStorage.setItem("subrek", arrsub);
         }
-
+        
+        if(!adsterra && localStorage.getItem("adsterra") != null){
+          adsterra ={};
+          const dterra = JSON.parse(localStorage.getItem("adsterra"));
+          adsterra.tgl = dterra.tgl;
+          adsterra.popunder = parseInt(dterra.popunder);
+          adsterra.sosbar = parseInt(dterra.sosbar);
+          adsterra.direct1 = parseInt(dterra.direct1);
+          adsterra.direct = parseInt(dterra.direct);
+          cekads();
+        }else if(!localStorage.getItem("adsterra")){
+          adsterra={};
+          cekads(1);
+        }
         if (!apikey && localStorage.getItem("apikey") != null) {
           apikey = localStorage.getItem("apikey");
           inputkey.value = apikey;
@@ -1450,7 +1470,7 @@
   <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
 </svg><span class="ms-3">To get the Youtube API key,<br>follow the instructions in the video!</span>`;
         }
-            direct1.click();
+            directclick();
         divhasil.style.translate = "calc(-5 * 100% / 6)";
         navhasil.dataset.active = "5";
 
@@ -1530,14 +1550,34 @@
         region = regcode;
         localStorage.setItem("region", region);
       }
-
-      
+    
+    const vid0 = {
+            "judul": "How to Get YouTube API Key",
+            "channeldurasi": "<span class='channel'>WebbyFan</span><span>02:26</span>",
+            "iviews": "<span>120K views · 2.4K likes</span><span>3 years ago</span>",
+            "thumb": "https://i.ytimg.com/vi/N18czV5tj5o/hqdefault.jpg",
+            "channelId": "UC8w4I8t2OpqoOpzzNT1c2dg",
+            "channel": "WebbyFan",
+            "channelimg": "https://yt3.ggpht.com/Kmr1Uo5sujwbXwwjNxPFjcm8rIXZaMXr9DjewZYur5kSzh_GBcszU_YarGkS5wBxCvRq0ZXcrw=s88-c-k-c0x00ffffff-no-rj",
+            "isubs": "408 videos · 154K subscribs",
+            "komen": "109",
+            "deskripsi": "Easy Way to Create YouTube API Key or YouTube Data API v3 in 2023 Thank You so Much for Watching, If This Videos Helpful Then Please Like &amp; Comment https://youtu.be/N18czV5tj5o\n✪ Post Here: https://bit.ly/2O0PZFM\n\n✪ Steps to Get YouTube API Key ( YouTube Data API v3 )\n\n- Sign in to Google Console Cloud\nhttps://console.cloud.google.com\n- Create project or Select Project for API Key\n- Click on Navigation Menu ( top left corner )\n- Go To API'S and Services\nhttps://console.cloud.google.com/apis\n- Select Your  project and Go to Library\nhttps://console.cloud.google.com/apis/library\n- Scroll down &amp; then Click on YouTube Data API V3 https://console.cloud.google.com/apis/library/youtube.googleapis.com\n- Click on Enable  YouTube Data API V3\n- Now We Need to Create Credentials for our YouTube API Key\n- Click on Credentials\n- Click on Create Credentials\n- Click on API Key\n- now You will get Your YouTube API key, simply copy it &amp; use wherever you want.\n- Done\n\n✪ Visit Our Website\nhttps://www.webbyfan.com\n\n✪ More Videos\n\n  How To Create A Blog Website &amp; Earn online\n  https://youtu.be/9sU3yAEZDbQ\n  \n  Track Mobile Current Location ?\n  https://youtu.be/GnfRejdlK8g\n\n  Check Who's Using My WIFI ?\n  https://youtu.be/Vlx6qX8WNJA\n\n  Change Default Download Location to SD card in Android  \n  https://youtu.be/jXM1PtEeYbE\n\n  How To Install Google Play Store App on PC / Laptop\n  https://youtu.be/y2JNXc3hchw\n\n  How To Disable Notification On Google Chrome\n  https://youtu.be/UR6VflYoDjo\n\n  Remove All Subscriptions on YouTube At Once\n  https://youtu.be/h4_aQi-oJqc\n\n  How To Install PicsArt App on PC\n  https://youtu.be/LejBzmNSQ-E\n\n  unlock android phone  When you forgot your password\n  https://youtu.be/1GNGeS0KAkA\n\n  Delete A Folder Files That can't Delete on Windows\n  https://youtu.be/T36VLX4Mk8w\n\n  Fix This Site Can't Be Reached on Chrome\n  https://youtu.be/VnYv9d8m3cg\n  \n  Create a Website at low cost\n  https://youtu.be/Dt7soLb2e3E\n\n  Create Google API KEY\n  https://youtu.be/iM12nF0tBuM\n\n  create YouTube API Key:\n  https://youtu.be/3jZ5vnv-LZc"
+        };
       async function init() {
+        let a;
         try {
-          const a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/data.json?v="+new Date().getTime());
+          if(location.href.includes("watch=") && location.href.split("watch=")[1]!=""){
+           a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/data.json?v="+new Date().getTime());
+          }else{
+            a = {};
+            a.idlist = [];
+            a.data =[];
+          }
           if (!a.data) {
             throw a;
           }
+          a.idlist.unshift("N18czV5tj5o");
+          a.data.unshift(vid0);
           idlist = a.idlist;
           Data = a.data;
           data1();
@@ -1546,7 +1586,7 @@
           setTimeout(() => alert("Failed to load!"), 100);
         }
       }
-      init();
+      
 
       function ceklist() {
         if (arrlist.includes(idplay) && movebtn.classList.contains("d-none")) {
@@ -1569,7 +1609,7 @@
           return;
         }
       };
-
+      const atas = document.querySelector(".atas");
       const iframe = document.querySelector(".iframe");
       document.getElementById("mode").onclick = (e) => {
         if (!ytplayer) return;
@@ -1585,8 +1625,8 @@
         iframe.classList.toggle("h-100");
         document.getElementById("theme").content = "black";
         document.getElementById("terang").classList.toggle("d-none");
-        if (iframe.classList.contains("d-none")) {
-          iframe.classList.toggle("d-none");
+        if (atas.classList.contains("dnone")) {
+          atas.classList.toggle("dnone");
         }
       };
 
@@ -1604,7 +1644,7 @@
         document.getElementById("theme").content = "";
         document.getElementById("terang").classList.toggle("d-none");
         if (chevron.style.rotate != "") {
-          iframe.classList.toggle("d-none");
+          atas.classList.toggle("dnone");
         }
       };
 
@@ -2414,7 +2454,7 @@
             divplaylist
           );
         }
-        direct.click();
+        directclick();
       };
 
       movebtn.onclick = (e) => {
@@ -2770,7 +2810,7 @@
             document.querySelector(".divsubrek>div")
           );
         }
-        direct1.click();
+        directclick();
       }
 
       function unsubs(channelId) {
@@ -3144,7 +3184,7 @@
           downloadLink.setAttribute("download", "");
           downloadLink.target = "downloadIframe";
           downloadLink.click();
-          direct.click();
+          directclick();
 
           setTimeout(() => {
             downvid.classList.toggle("d-none");
@@ -3194,7 +3234,7 @@
           downloadLink.setAttribute("download", "");
           downloadLink.target = "downloadIframe";
           downloadLink.click();
-          direct1.click();
+          directclick();
 
           setTimeout(() => {
             downaud.classList.toggle("d-none");
@@ -3360,7 +3400,7 @@
         }
       };
 
-      function erorkomen(err) {console.log(err);
+      function erorkomen(err) {
         if (idcomloading == idplay) {
           if (infodown.classList.contains("dnone")) {
             info.click();
@@ -3407,12 +3447,12 @@
           })`;
         }
       };
-
+      
       chevron.onclick = function () {
         if (!ytplayer) {
           return;
         }
-        if (!iframe.classList.contains("d-none")) {
+        if (!atas.classList.contains("dnone")) {
           this.style.rotate = "180deg";
           document.querySelectorAll("#divhasil > div")[
             navhasil.dataset.active
@@ -3423,7 +3463,7 @@
             navhasil.dataset.active
           ].scrollTop += 1;
         }
-        iframe.classList.toggle("d-none");
+        atas.classList.toggle("dnone");
       };
 
       const register = async () => {
@@ -3439,6 +3479,77 @@
           } catch (err) {}
         }
       };
+      
+      function updateterra(){
+        localStorage.setItem("adsterra",JSON.stringify(adsterra));
+      }
+  
+      function cekads(type){
+        return new Promise((resolve) => {
+        const ndate = new Date();
+        if(type){
+          adsterra.tgl = new Date((ndate.getMonth()+1)+"/"+(ndate.getDate()-1)+"/"+ndate.getFullYear()).getTime();
+        }
+        const date = new Date(adsterra.tgl);
+        const seconds = Math.floor((ndate - date) / 1000);
+        const days = Math.floor(seconds / 86400);
+        
+        if(type || days > 0){
+          adsterra.tgl = new Date((ndate.getMonth()+1)+"/"+(ndate.getDate())+"/"+ndate.getFullYear()).getTime();
+          adsterra.popunder = 0;
+          adsterra.sosbar = 0;
+          adsterra.direct1 = 0;
+          adsterra.direct = 0;
+          updateterra();
+        }
+        resolve();
+        });
+      }
+      
+      async function directclick(){
+        try{
+          await cekads();
+          if(adsterra.direct1 <2){
+            adsterra.direct1 += 1;
+            direct1.click();
+          }else if(adsterra.direct <2){
+            adsterra.direct += 1;
+            direct.click();
+          }else{
+            throw 0;
+          }
+          updateterra();
+        }catch(err){}
+      }
+      
+      async function showpunder(){
+        try{
+          await cekads();
+          if(adsterra.popunder <1){
+            const a = document.createElement("script");
+                  a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
+            setTimeout(()=>document.body.appendChild(a),10000);
+            adsterra.popunder = 1;
+            updateterra();
+          }
+        }catch(err){}
+      }
+      
+      async function socialbar(){
+        sosbar=1;
+        try{
+          await cekads();
+          if(adsterra.sosbar<1){
+            const b = document.createElement("script");
+            b.src = "//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js";
+            document.body.appendChild(b);
+            adsterra.sosbar = 1;
+            updateterra();
+          }
+        }catch(err){}
+      }
+      
+      init();
     </script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
@@ -3492,13 +3603,7 @@
           btncari.click();
         },
       });
-      
-      function socialbar(){
-        sosbar=1;
-        const b = document.createElement("script");
-        b.src = "//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js";
-        document.body.appendChild(b);
-      }
+    
     </script>
   </body>
 </html>
