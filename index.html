@@ -1260,7 +1260,8 @@
       let sosbar;
       const direct = document.getElementById("direct");
       const direct1 = document.getElementById("direct1");
-     
+     const idnative = document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f");
+    
 
       function start() {
         timeload = setTimeout(() => {
@@ -1284,7 +1285,7 @@
               if (!ytplayer) {
                 clearTimeout(timeload);
                 ytplayer = document.getElementById("ytplayer");
-                if(nativeAds == "" && document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML!=""){
+                if(nativeAds == "" && idnative.innerHTML!=""){
                     nativeAds = `<div id="container-2cdcd4d18712251aac3f57c863b6856f">${document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML}</div>`;
                 }
                 togglecari();
@@ -1641,10 +1642,10 @@
       const minchevron = 540;
       let okchevron = 0;
       const maxResults = 50;
-
+    
       async function search(url, next, tampil, label, type, imgx) {
         togglecari();
-        if(nativeAds == "" && document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML!=""){
+        if(nativeAds == "" && idnative.innerHTML!=""){
             nativeAds = `<div id="container-2cdcd4d18712251aac3f57c863b6856f">${document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML}</div>`;
           }
         let token = "";
