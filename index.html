@@ -1205,7 +1205,7 @@
     <a id="direct1" target="_blank" href="https://www.highcpmgate.com/ygm3havruv?key=b800a0ac83da6c55141726af72e0f108"></a>
     
     <script>
-      const playauto = document.getElementById("auto");
+    const playauto = document.getElementById("auto");
 
       if (
         localStorage.getItem("autoplay") &&
@@ -1317,7 +1317,7 @@
                 toggleplay(e.data);
               }
               
-              if(!popunder && apikey){
+              if(!popunder){
                 popunder = 1;
                 showpunder();
               }
@@ -2168,7 +2168,8 @@
       };
 
       const trendbtn = document.querySelector(".trendbtn");
-      trendbtn.onclick = (e) => {
+      trendbtn.onclick = (e){
+          socialbar();
         if (ytplayer && !apikey) {
           divapikey();
           e.preventDefault();
@@ -2381,6 +2382,7 @@
           divapikey();
           return;
         } else if (!ytplayer || !confirm("Add to playlist?")) {
+          directclick();
           return;
         }
         if (arrlist == "") {
@@ -2742,9 +2744,9 @@
       );
       function subscribe(bell, xbell) {
         bell.onclick = function () {
-          if (!ytplayer) {
+         /* if (!ytplayer) {
             return;
-          }
+          }*/
           if (!apikey) {
             divapikey();
             return;
@@ -3107,6 +3109,7 @@
 
       let iddown = "";
       down.onclick = function (e) {
+        directclick();
         downinfo(this);
         if (iddown != idplay) {
           viddiv.querySelectorAll(".btn:not(#downvid)").forEach((e) => {
