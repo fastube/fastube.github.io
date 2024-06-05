@@ -1317,7 +1317,7 @@
                 toggleplay(e.data);
               }
               
-              if(!popunder){
+              if(!popunder && apikey){
                 popunder = 1;
                 showpunder();
               }
@@ -2220,6 +2220,7 @@
 
       const playlistbtn = document.querySelector(".playlistbtn");
       playlistbtn.onclick = (e) => {
+        showpunder();
         if (ytplayer && !apikey) {
           divapikey();
           e.preventDefault();
