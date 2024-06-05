@@ -368,6 +368,7 @@
 
       .header > div {
         width: 100%;
+        padding-bottom: .5rem;
       }
       .bag {
         height: 100%;
@@ -432,9 +433,9 @@
           border-top: 0;
           border-bottom: var(--bs-border-width) var(--bs-border-style)
             var(--bs-border-color);
-          margin-bottom: 0.25rem;
-          padding: 0;
+          padding:0;
         }
+        
         .navig {
           margin-bottom: 0.25rem;
         }
@@ -483,33 +484,34 @@
           bottom: 0;
         }
         .hasil {
-          width: calc(85vw * 1.1 / 3);
-          translate: calc(85vw * 1.9 / 3);
+          width: calc(100% * 1.05 / 3);
+          translate: calc(85vw * 1.95 / 3);
         }
         .bag1.h100,
         .hasil.h100 {
           height: auto;
         }
-        .header,.hasil{
+        .header>div,.hasil{
           border-right: var(--bs-border-width) var(--bs-border-style)
             var(--bs-border-color);
         }
-        .header,.bag1{
+        .header,.bag1,.hasil,.header>div{
           border-left: var(--bs-border-width) var(--bs-border-style)
             var(--bs-border-color);
         }
         .header > div {
-          width: calc(100% * 1.1 / 3);
+          width: calc(100% * 1.05 / 3);
+          padding-bottom: 0;
         }
         .header h1 {
           width: calc(100% * 1.9 / 3);
           text-align: center;
         }
         .xthumb {
-          height: calc((85vw * 1.1 / 3) * ((232 * 100) / 412) / 100);
+          height: calc((85vw * 1.05 / 3) * ((232 * 100) / 412) / 100);
         }
         div#container-2cdcd4d18712251aac3f57c863b6856f div.container-2cdcd4d18712251aac3f57c863b6856f__stand{
-          width:calc(85vw * 1.1 / 3);
+          width:100%;
         }
         #downdiv,
         #infodiv {
@@ -534,11 +536,11 @@
         <div class="carousel-item flex-column active">
           <div class="atas">
             <div
-              class="header d-flex align-items-center justify-content-between p-2"
+              class="header d-flex align-items-center justify-content-between"
             >
-              <h1 class="my-0 py-0">FastTube</h1>
-              <div class="d-flex align-items-center">
-                <div class="input-group input-group-sm ms-2">
+              <h1 class="my-0 py-0 ps-2">FastTube</h1>
+              <div class="d-flex align-items-center pt-2 px-2">
+                <div class="input-group input-group-sm">
                   <input
                     id="inputcari"
                     type="search"
@@ -1097,7 +1099,7 @@
               
               <div
                 id="navhasil"
-                class="d-flex justify-content-center align-items-center"
+                class="d-flex align-items-center"
                 data-active="1"
               >
                 <input
@@ -1114,6 +1116,7 @@
                   ><img src="bell.svg" class="m-auto" style="height: 75%"
                 /></label>
 
+    
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1123,7 +1126,7 @@
                 />
                 <label
                   data-index="0"
-                  class="playlistbtn form-check-label py-1 d-flex align-items-center justify-content-center col-3 flex-fill me-2"
+                  class="playlistbtn form-check-label d-flex align-items-center justify-content-center col-3 flex-fill me-2"
                   for="radio1"
                   >Playlist</label
                 >
@@ -1137,7 +1140,7 @@
                 />
                 <label
                   data-index="1"
-                  class="searchbtn form-check-label py-1 d-flex align-items-center justify-content-center col-3 flex-fill"
+                  class="searchbtn form-check-label d-flex align-items-center justify-content-center col-3 flex-fill"
                   for="radio2"
                   >Search</label
                 >
@@ -1150,7 +1153,7 @@
                 />
                 <label
                   data-index="2"
-                  class="trendbtn form-check-label py-1 d-flex align-items-center justify-content-center col-3 flex-fill ms-2"
+                  class="trendbtn form-check-label d-flex align-items-center justify-content-center col-3 flex-fill ms-2"
                   for="radio3"
                   >Trending</label
                 >
@@ -2692,11 +2695,10 @@
                 document.getElementById("imgxi"),
                 document.querySelector(".ithumb")
               );
+              ideskrip.scrollTop = 0;
             }
             if (!info.checked) {
               downinfo(info, 1);
-
-              ideskrip.scrollTop = 0;
             }
 
             if (
