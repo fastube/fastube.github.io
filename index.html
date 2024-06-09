@@ -61,7 +61,6 @@
       .judul,
       #ijudul,
       #inputcari,
-      .autocomplete-suggestion,
       .ichannel,
       .namakomen {
         font-family: "Poppins", sans-serif;
@@ -85,9 +84,9 @@
         font-size: 0.97em;
       }
 
-      #inputcari {
+       #inputcari {
         font-weight: 400;
-        font-size: .8em;
+        font-size: .85em;
       }
 
       .main {
@@ -134,7 +133,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 0.8em;
+        font-size: 0.9rem;
         color: #000;
       }
 
@@ -152,8 +151,8 @@
       }
 
       #divhasil {
-        translate: calc(-100% / 6);
-        width: 600%;
+        translate: calc(-100% / 5);
+        width: 500%;
         display: flex;
         /* transition: transform 0.6s ease-in-out;*/
       }
@@ -327,7 +326,7 @@
 
       .xthumb {
         background-color: #eee;
-        height: calc(100vw * ((232 * 100) / 412) / 100);
+        height: calc(100vw * ((231 * 100) / 412) / 100);
       }
       .infodown.dnone {
         position:absolute;
@@ -349,7 +348,7 @@
       
         .atas.dnone{
           position: relative;
-          overflow-x:hidden;
+          overflow:hidden;
         }
       iframe,
       .iframe {
@@ -365,10 +364,11 @@
         position: absolute;
         left: 100%;right: -100%;
       }
-
-      .header > div {
-        width: 100%;
-        padding-bottom: .5rem;
+      .header{
+        width:100%
+      }
+      .header h1,.header>div{
+        padding:.5rem 0;
       }
       .bag {
         height: 100%;
@@ -384,7 +384,7 @@
       .subrekbtn,.trendbtn,.searchbtn,.playlistbtn,
       .playauto,.movebtn,.addbtn,.downbtn,.info-btn,#mode,#terang,
       .channellabel,.bell,.xbell,#icombtn,#ideskbtn,
-      .kosong:not(.a),.bi-clipboard{
+      .kosong:not(.a){
         cursor: pointer;
       }
       
@@ -419,7 +419,7 @@
           border: 0;
         }
         .xthumb {
-          height: calc((100vw / 2) * ((232 * 100) / 412) / 100);
+          height: calc((100vw / 2) * ((231 * 100) / 412) / 100);
         }
 
         .infodown.dnone,#divhasil.dnone{
@@ -446,9 +446,18 @@
         .header > div {
           width: 50%;
         }
+        .header h1, .header>div{
+          padding:.75rem 0;
+        }
         .header h1 {
           width: calc(100vw / 2);
           text-align: center;
+          font-size:1.7rem;
+        }
+        
+        div.input-group-sm .form-control,div.input-group-sm .btn{
+          padding:.375rem .75rem;
+          border-radius:var(--bs-border-radius);
         }
         
         div#container-2cdcd4d18712251aac3f57c863b6856f div.container-2cdcd4d18712251aac3f57c863b6856f__stand{
@@ -499,6 +508,7 @@
           border-left: var(--bs-border-width) var(--bs-border-style)
             var(--bs-border-color);
         }
+        
         .header > div {
           width: calc(100% * 1.05 / 3);
           padding-bottom: 0;
@@ -508,10 +518,10 @@
           text-align: center;
         }
         .xthumb {
-          height: calc((85vw * 1.05 / 3) * ((232 * 100) / 412) / 100);
+          height: calc((85vw * 1.05 / 3) * ((231 * 100) / 412) / 100);
         }
         div#container-2cdcd4d18712251aac3f57c863b6856f div.container-2cdcd4d18712251aac3f57c863b6856f__stand{
-          width:100%;
+          width:calc(85vw * 1.05 / 3);
         }
         #downdiv,
         #infodiv {
@@ -527,7 +537,6 @@
         }
       }
       
-      
     </style>
   </head>
   <body>
@@ -539,7 +548,7 @@
               class="header d-flex align-items-center justify-content-between"
             >
               <h1 class="my-0 py-0 ps-2">FastTube</h1>
-              <div class="d-flex align-items-center pt-2 px-2">
+              <div class="d-flex align-items-center px-2">
                 <div class="input-group input-group-sm">
                   <input
                     id="inputcari"
@@ -557,7 +566,7 @@
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-search"
+                      class="bi bi-search my-1"
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -571,7 +580,7 @@
                     id="xbtncari"
                   >
                     <div
-                      class="spinner-border spinner-border-sm m-auto"
+                      class="spinner-border spinner-border-sm my-1"
                       role="status"
                     >
                       <span class="visually-hidden">Loading...</span>
@@ -620,7 +629,7 @@
                   <img
                     src="remove.svg"
                     class="movebtn m-auto d-none"
-                    style="height: 66.5%"
+                    style="height: 66.2%"
                   />
                 </span>
                 <!--  <span id="list" class="col-2"><img src="playlist.svg" class="h-100" style="transform:scale(1.15)"></span>-->
@@ -747,6 +756,13 @@
                           id="downvid"
                           class="btn btn-dark flex-shrink-1 d-flex justify-content-around align-items-center"
                         >
+                          <span>READY</span>
+                          <img src="dl-white.svg" style="height: 1.4em" />
+                        </button>
+                        <button
+                          id="startvid"
+                          class="btn btn-success d-none flex-shrink-1 d-flex justify-content-around align-items-center"
+                        >
                           <span>START</span>
                           <img src="dl-white.svg" style="height: 1.4em" />
                         </button>
@@ -754,7 +770,7 @@
                           id="xdownvid"
                           class="btn btn-dark flex-shrink-1 d-none"
                         >
-                          <span>START</span>
+                          <span>READY</span>
                           <div
                             class="ms-1 spinner-border spinner-border-sm m-auto"
                             role="status"
@@ -823,6 +839,13 @@
                           id="downaud"
                           class="btn btn-dark flex-shrink-1 d-flex justify-content-around align-items-center"
                         >
+                          <span>READY</span>
+                          <img src="dl-white.svg" style="height: 1.4em" />
+                        </button>
+                        <button
+                          id="startaud"
+                          class="btn btn-success d-none flex-shrink-1 d-flex justify-content-around align-items-center"
+                        >
                           <span>START</span>
                           <img src="dl-white.svg" style="height: 1.4em" />
                         </button>
@@ -830,7 +853,7 @@
                           id="xdownaud"
                           class="btn btn-dark flex-shrink-1 d-none"
                         >
-                          <span>START</span>
+                          <span>READY</span>
                           <div
                             class="ms-1 spinner-border spinner-border-sm m-auto"
                             role="status"
@@ -850,7 +873,7 @@
                       style="color: rgba(0, 0, 0, 0.7); font-size: 0.8em"
                       id="iviews"
                     >
-                      <span></span><span></span>
+                      <span>- views · - likes</span><span></span>
                     </div>
                     <div
                       class="ceksubs d-flex mb-1 py-1 border align-items-center justify-content-between pe-3"
@@ -873,7 +896,7 @@
                           <span
                             class="isubs"
                             style="color: rgba(0, 0, 0, 0.7); font-size: 0.8em"
-                          ></span>
+                          >- videos · - subscribs</span>
                         </div>
                       </div>
                       <img src="bell.svg" style="scale: 1.1" class="bell" />
@@ -932,8 +955,12 @@
                     >
                       <div
                         id="ideskrip"
-                        class="w-50 px-2 pb-1 overflow-x-hidden overflow-y-auto"
-                      ></div>
+                        class="w-50 px-2 mb-1 overflow-hidden"
+                      >
+                        <div class="w-100 h-100 border rounded py-1 px-2 overflow-y-auto"
+                        style="white-space: pre-wrap;word-wrap: break-word;font-size:.9em;"
+                        ></div>
+                      </div>
                       <div
                         id="ikomen"
                         class="w-50 px-2 d-flex flex-column overflow-y-auto"
@@ -945,6 +972,7 @@
             </div>
             <div class="hasil d-flex flex-column">
             <script async="async" data-cfasync="false" src="//pl23470702.highcpmgate.com/2cdcd4d18712251aac3f57c863b6856f/invoke.js"></script>
+              <div id="container-2cdcd4d18712251aac3f57c863b6856f" class="d-none"></div>
               <div id="divhasil" class="mb-1 dnone">
                 <div
                   class="divplaylist d-flex flex-column align-items-center"
@@ -968,8 +996,7 @@
                   data-is-loaded="0"
                   data-loading="0"
                 >
-                  <div id="container-2cdcd4d18712251aac3f57c863b6856f"></div>
-                </div>
+                 </div>
                 <div
                   class="d-flex flex-column align-items-center trending"
                   data-index=""
@@ -980,7 +1007,17 @@
                   data-imgloaded="0"
                   data-is-loaded="0"
                   data-loading="0"
-                ></div>
+                >
+                  <form name="formregion" class="d-flex flex-column align-items-center justify-content-evenly w-100 mb-1">
+                  <select class="region form-select mt-2 mx-2" style="max-width:80%" aria-label="Size 3 select example" required>
+  <option value="DE">Germany</option><option value="US">United States</option><option value="ID">Indonesia</option><option value="AE">United Arab Emirates</option><option value="BH">Bahrain</option><option value="DZ">Algeria</option><option value="EG">Egypt</option><option value="IQ">Iraq</option><option value="JO">Jordan</option><option value="KW">Kuwait</option><option value="LB">Lebanon</option><option value="LY">Libya</option><option value="MA">Morocco</option><option value="OM">Oman</option><option value="QA">Qatar</option><option value="SA">Saudi Arabia</option><option value="TN">Tunisia</option><option value="YE">Yemen</option><option value="AZ">Azerbaijan</option><option value="BY">Belarus</option><option value="BG">Bulgaria</option><option value="BD">Bangladesh</option><option value="BA">Bosnia and Herzegovina</option><option value="CZ">Czechia</option><option value="DK">Denmark</option><option value="AT">Austria</option><option value="CH">Switzerland</option><option value="GR">Greece</option><option value="AU">Australia</option><option value="BE">Belgium</option><option value="CA">Canada</option><option value="GB">United Kingdom</option><option value="GH">Ghana</option><option value="IE">Ireland</option><option value="IN">India</option><option value="JM">Jamaica</option><option value="KE">Kenya</option><option value="MT">Malta</option><option value="NG">Nigeria</option><option value="NZ">New Zealand</option><option value="SG">Singapore</option><option value="UG">Uganda</option><option value="ZA">South Africa</option><option value="ZW">Zimbabwe</option><option value="AR">Argentina</option><option value="BO">Bolivia</option><option value="CL">Chile</option><option value="CO">Colombia</option><option value="CR">Costa Rica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="ES">Spain</option><option value="GT">Guatemala</option><option value="HN">Honduras</option><option value="MX">Mexico</option><option value="NI">Nicaragua</option><option value="PA">Panama</option><option value="PE">Peru</option><option value="PR">Puerto Rico</option><option value="PY">Paraguay</option><option value="SV">El Salvador</option><option value="UY">Uruguay</option><option value="VE">Venezuela</option><option value="EE">Estonia</option><option value="FI">Finland</option><option value="PH">Philippines</option><option value="FR">France</option><option value="SN">Senegal</option><option value="HR">Croatia</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IT">Italy</option><option value="JP">Japan</option><option value="GE">Georgia</option><option value="KZ">Kazakhstan</option><option value="KR">South Korea</option><option value="LU">Luxembourg</option><option value="LA">Laos</option><option value="LT">Lithuania</option><option value="LV">Latvia</option><option value="MK">North Macedonia</option><option value="MY">Malaysia</option><option value="NO">Norway</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="PL">Poland</option><option value="BR">Brazil</option><option value="PT">Portugal</option><option value="MD">Moldova</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="LK">Sri Lanka</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="ME">Montenegro</option><option value="RS">Serbia</option><option value="SE">Sweden</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TR">Turkey</option><option value="UA">Ukraine</option><option value="PK">Pakistan</option><option value="VN">Vietnam</option><option value="HK">Hong Kong</option><option value="TW">Taiwan</option><option value="CY">Cyprus</option><option value="KH">Cambodia</option><option value="LI">Liechtenstein</option><option value="PG">Papua New Guinea</option>
+</select>
+<button class="btn btn-dark mt-2 me-2 d-flex align-items-center" id="showtrend">Show</button></form>
+                  <div
+                    class="divtrend pt-1 d-flex flex-column align-items-center w-100 h-100 overflow-y-auto"
+                    data-imgloaded="0"
+                  ></div>
+                </div>
                 <div
                   class="d-flex flex-column vidchannel"
                   data-next-token="undefined"
@@ -1053,47 +1090,6 @@
                     class="d-flex flex-column align-items-center h-100 overflow-y-auto"
                     data-imgloaded="0"
                   ></div>
-                </div>
-                <div class="d-flex flex-column align-items-center pt-3">
-                  <h6 class="status fw-bold text-danger"></h6>
-                  <p class="keterangan d-flex align-items-center mx-2"></p>
-                  <div
-                    class="input-group input-group-sm align-items-center mb-2"
-                    style="width: 85%"
-                  >
-                    <input
-                      type="search"
-                      class="form-control rounded-end inputkey me-2"
-                      style="font-size: 0.9em"
-                      placeholder="Enter your API key here!"
-                    />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      style="scale: 1.6"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-clipboard"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"
-                      />
-                      <path
-                        d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"
-                      />
-                    </svg>
-                  </div>
-                  <button class="cekkey btn btn-dark">Check</button>
-                  <button class="xcekkey btn btn-dark d-none" type="button">
-                    Check
-                    <div
-                      class="ms-1 spinner-border spinner-border-sm m-auto"
-                      role="status"
-                    >
-                      <span class="visually-hidden">Loading...</span>
-                    </div>
-                  </button>
                 </div>
               </div>
               
@@ -1205,7 +1201,7 @@
     <a id="direct1" target="_blank" href="https://www.highcpmgate.com/ygm3havruv?key=b800a0ac83da6c55141726af72e0f108"></a>
     
     <script>
-    const playauto = document.getElementById("auto");
+      const playauto = document.getElementById("auto");
 
       if (
         localStorage.getItem("autoplay") &&
@@ -1220,9 +1216,7 @@
       const ideskrip = document.getElementById("ideskrip");
 
       const stopfetch = document.getElementById("stopfetch");
-      let apikey;
 
-      let region;
       let idplay;
       let player;
       // Replace the 'ytplayer' element with an <iframe> and
@@ -1264,19 +1258,21 @@
       const movebtn = document.querySelector(".movebtn");
       const infodown = document.querySelector(".infodown");
       let Data;
+      let idpilih;
       let ytplayer;
       let isReady;
       let timeload;
       let arrlist;
       let arrsub;
       
-      let nativeAds="";
-      let popunder;
-      let sosbar;
+      const nativeAds="";
       const direct = document.getElementById("direct");
       const direct1 = document.getElementById("direct1");
      const idnative = document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f");
       let adsterra;
+      let urls;
+      let urlx =[];
+      let url0;
 
       function start() {
         timeload = setTimeout(() => {
@@ -1294,15 +1290,14 @@
         let isPlaying = 0;
         player = new YT.Player("ytplayer", {
           videoId: idplay,
+          playerVars: {playsinline: 1},
           events: {
             onReady: function (e) {
               player.setPlaybackQuality("tiny");
               if (!ytplayer) {
                 clearTimeout(timeload);
                 ytplayer = document.getElementById("ytplayer");
-                if(nativeAds == "" && idnative.innerHTML!=""){
-                    nativeAds = `<div id="container-2cdcd4d18712251aac3f57c863b6856f">${document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML}</div>`;
-                }
+               
                 togglecari();
                 register();
               }
@@ -1314,12 +1309,8 @@
                 (e.data != 1 && isPlaying == 1)
               ) {
                 isPlaying = e.data;
-                toggleplay(e.data);
-              }
-              
-              if(!popunder && apikey){
-                popunder = 1;
                 showpunder();
+                toggleplay(e.data);
               }
 
               if (e.data == 0 && playauto.checked) {
@@ -1365,50 +1356,27 @@
         }
       }
 
-      const status = document.querySelector(".status");
-      const keterangan = document.querySelector(".keterangan");
-
-      const inputkey = document.querySelector(".inputkey");
-
-      let index1;
-      function data1(index) {
-        let watch;
-        if(!index &&location.href.includes("#") && parseInt(location.href.split("#")[1])>0){
-          watch=location.href.split("#")[1];
-        }
-        if (!index && parseInt(watch)>0 && parseInt(watch)<Data.length) {
-          index1 = watch;
-        } else {
-          index1 = 0;
-        }
-        idplay = Data[index1].id;
-
-        ijudul.innerHTML = Data[index1].judul;
-        ichannel.innerHTML = Data[index1].channel;
-        ideskrip.innerHTML =
-          Data[index1].deskripsi == ""
+       function data1() {
+        idplay = Data.id;
+        ijudul.innerHTML = Data.judul;
+        ichannel.innerHTML = Data.channel;
+        ideskrip.children[0].innerHTML =
+          Data.deskripsi == ""
             ? ""
-            : `<div class="px-2 py-1 w-100 border rounded" style="white-space: pre-wrap;word-wrap: break-word;font-size:.9em;">${Data[index1].deskripsi}</div>`;
-        isubs.innerHTML = Data[index1].isubs;
-        iviews.innerHTML = Data[index1].iviews;
-        channellabel.dataset.channelId = Data[index1].channelId;
-        channellabel.dataset.channel = Data[index1].channel;
-        channellabel.dataset.thumb = Data[index1].channelimg;
-        channellabel.dataset.videoimg = Data[index1].thumb;
-        channellabel.dataset.channeldurasi = Data[index1].channeldurasi;
-        icombtn.dataset.jml = Data[index1].komen;
-        //icombtn.innerHTML = "Comments ("+Data[index1].komen+")";
+            : Data.deskripsi;
+
+        iviews.children[1].innerHTML = rilis(Data.publishedAt);
+        channellabel.dataset.channelId = Data.channelId;
+        channellabel.dataset.channel = Data.channel;
+        channellabel.dataset.thumb = Data.channelimg;
+        channellabel.dataset.videoimg = Data.thumb;
+        channellabel.dataset.channeldurasi = Data.channeldurasi;
         
         imgchannel(
-          Data[index1].channelimg,
+          Data.channelimg,
           document.getElementById("imgxi"),
           document.querySelector(".ithumb")
         );
-        
-        if (index) {
-          player.loadVideoById(idplay);
-          player.stopVideo();
-        }
 
         if (!arrlist && localStorage.getItem("playlist") != null) {
           arrlist = localStorage.getItem("playlist");
@@ -1423,163 +1391,56 @@
           localStorage.setItem("subrek", arrsub);
         }
         
-        if(!adsterra && localStorage.getItem("adsterra") != null){
-          adsterra ={};
-          const dterra = JSON.parse(localStorage.getItem("adsterra"));
-          adsterra.tgl = dterra.tgl;
-          adsterra.popunder = parseInt(dterra.popunder);
-          adsterra.sosbar = parseInt(dterra.sosbar);
-          adsterra.direct1 = parseInt(dterra.direct1);
-          adsterra.direct = parseInt(dterra.direct);
-          cekads();
-        }else if(!localStorage.getItem("adsterra")){
-          adsterra={};
-          cekads(1);
+        if(localStorage.getItem("region") != null){
+          document.querySelector(".region").value = localStorage.getItem("region");
         }
-        if (!apikey && localStorage.getItem("apikey") != null) {
-          apikey = localStorage.getItem("apikey");
-          inputkey.value = apikey;
+        
+        if(!url0 && localStorage.getItem("server") != null){
+          url0 = localStorage.getItem("server");
+        }else if(!localStorage.getItem("server")){
+              url0 = urls.sort(() => Math.random() - 0.5);
+              url0 = url0[0];
+              localStorage.setItem("server",url0);
         }
+        
+        if(!localStorage.getItem("direct")){
+          localStorage.setItem("direct",0);
+        }
+        
+        if(document.cookie.includes("=")){
+          xcookie();
+        }
+  
         ceklist();
         ceksubs();
         if (!ytplayer) {
-          if (!apikey) {
-            start();
-          } else if (localStorage.getItem("region") == null) {
-            getregion();
-          } else {
-            region = localStorage.getItem("region");
-            start();
-          }
+          start();
         }
       } 
-
-      function divapikey(quota) {
-        if (quota) {
-          alert("Quota of your API key has reached the limit!");
-          status.innerHTML = "Quota has reached the limit!";
-          keterangan.innerHTML =
-            "Daily quotas reset at midnight Pacific Time (PT)";
-          data1(1);
-        } else {
-          alert("You need a Youtube API key!");
-          if (index1 != 0) {
-            data1(1);
-          }
-          status.innerHTML = "YouTube API key required!";
-          keterangan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" style="scale:2.2" width="16" height="16" fill="red" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
-  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
-</svg><span class="ms-3">To get the Youtube API key,<br>follow the instructions in the video!</span>`;
-        }
-            directclick();
-        divhasil.style.translate = "calc(-5 * 100% / 6)";
-        navhasil.dataset.active = "5";
-
-        if (
-          divhasil.classList.contains("dnone") &&
-          fastube.offsetWidth < minchevron
-        ) {
-          document
-            .querySelectorAll('input[name="infodown"]')
-            [infodown.dataset.active].click();
+      
+      function xcookie(){
+        document.cookie = document.cookie.split("=")[0] + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        if(document.cookie.includes("=")){
+          setTimeout(()=>xcookie(),100);
         }
       }
 
-      const cekkey = document.querySelector(".cekkey");
-      const xcekkey = document.querySelector(".xcekkey");
-      cekkey.onclick = (e) => {
-        if (inputkey.value != "") {
-          getregion(inputkey.value);
-        }
-      };
-
-      document.querySelector(".bi-clipboard").onclick = (e) => {
-        navigator.clipboard.readText().then((copiedText) => {
-          inputkey.value = copiedText;
-        });
-      };
-
-      function togglekey() {
-        cekkey.classList.toggle("d-none");
-        xcekkey.classList.toggle("d-none");
-      }
-
-      async function getregion(xkey) {
-        if (xkey) {
-          togglekey();
-        }
-        let keyx;
-        xkey ? (keyx = xkey) : (keyx = apikey);
-
-        try {
-          const a = await Fetch(
-            "https://www.googleapis.com/youtube/v3/search?type=video&videoEmbeddable=true&part=snippet&key=" +
-              keyx +
-              "&maxResults=1&q=*"
-          );
-
-          if (!a.regionCode) {
-            throw a;
-          }
-          if (a.regionCode) {
-            if (xkey) {
-              apikey = xkey;
-              localStorage.setItem("apikey", apikey);
-              status.innerHTML = `<span class="text-success">Your API key is OK!</span>`;
-              keterangan.innerHTML = `<span class="text-center">You can do a search now.<br>Don't share your API key with anyone!</span>`;
-              togglekey();
-              !sosbar?socialbar():0;
-              setTimeout(() => alert("Your Api key is OK!"), 100);
-            } else {
-              start();
-            }
-            setRegion(a.regionCode);
-          }
-        } catch (err) {
-          if (err.error && err.error.message) {
-            alert(err.error.message);
-          }
-          if (!xkey) {
-            document.body.innerHTML = `<h1 class="text-center" style="margin-top:40vh">Oops !</h1><p class="text-center"><button class="btn btn-dark" onclick="location.reload()">Try again</button></p>`;
-          } else {
-            togglekey();
-          }
-        }
-      }
-
-      function setRegion(regcode) {
-        region = regcode;
-        localStorage.setItem("region", region);
-      }
-    
-    const vid0 = {
-            "id":"N18czV5tj5o",
-            "judul": "How to Get YouTube API Key",
-            "channeldurasi": "<span class='channel'>WebbyFan</span><span>02:26</span>",
-            "iviews": "<span>120K views · 2.4K likes</span><span>3 years ago</span>",
-            "thumb": "https://i.ytimg.com/vi/N18czV5tj5o/hqdefault.jpg",
-            "channelId": "UC8w4I8t2OpqoOpzzNT1c2dg",
-            "channel": "WebbyFan",
-            "channelimg": "https://yt3.ggpht.com/Kmr1Uo5sujwbXwwjNxPFjcm8rIXZaMXr9DjewZYur5kSzh_GBcszU_YarGkS5wBxCvRq0ZXcrw=s88-c-k-c0x00ffffff-no-rj",
-            "isubs": "408 videos · 154K subscribs",
-            "komen": "109",
-            "deskripsi": "Easy Way to Create YouTube API Key or YouTube Data API v3 in 2023 Thank You so Much for Watching, If This Videos Helpful Then Please Like &amp; Comment https://youtu.be/N18czV5tj5o\n✪ Post Here: https://bit.ly/2O0PZFM\n\n✪ Steps to Get YouTube API Key ( YouTube Data API v3 )\n\n- Sign in to Google Console Cloud\nhttps://console.cloud.google.com\n- Create project or Select Project for API Key\n- Click on Navigation Menu ( top left corner )\n- Go To API'S and Services\nhttps://console.cloud.google.com/apis\n- Select Your  project and Go to Library\nhttps://console.cloud.google.com/apis/library\n- Scroll down &amp; then Click on YouTube Data API V3 https://console.cloud.google.com/apis/library/youtube.googleapis.com\n- Click on Enable  YouTube Data API V3\n- Now We Need to Create Credentials for our YouTube API Key\n- Click on Credentials\n- Click on Create Credentials\n- Click on API Key\n- now You will get Your YouTube API key, simply copy it &amp; use wherever you want.\n- Done\n\n✪ Visit Our Website\nhttps://www.webbyfan.com\n\n✪ More Videos\n\n  How To Create A Blog Website &amp; Earn online\n  https://youtu.be/9sU3yAEZDbQ\n  \n  Track Mobile Current Location ?\n  https://youtu.be/GnfRejdlK8g\n\n  Check Who's Using My WIFI ?\n  https://youtu.be/Vlx6qX8WNJA\n\n  Change Default Download Location to SD card in Android  \n  https://youtu.be/jXM1PtEeYbE\n\n  How To Install Google Play Store App on PC / Laptop\n  https://youtu.be/y2JNXc3hchw\n\n  How To Disable Notification On Google Chrome\n  https://youtu.be/UR6VflYoDjo\n\n  Remove All Subscriptions on YouTube At Once\n  https://youtu.be/h4_aQi-oJqc\n\n  How To Install PicsArt App on PC\n  https://youtu.be/LejBzmNSQ-E\n\n  unlock android phone  When you forgot your password\n  https://youtu.be/1GNGeS0KAkA\n\n  Delete A Folder Files That can't Delete on Windows\n  https://youtu.be/T36VLX4Mk8w\n\n  Fix This Site Can't Be Reached on Chrome\n  https://youtu.be/VnYv9d8m3cg\n  \n  Create a Website at low cost\n  https://youtu.be/Dt7soLb2e3E\n\n  Create Google API KEY\n  https://youtu.be/iM12nF0tBuM\n\n  create YouTube API Key:\n  https://youtu.be/3jZ5vnv-LZc"
-        };
       async function init() {
-        let a;
         try {
-          if(location.href.includes("#") && parseInt(location.href.split("#")[1])>0){
-           a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/data.json?v="+new Date().getTime());
-          }else{
-            a = {};
-            a.data=[];
-          }
+          const a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/0.json?v="+new Date().getTime());
           if (!a.data) {
             throw a;
           }
-    
-          a.data[0] = vid0;
+          urls = a.url;
           Data = a.data;
+          let x;
+          if(location.href.includes("#") && location.href.split("#")[1]!=""){
+           const b = await Fetch("https://raw.githubusercontent.com/fastube/data/main/"+location.href.split("#")[1]+".json?v="+new Date().getTime());
+            if(b.data){
+              Data = b.data;
+            }
+          }
+
           data1();
         } catch (err) {
           document.body.innerHTML = `<h1 class="text-center" style="margin-top:40vh">Oops !</h1><p class="text-center"><button class="btn btn-dark" onclick="location.reload()">Try again</button></p>`;
@@ -1603,12 +1464,6 @@
         localStorage.setItem("autoplay", this.checked);
       };
 
-      document.querySelector(".navig").onclick = (e) => {
-        if (!ytplayer) {
-          e.preventDefault();
-          return;
-        }
-      };
       const atas = document.querySelector(".atas");
       const iframe = document.querySelector(".iframe");
       document.getElementById("mode").onclick = (e) => {
@@ -1678,29 +1533,30 @@
         e.keyCode == 13 ? btncari.click() : 1;
       };
 
-      let language = window.navigator.language.split("-")[0];
+      let language = window.navigator.language.split("-")[0] || "en";
       const chevron = document.getElementById("chevron");
       const fastube = document.querySelector(
         "#carousel1>.carousel-item:first-child"
       );
+      const showtrend = document.getElementById("showtrend");
       const minchevron = 540;
       let okchevron = 0;
       const maxResults = 50;
-    
+      
       async function search(url, next, tampil, label, type, imgx) {
         togglecari();
-        if(nativeAds == "" && idnative.innerHTML!=""){
-            nativeAds = `<div id="container-2cdcd4d18712251aac3f57c863b6856f">${document.getElementById("container-2cdcd4d18712251aac3f57c863b6856f").innerHTML}</div>`;
-          }
+        
         let token = "";
         let xtampil = tampil;
         if (type == "channel") {
           xtampil = tampil.querySelector(".divchannel");
         } else if (type == "subrek") {
           xtampil = document.querySelector(".divsubrek>div");
+        }else if(type == "trending"){
+          xtampil = document.querySelector(".divtrend");
         }
         if (next) {
-          token = "&pageToken=" + tampil.dataset.nextToken;
+          token = "&token=" + tampil.dataset.nextToken;
           tampil.dataset.ambilnext = 1;
         } else {
           if (type != "search") {
@@ -1719,9 +1575,13 @@
         let playlistnext;
 
         try {
+          let dat;
           let r = {};
           if (type != "playlist" && type != "subrek") {
             r = await Fetch(url + token);
+            if(!r.a&&!r.b){
+              throw r;
+            }console.log(r)
           } else {
             const itemlist =
               type == "playlist" ? arrlist.split(",") : arrsub.split(",");
@@ -1730,7 +1590,7 @@
                 items: itemlist.slice(
                   parseInt(tampil.dataset.lastindex) + maxResults,
                   parseInt(tampil.dataset.lastindex) + maxResults * 2
-                ),
+                )
               };
             } else {
               r = { items: itemlist.slice(0, maxResults) };
@@ -1746,88 +1606,75 @@
               playlistnext = 1;
             }
           }
-
-          if (!r.items) {
-            throw r;
-          }
-          if (r.regionCode && region != r.regionCode) {
-            setRegion(r.regionCode);
-          }
-          if (r.items.length < 1) {
-            togglecari();
-            setTimeout(() => {
-              return alert("Not found!");
-            }, 100);
-          } else if (r.items.length > maxResults) {
-            r.items.pop();
-          }
-          let ids="";
-          function xids(){
-            return new Promise((resolve) => {
-            r.items.forEach((e, i) => {
-            if (i < maxResults) {
-              if (type == "trending") {
-                ids += e.id;
-              } else if (type == "playlist" || type == "subrek") {
-                ids += e;
-              } else {
-                ids += e.id.videoId;
-              }
-
-              i < maxResults - 1 ? (ids += ",") :0;
-              i==r.items.length-1?resolve():0;
-            }
-          });
-            });
-          }
           
-          await xids();
+          dat = r;
+          if(type!="playlist" && type!="subrek"){
+            r = dat.a||dat.b;
+          }
+
+            let ids="";
+          
+            function xids(){
+              return new Promise((resolve) => {
+              if(type == "playlist"){
+              r.items.forEach((e, i) => {
+                if (i < maxResults) {
+                   ids += e;
+                  i < maxResults - 1 ? (ids += ",") :0;
+                  i==r.items.length-1?resolve():0;
+                }
+              });
+              }else{
+                resolve();
+              }
+              });
+            }
+            
+            await xids();
+          
           
           if (type == "search" && !next) {
             inputcari.blur();
           }
-          let d = {};
-          if (type != "subrek" && type != "trending") {
-            d = await Fetch(
-              "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&key=" +
-                apikey +
-                "&hl=" +
-                language +
-                "&maxResults=" +
-                maxResults +
-                "&id=" +
-                ids
-            );
+          let d;
+          if (type == "playlist") {
+            d = await Fetch(url0+"?hl="+language+"&playlist="+ids);
+            if(!d.b){throw d}
+            dat.c = d.c;
+            d = d.b;
           } else {
-            d = r;
+            d = dat.b || r;
           }
-         
+          
           if (!d.items) {
             throw d;
           }
           let idcs = "";
-        function xidcs(){
-          return new Promise((resolve) => {
-          d.items.forEach((e, i) => {
-            idcs += type == "subrek" ? e : e.snippet.channelId;
-            i < maxResults - 1 ? (idcs += ",") :0;
-            i==d.items.length-1?resolve():0;
-          });
-          });
-        }
+        
+          function xidcs(){
+            return new Promise((resolve) => {
+              if(type == "subrek"){
+            d.items.forEach((e, i) => {
+              idcs += e;
+              i < maxResults - 1 ? (idcs += ",") :0;
+              i==d.items.length-1?resolve():0;
+            });
+              }else{
+                resolve();
+              }
+            });
+          }
           await xidcs();
-
-          const c = await Fetch(
-            "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&key=" +
-              apikey +
-              "&hl=" +
-              language +
-              "&maxResults=" +
-              maxResults +
-              "&id=" +
-              idcs
-          );
           
+          let c;
+          if(type == "subrek"){
+            c = await Fetch(url0+"?hl="+language+"&subrek="+idcs);
+            if(!c.c){throw c}
+            c = c.c;
+          }else{
+            c = dat.c;
+          }
+    
           if (!c.items) {
             throw c;
           }
@@ -1870,6 +1717,7 @@
         let show="";
         function xshow(){
           return new Promise((resolve) => {
+            let nativeCount =1;
           r.items.forEach((e, i) => {
             if (i >= maxResults) {
               return;
@@ -1894,6 +1742,11 @@
             }
             
             if (type != "subrek") {
+              if(idnative.innerHTML!=""&&i/nativeCount == 6 &&type!="playlist"){
+                const j = nativeCount>4?(nativeCount-4-1):(nativeCount-1);
+                show+=`<div id="container-2cdcd4d18712251aac3f57c863b6856f"><div class="container-2cdcd4d18712251aac3f57c863b6856f__stand" data-index=${j}>`+idnative.children[1].children[j].innerHTML+"</div></div>";
+                nativeCount += 1;
+              }
               show += `<div class="d-flex flex-column w-100 position-relative">
                                          <div class="kosong ${
                                            xvideoid == idplay ? "a" : ""
@@ -1927,8 +1780,9 @@
                                          data-channel-id="${
                                            d.items[i].snippet.channelId
                                          }"
+                                         data-published-at="${d.items[i].snippet.publishedAt}"
                                          ></div>
-                                        <div class="xthumb text-center d-flex align-items-center overflow-hidden position-relative">
+                                        <div class="xthumb d-flex justify-content-center align-items-center overflow-hidden position-relative">
                                           <img class="w-100 thumb">
                                           <div class="onplay">
                                                 <div class="playing ${
@@ -1949,7 +1803,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="channeldurasi d-flex px-2 justify-content-between mt-1" style="color:rgba(0,0,0,.7); font-size: .9em;line-height:1.2em;"><span class="channel">${
+                                        <div class="channeldurasi d-flex px-2 justify-content-between mt-1" style="color:rgba(0,0,0,.7); font-size: .9em;line-height:1.25em;"><span class="channel">${
                                           c.items[
                                             idchannels.indexOf(
                                               d.items[i].snippet.channelId
@@ -1965,10 +1819,6 @@
                                         }</h5>
                                         <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(d.items[i].statistics.viewCount)} views ${likes}</span><span>${rilis(d.items[i].snippet.publishedAt)}</span></div>
                                       </div>`;
-              
-              if(((i < 4 && i == r.items.length-1)|| i == 4)&&type!="playlist"){
-                show+=nativeAds;
-              }
             } else {
               show += `
                         <div class="d-flex w-100 py-1 mb-1 border align-items-center justify-content-between pe-3">
@@ -2009,7 +1859,9 @@
           imgx.src = "";
           if (!next) {
             if (type == "trending") {
-              label.innerHTML = "Trending";
+              showtrend.innerHTML = "Show";
+              document.forms["formregion"].classList.remove("flex-column");
+              localStorage.setItem("region",document.querySelector(".region").value);
             } else if (type == "channel") {
               tampil.dataset.channelId = label.dataset.channelId;
 
@@ -2056,19 +1908,20 @@
 
       function eror(err, next, tampil, label, type) {
         if (!next) {
+          label.click();
           if (type == "search") {
             label.innerHTML = "Search";
+          }else if(type == "trending"){
+            tampil.dataset.loading = "0";
+            showtrend.innerHTML = "Show";
           } else{
-            label.click();
-            if (type == "trending" || type == "playlist") {
+    
+            if (type == "playlist") {
               tampil.dataset.loading = "0";
-              if (type == "trending") {
-                label.innerHTML = "Trending";
-                label = "document.querySelector('.trendbtn').click()";
-              } else {
+              
                 label.innerHTML = "Playlist";
                 label = "document.querySelector('.playlistbtn').click()";
-              }
+              
             } else {
               tampil.parentElement.dataset.loading = "0";
               if (type == "channel") {
@@ -2092,39 +1945,52 @@
               `;
           } 
         } else {
-          tampil.dataset.ambilnext = 0;
+          if(type == "channel"||type=="trending"||type=="subrek"){
+            tampil.parentElement.dataset.ambilnext = 0;  
+          }else{
+            tampil.dataset.ambilnext = 0;
+          }
           if (
             tampil.querySelector(".nextpage").getBoundingClientRect().top <
             bottom
           ) {
             tampil.scrollTop -=
               (tampil.querySelector(".nextpage").offsetHeight * 5) / 2 +
-              document.querySelector(".kosong").offsetHeight;
+              tampil.children[0].offsetHeight;
           }
         }
 
         if (btncari.classList.contains("d-none")) {
           togglecari();
         }
-
+        console.log(err);
         if (
-          err.error &&
-          err.error.message &&
-          err.error.message.includes("quota")
+          err.details &&
+          err.details.message &&
+          err.details.message.includes("quota")
         ) {
-          setTimeout(() => divapikey(1), 100);
-        }else if(type == "search"){
-          setTimeout(() => alert("Failed to search!\nTry again..."), 100);
+          urlx.push(url0);
+          url0 = urls.filter((e) => !urlx.includes(e));
+          if(url0.length <1){
+            alert("The servers has reached the limit!\nThe servers will be reset at midnight Pacific Time (PT)");
+            return;
+          }else{
+            url0 = url0.sort(() => Math.random() - 0.5);
+            url0 = url0[0];
+            localStorage.setItem("server",url0);
+          }
+        }
+        
+        if(type == "search" || type == "trending"){
+          setTimeout(() => {
+            type=="search"?alert("Failed to search!\nTry again..."):alert("Failed to load trending videos!\nTry again...");
+          }, 100);
         }
       }
 
       const searchbtn = document.querySelector(".searchbtn");
       btncari.onclick = (e) => {
-        if (ytplayer && !apikey) {
-          divapikey();
-          e.preventDefault();
-          return;
-        } else if (btncari.classList.contains("d-none") || !inputcari.value) {
+        if (btncari.classList.contains("d-none") || !inputcari.value) {
           return;
         }
 
@@ -2132,13 +1998,10 @@
         searchbtn.innerHTML += `<div class="ms-1 spinner-border spinner-border-sm text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>`;
 
         search(
-          "https://www.googleapis.com/youtube/v3/search?type=video&videoEmbeddable=true&part=snippet&key=" +
-            apikey +
-            "&hl=" +
+          url0 +
+            "?hl=" +
             language +
-            "&maxResults=" +
-            maxResults +
-            "&q=" +
+            "&search=" +
             encodeURI(inputcari.value),
           0,
           hasilcari,
@@ -2149,11 +2012,7 @@
       };
 
       searchbtn.onclick = (e) => {
-        if (ytplayer && !apikey) {
-          divapikey();
-          e.preventDefault();
-          return;
-        } else if (ytplayer && fastube.offsetWidth < minchevron) {
+        if (fastube.offsetWidth < minchevron) {
           if (
             (document.getElementById("radio2").dataset.bsSlideTo ==
               navhasil.dataset.active &&
@@ -2169,12 +2028,6 @@
 
       const trendbtn = document.querySelector(".trendbtn");
       trendbtn.onclick = e=>{
-          socialbar();
-        if (ytplayer && !apikey) {
-          divapikey();
-          e.preventDefault();
-          return;
-        } else if (trending.dataset.isLoaded == "1") {
           if (fastube.offsetWidth < minchevron) {
             if (
               (document.getElementById("radio3").dataset.bsSlideTo ==
@@ -2187,47 +2040,40 @@
             }
             okchevron = 0;
           }
-          return;
-        } else if (
+      };
+      
+       document.forms["formregion"].onsubmit=(e)=>{
+        e.preventDefault();
+          if (
           btncari.classList.contains("d-none") &&
           trending.dataset.loading != "1"
         ) {
-          e.preventDefault();
           return;
         } else if (trending.dataset.loading == "1") {
           return;
         }
-        trending.innerHTML = "";
-        trendbtn.innerHTML += `<div class="ms-1 spinner-border spinner-border-sm text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>`;
+        showtrend.innerHTML += ` <div class="ms-1 spinner-border spinner-border-sm text-white" role="status"><span class="visually-hidden">Loading...</span></div>`;
         search(
-          "https://www.googleapis.com/youtube/v3/videos?chart=mostPopular&part=snippet,contentDetails,statistics&key=" +
-            apikey +
-            "&hl=" +
+            url0+
+            "?hl=" +
             language +
-            "&regionCode=" +
-            region +
-            "&maxResults=" +
-            maxResults,
+            "&trend=" +
+            document.querySelector(".region").value,
           0,
           trending,
           trendbtn,
           "trending",
           document.getElementById("imgx2")
         );
-      };
+      }
 
       const divplaylist = document.querySelector(".divplaylist");
 
       const playlistbtn = document.querySelector(".playlistbtn");
       playlistbtn.onclick = (e) => {
-        showpunder();
-        if (ytplayer && !apikey) {
-          divapikey();
-          e.preventDefault();
-          return;
-        } else if (
-          (ytplayer && localStorage.getItem("playlist") == null) ||
-          (ytplayer && arrlist == "")
+        if (
+          localStorage.getItem("playlist") == null ||
+          localStorage.getItem("playlist") ==  ""
         ) {
           return alert("0 items in Playlist!");
         } else if (divplaylist.dataset.isLoaded == "1") {
@@ -2269,11 +2115,7 @@
       const vidchannel = document.querySelector(".vidchannel");
       const channelbtn = document.querySelector(".channelbtn");
       channellabel.onclick = (e) => {
-        if (ytplayer && !apikey) {
-          divapikey();
-          e.preventDefault();
-          return;
-        } else if (ytplayer) {
+        if (ytplayer) {
           channelbtn.dataset.thumb = channellabel.dataset.thumb;
           channelbtn.dataset.channel = channellabel.dataset.channel;
           channelbtn.dataset.channelId = channellabel.dataset.channelId;
@@ -2305,14 +2147,11 @@
           this.dataset.channelId;
         vidchannel.querySelector(".isubs").innerHTML = this.dataset.subs;
         search(
-          "https://www.googleapis.com/youtube/v3/search?type=video&videoEmbeddable=true&part=snippet&order=date&key=" +
-            apikey +
-            "&hl=" +
+            url0+
+            "?hl=" +
             language +
-            "&channelId=" +
-            this.dataset.channelId +
-            "&maxResults=" +
-            maxResults,
+            "&channel=" +
+            this.dataset.channelId,
           0,
           vidchannel,
           channelbtn,
@@ -2332,13 +2171,9 @@
       const topbell = document.querySelector(".topbell");
       const subrekbtn = document.querySelector(".subrekbtn");
       subrekbtn.onclick = (e) => {
-        if (ytplayer && !apikey) {
-          divapikey();
-          e.preventDefault();
-          return;
-        } else if (
-          (ytplayer && localStorage.getItem("subrek") == null) ||
-          (ytplayer && arrsub == "")
+        if (
+          localStorage.getItem("subrek") == null ||
+          localStorage.getItem("subrek") == ""
         ) {
           return alert("0 subscribed!");
         } else if (divsubrek.dataset.isLoaded == "1") {
@@ -2353,8 +2188,8 @@
               chevron.click();
             }
             okchevron = 0;
-          }
           return;
+          }
         } else if (
           btncari.classList.contains("d-none") &&
           divsubrek.dataset.loading != "1"
@@ -2379,18 +2214,15 @@
       };
 
       addbtn.onclick = function () {
-        if (ytplayer && !apikey) {
-          divapikey();
-          return;
-        } else if (!ytplayer || !confirm("Add to playlist?")) {
-          directclick();
+        if (!confirm("Add to playlist?")) {
           return;
         }
+        directclick();
         if (arrlist == "") {
           arrlist += idplay;
           divplaylist.dataset.isLoaded = "1";
         } else {
-          arrlist += "," + idplay;
+          arrlist += "," + (idplay);
         }
         localStorage.setItem("playlist", arrlist);
         togglelist();
@@ -2414,7 +2246,7 @@
                                            channellabel.dataset.channelId
                                          }"
                                          ></div>
-                                        <div class="xthumb text-center d-flex align-items-center overflow-hidden position-relative">
+                                        <div class="xthumb d-flex justify-content-center align-items-center overflow-hidden position-relative">
                                           <img class="w-100 thumb">
                                           <div class="onplay">
                                                 <div class="playing ${
@@ -2435,7 +2267,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="channeldurasi d-flex px-2 justify-content-between mt-1" style="color:rgba(0,0,0,.7); font-size: .9em;line-height:1.2em;">${
+                                        <div class="channeldurasi d-flex px-2 justify-content-between mt-1" style="color:rgba(0,0,0,.7); font-size: .9em;line-height:1.25em;">${
                                           channellabel.dataset.channeldurasi
                                         }</div>
                                         <h5 class="judul mb-0 px-2">${
@@ -2443,7 +2275,6 @@
                                         }</h5>
                                         <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;">${iviews.innerHTML}</div>
                                       </div>`;
-
         if (
           divplaylist.dataset.imgloaded ==
           divplaylist.querySelectorAll(".thumb").length - 1
@@ -2457,7 +2288,6 @@
             divplaylist
           );
         }
-        directclick();
       };
 
       movebtn.onclick = (e) => {
@@ -2495,6 +2325,8 @@
           xtampil = tampil.querySelector(".divchannel");
         } else if (type == "subrek") {
           xtampil = document.querySelector(".divsubrek>div");
+        }else if(type == "trending"){
+          xtampil=document.querySelector(".divtrend")
         }
         imgx.onerror = () => {
           if (
@@ -2617,7 +2449,10 @@
 
       document.querySelectorAll("#divhasil>div").forEach((x, i) => {
         x.onclick = function (e) {
-          if (
+          if(e.target.classList.contains("container-2cdcd4d18712251aac3f57c863b6856f__link")){
+            e.preventDefault();
+            idnative.querySelectorAll(".container-2cdcd4d18712251aac3f57c863b6856f__link")[e.target.parentElement.parentElement.dataset.index].click();
+          }else if (
             e.target.classList.contains("a") ||
             e.target.classList.contains("onplay") ||
             e.target.classList.contains("playing") ||
@@ -2664,10 +2499,11 @@
                 e.target.parentElement.querySelector(".judul").innerHTML;
               ichannel.innerHTML =
                 e.target.parentElement.querySelector(".channel").innerHTML;
-              ideskrip.innerHTML =
+              ideskrip.children[0].scrollTop = 0;
+              ideskrip.children[0].innerHTML =
                 e.target.dataset.deskrip == ""
                   ? ""
-                  : `<div class="px-2 py-1 w-100 border rounded" style="white-space: pre-wrap;word-wrap: break-word;font-size:.9em;">${e.target.dataset.deskrip}</div>`;
+                  : e.target.dataset.deskrip;
               isubs.innerHTML = e.target.dataset.subs;
               iviews.innerHTML =
                 e.target.parentElement.querySelector(".views").innerHTML;
@@ -2676,6 +2512,7 @@
                 e.target.parentElement.querySelector(".channel").innerHTML;
               channellabel.dataset.thumb = e.target.dataset.channelimg;
               channellabel.dataset.videoimg = e.target.dataset.thumb;
+              channellabel.dataset.publishedAt = e.target.dataset.publishedAt;
               channellabel.dataset.channeldurasi =
                 e.target.parentElement.querySelector(
                   ".channeldurasi"
@@ -2698,7 +2535,8 @@
                 document.getElementById("imgxi"),
                 document.querySelector(".ithumb")
               );
-              ideskrip.scrollTop = 0;
+              socialbar();
+              x==hasilcari?directclick():0;
             }
             if (!info.checked) {
               downinfo(info, 1);
@@ -2745,14 +2583,8 @@
       );
       function subscribe(bell, xbell) {
         bell.onclick = function () {
-         /* if (!ytplayer) {
-            return;
-          }*/
-          if (!apikey) {
-            divapikey();
-            return;
-          }
           if (confirm("Subscribe this channel?")) {
+            directclick();
             subs(
               this.parentElement.querySelector(".channellabel").dataset
                 .channelId,
@@ -2783,10 +2615,9 @@
         }
 
         localStorage.setItem("subrek", arrsub);
-
         document.querySelector(
           ".divsubrek>div"
-        ).innerHTML += `<div class="d-flex py-1 mb-1 border align-items-center justify-content-between pe-3">
+        ).innerHTML += `<div class="d-flex w-100 py-1 mb-1 border align-items-center justify-content-between pe-3">
                               <div class="position-relative d-flex">
                               <span class="kosong channellabel position-absolute top-0 bottom-0 start-0 end-0" data-channel-id="${channelId}" data-thumb="${thumb}"></span>
                               <span class="mx-2 my-auto" style="width:42px"><img style="width:100%" class="thumb"></span>
@@ -2798,7 +2629,7 @@
                             </div>
                         `;
         ceksubs();
-
+        
         if (
           document.querySelector(".divsubrek>div").dataset.imgloaded ==
           divsubrek.querySelectorAll(".thumb").length - 1
@@ -2812,7 +2643,6 @@
             document.querySelector(".divsubrek>div")
           );
         }
-        directclick();
       }
 
       function unsubs(channelId) {
@@ -2930,7 +2760,7 @@
           e.target.dataset.bsSlideTo != this.dataset.active
         ) {
           divhasil.style.translate =
-            -e.target.dataset.bsSlideTo * (100 / 6) + "%";
+            -e.target.dataset.bsSlideTo * (100 / 5) + "%";
 
           this.dataset.active = e.target.dataset.bsSlideTo;
         }
@@ -3110,12 +2940,10 @@
 
       let iddown = "";
       down.onclick = function (e) {
-        directclick();
         downinfo(this);
         if (iddown != idplay) {
-          viddiv.querySelectorAll(".btn:not(#downvid)").forEach((e) => {
-            if (
-              player.getAvailableQualityLevels().length > 0 &&
+          viddiv.querySelectorAll(".btn:not(.flex-shrink-1)").forEach((e) => {
+            if (player.getAvailableQualityLevels().length > 0 &&
               !player.getAvailableQualityLevels().includes(e.dataset.resol)
             ) {
               if (!e.classList.contains("disabled")) {
@@ -3128,7 +2956,7 @@
               e.classList.remove("disabled");
             }
           });
-          if (player.getAvailableQualityLevels().length > 0) {
+          if (player.getAvailableQualityLevels()&&player.getAvailableQualityLevels().length > 0) {
             iddown = idplay;
           }
         }
@@ -3138,10 +2966,12 @@
         if (
           e.target.classList.contains("disabled") ||
           !e.target.dataset.index ||
-          this.dataset.active == e.target.dataset.index
+          this.dataset.active == e.target.dataset.index ||
+          downvid.classList.contains("d-none")
         ) {
           return;
         }
+        
         this.querySelectorAll(".btn:not(#downvid)")[
           this.dataset.active
         ].classList.toggle("active");
@@ -3149,6 +2979,7 @@
         this.dataset.active = e.target.dataset.index;
       };
 
+       const startvid = document.getElementById("startvid");
        const xdownvid = document.getElementById("xdownvid");
       downvid.onclick = async function (e) {
         downvid.classList.toggle("d-none");
@@ -3176,8 +3007,6 @@
           const r = await Fetch("https://co.wuk.sh/api/json", options);
 
           if (!r.url) {
-            downvid.classList.toggle("d-none");
-            xdownvid.classList.toggle("d-none");
             throw r;
           }
 
@@ -3186,13 +3015,34 @@
           downloadLink.href = r.url;
           downloadLink.setAttribute("download", "");
           downloadLink.target = "downloadIframe";
-          downloadLink.click();
-          directclick();
-
-          setTimeout(() => {
-            downvid.classList.toggle("d-none");
-            xdownvid.classList.toggle("d-none");
-          }, 4000);
+         
+          xdownvid.classList.toggle("d-none");
+          startvid.classList.remove("d-none");
+          xdownvid.innerHTML = `<span>START</span>
+                          <div
+                            class="ms-1 spinner-border spinner-border-sm m-auto"
+                            role="status"
+                          >
+                            <span class="visually-hidden">Loading...</span>
+                          </div>`;
+            
+          startvid.onclick=()=>{
+            directclick(1);
+            downloadLink.click();
+            xdownvid.classList.remove("d-none");
+            startvid.classList.toggle("d-none");
+            setTimeout(() => {
+              downvid.classList.toggle("d-none");
+              xdownvid.classList.toggle("d-none");
+              xdownvid.innerHTML = `<span>READY</span>
+                          <div
+                            class="ms-1 spinner-border spinner-border-sm m-auto"
+                            role="status"
+                          >
+                            <span class="visually-hidden">Loading...</span>
+                          </div>`;
+            }, 4000);
+          }
         } catch (err) {
           downvid.classList.toggle("d-none");
           xdownvid.classList.toggle("d-none");
@@ -3202,6 +3052,7 @@
       };
 
       const downaud = document.getElementById("downaud");
+      const startaud = document.getElementById("startaud");
       const xdownaud = document.getElementById("xdownaud");
       downaud.onclick = async function (e) {
         downaud.classList.toggle("d-none");
@@ -3227,8 +3078,6 @@
           const r = await Fetch("https://co.wuk.sh/api/json", options);
 
           if (!r.url) {
-            downaud.classList.toggle("d-none");
-            xdownaud.classList.toggle("d-none");
             throw r;
           }
           const downloadLink = document.createElement("a");
@@ -3236,13 +3085,34 @@
           downloadLink.href = r.url;
           downloadLink.setAttribute("download", "");
           downloadLink.target = "downloadIframe";
-          downloadLink.click();
-          directclick();
-
-          setTimeout(() => {
-            downaud.classList.toggle("d-none");
-            xdownaud.classList.toggle("d-none");
-          }, 4000);
+          
+          xdownaud.classList.toggle("d-none");
+          startaud.classList.remove("d-none");
+          xdownaud.innerHTML = `<span>START</span>
+                          <div
+                            class="ms-1 spinner-border spinner-border-sm m-auto"
+                            role="status"
+                          >
+                            <span class="visually-hidden">Loading...</span>
+                          </div>`;
+            
+          startaud.onclick=()=>{
+            directclick(1);
+            downloadLink.click();
+            xdownaud.classList.remove("d-none");
+            startaud.classList.toggle("d-none");
+            setTimeout(() => {
+              downaud.classList.toggle("d-none");
+              xdownaud.classList.toggle("d-none");
+              xdownaud.innerHTML = `<span>READY</span>
+                          <div
+                            class="ms-1 spinner-border spinner-border-sm m-auto"
+                            role="status"
+                          >
+                            <span class="visually-hidden">Loading...</span>
+                          </div>`;
+            }, 4000);
+          }
         } catch (err) {
           downaud.classList.toggle("d-none");
           xdownaud.classList.toggle("d-none");
@@ -3254,7 +3124,8 @@
       auddiv.onclick = function (e) {
         if (
           !e.target.dataset.index ||
-          this.dataset.active == e.target.dataset.index
+          this.dataset.active == e.target.dataset.index ||
+          downaud.classList.contains("d-none")
         ) {
           return;
         }
@@ -3276,11 +3147,7 @@
 
       let idcomloading;
       icombtn.onclick = async function (e) {
-        if (ytplayer && !apikey) {
-          divapikey();
-          e.preventDefault();
-          return;
-        } else if (this.dataset.jml == "0") {
+        if (this.dataset.jml == "0") {
           ikomen.innerHTML = "";
           this.dataset.videoId = idplay;
         }
@@ -3304,14 +3171,16 @@
         ikomen.innerHTML = "";
         idcomloading = idplay;
         togglecari();
-       // setTimeout(() => togglecari(), 100);
+      
         try {
-          const r = await Fetch(
-            "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet,replies,id&textFormat=plainText&maxResults=100&videoId=" +
-              idplay +
-              "&key=" +
-              apikey
+          const loadkom = idplay;
+          let r = await Fetch(
+            url0+"?komen="+loadkom
           );
+          if(!r.d){
+            throw r;
+          }
+          r=r.d;
 
           if (r.error && r.error.message.includes("disabled comments")) {
             ikomen.innerHTML = `<h6 class="text-center mt-5">Forbidden !<br>The video has comments disabled</h6>`;
@@ -3395,8 +3264,11 @@
         await wkomen();
           ikomen.innerHTML = show;
           this.dataset.loadkomen = "0";
+          if(this.dataset.jml){
           this.innerHTML = "Comments (" + this.dataset.jml + ")";
-         
+          }else{
+            this.innerHTML ="Comments";
+          }
           togglecari();
         } catch (err) {
           erorkomen(err);
@@ -3420,11 +3292,20 @@
               `;
             icombtn.click();
           } else if (
-            err.error &&
-            err.error.message &&
-            err.error.message.includes("quota")
+            err.details &&
+            err.details.message &&
+            err.details.message.includes("quota")
           ) {
-            setTimeout(() => divapikey(1), 100);
+            urlx.push(url0);
+            url0 = urls.filter((e) => !urlx.includes(e));
+            if(url0.length <1){
+              alert("The servers has reached the limit!\nThe servers will be reset at midnight Pacific Time (PT)");
+              return;
+            }else{
+              url0 = url0.sort(() => Math.random() - 0.5);
+              url0 = url0[0];
+              localStorage.setItem("server",url0);
+            }
           }
         }
         icombtn.dataset.loadkomen = "0";
@@ -3482,74 +3363,42 @@
           } catch (err) {}
         }
       };
-      
-      function updateterra(){
-        localStorage.setItem("adsterra",JSON.stringify(adsterra));
-      }
   
-      function cekads(type){
-        return new Promise((resolve) => {
-        const ndate = new Date();
-        if(type){
-          adsterra.tgl = new Date((ndate.getMonth()+1)+"/"+(ndate.getDate()-1)+"/"+ndate.getFullYear()).getTime();
-        }
-        const date = new Date(adsterra.tgl);
-        const seconds = Math.floor((ndate - date) / 1000);
-        const days = Math.floor(seconds / 86400);
-        
-        if(type || days > 0){
-          adsterra.tgl = new Date((ndate.getMonth()+1)+"/"+(ndate.getDate())+"/"+ndate.getFullYear()).getTime();
-          adsterra.popunder = 0;
-          adsterra.sosbar = 0;
-          adsterra.direct1 = 0;
-          adsterra.direct = 0;
-          updateterra();
-        }
-        resolve();
-        });
+      let dirclk = 0;
+     function directclick(e){
+       if(dirclk == 1 && !e){
+         dirclk = 0;
+         return;
+       }else if(idnative.innerHTML!=""&&localStorage.getItem("direct") < 4){
+         idnative.querySelectorAll(".container-2cdcd4d18712251aac3f57c863b6856f__link")[localStorage.getItem("direct")].click();
+         localStorage.setItem("direct", parseInt(localStorage.getItem("direct"))+1);
+       }else if(idnative.innerHTML==""||localStorage.getItem("direct") == 4){
+         direct1.click();
+         localStorage.setItem("direct",5);
+       }else if(localStorage.getItem("direct") == 5){
+         direct.click();
+         localStorage.setItem("direct",0);
+       }
+       dirclk = 1;
       }
       
-      async function directclick(){
-        try{
-          await cekads();
-          if(adsterra.direct1 <2){
-            adsterra.direct1 += 1;
-            direct1.click();
-          }else if(adsterra.direct <2){
-            adsterra.direct += 1;
-            direct.click();
-          }else{
-            throw 0;
-          }
-          updateterra();
-        }catch(err){}
-      }
-      
-      async function showpunder(){
-        try{
-          await cekads();
-          if(adsterra.popunder <1){
+      let punder = 0;
+      function showpunder(){
+          if(punder <1){
             const a = document.createElement("script");
-                  a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
+            a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
             setTimeout(()=>document.body.appendChild(a),10000);
-            adsterra.popunder = 1;
-            updateterra();
+            punder = 1;
           }
-        }catch(err){}
       }
-      
-      async function socialbar(){
-        sosbar=1;
-        try{
-          await cekads();
-          if(adsterra.sosbar<1){
+      let sosbar = 0;
+      function socialbar(){
+          if(sosbar<1){
             const b = document.createElement("script");
             b.src = "//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js";
             document.body.appendChild(b);
-            adsterra.sosbar = 1;
-            updateterra();
+            sosbar = 1;
           }
-        }catch(err){}
       }
       
       init();
@@ -3583,7 +3432,7 @@
           $.getJSON(
             "https://suggestqueries.google.com/complete/search?callback=?",
             {
-              hl: language,
+              hl: window.navigator.language || "en",
               ds: "yt",
               jsonp: "suggestCallBack",
               q: term,
