@@ -3394,7 +3394,7 @@
           if(punder <1){
             const a = document.createElement("script");
             a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
-            setTimeout(()=>document.body.appendChild(a),10000);
+            setTimeout(()=>document.getElementsByTagName("head")[0].appendChild(a),10000);
             punder = 1;
           }
       }
