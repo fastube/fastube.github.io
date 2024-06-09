@@ -1581,7 +1581,7 @@
             r = await Fetch(url + token);
             if(!r.a&&!r.b){
               throw r;
-            }console.log(r)
+            }
           } else {
             const itemlist =
               type == "playlist" ? arrlist.split(",") : arrsub.split(",");
@@ -1963,7 +1963,7 @@
         if (btncari.classList.contains("d-none")) {
           togglecari();
         }
-        console.log(err);
+        
         if (
           err.details &&
           err.details.message &&
@@ -2536,7 +2536,9 @@
                 document.querySelector(".ithumb")
               );
               socialbar();
-              x==hasilcari?directclick():0;
+              if(x==hasilcari || x==vidchannel){
+                directclick();
+              }
             }
             if (!info.checked) {
               downinfo(info, 1);
