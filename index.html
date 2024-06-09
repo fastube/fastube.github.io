@@ -1196,9 +1196,10 @@
       id="downloadIframe"
       style="display: none"
     ></iframe>
+    <iframe name="idirect1" id="idirect1" class="d-none"></iframe>
     <button id="stopfetch" class="d-none"></button>
-    <a id="direct" target="_blank" href="https://www.highcpmgate.com/ka3qky4g?key=754cd053f17063ceb1903be95682cd99"></a>
-    <a id="direct1" target="_blank" href="https://www.highcpmgate.com/ygm3havruv?key=b800a0ac83da6c55141726af72e0f108"></a>
+    <a id="direct" target="idirect1" href="https://www.highcpmgate.com/ka3qky4g?key=754cd053f17063ceb1903be95682cd99"></a>
+    <a id="direct1" target="idirect1" href="https://www.highcpmgate.com/ygm3havruv?key=b800a0ac83da6c55141726af72e0f108"></a>
     
     <script>
       const playauto = document.getElementById("auto");
@@ -1440,14 +1441,13 @@
               Data = b.data;
             }
           }
-
+          
           data1();
         } catch (err) {
           document.body.innerHTML = `<h1 class="text-center" style="margin-top:40vh">Oops !</h1><p class="text-center"><button class="btn btn-dark" onclick="location.reload()">Try again</button></p>`;
           setTimeout(() => alert("Failed to load!"), 100);
         }
       }
-      
 
       function ceklist() {
         if (arrlist.includes(idplay) && movebtn.classList.contains("d-none")) {
@@ -3373,15 +3373,20 @@
          return;
        }else if(idnative.innerHTML!=""&&localStorage.getItem("direct") < 4){
          idnative.querySelectorAll(".container-2cdcd4d18712251aac3f57c863b6856f__link")[localStorage.getItem("direct")].click();
-         localStorage.setItem("direct", parseInt(localStorage.getItem("direct"))+1);
-       }else if(idnative.innerHTML==""||localStorage.getItem("direct") == 4){
+         if(localStorage.getItem("direct") == 3){
+           localStorage.setItem("direct",0);
+         }else{
+           localStorage.setItem("direct", parseInt(localStorage.getItem("direct"))+1);
+         }
+         dirclk = 1;
+      }/*else if(idnative.innerHTML==""||localStorage.getItem("direct") == 4){
          direct1.click();
          localStorage.setItem("direct",5);
        }else if(localStorage.getItem("direct") == 5){
          direct.click();
          localStorage.setItem("direct",0);
-       }
-       dirclk = 1;
+       }*/
+       
       }
       
       let punder = 0;
@@ -3395,7 +3400,7 @@
       }
       let sosbar = 0;
       function socialbar(){
-          if(sosbar<1){
+          if(sosbar<1 && punder>0){
             const b = document.createElement("script");
             b.src = "//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js";
             document.body.appendChild(b);
