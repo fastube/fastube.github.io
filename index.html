@@ -1742,7 +1742,7 @@
             }
             
             if (type != "subrek") {
-              if(idnative.innerHTML!=""&&i/nativeCount == 6 &&type!="playlist"){
+              if(idnative.innerHTML!=""&&i/nativeCount == 6 &&type=="trending"){
                 const j = nativeCount>4?(nativeCount-4-1):(nativeCount-1);
                 show+=`<div id="container-2cdcd4d18712251aac3f57c863b6856f"><div class="container-2cdcd4d18712251aac3f57c863b6856f__stand" data-index=${j}>`+idnative.children[1].children[j].innerHTML+"</div></div>";
                 nativeCount += 1;
