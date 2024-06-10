@@ -1304,14 +1304,13 @@
               }
             },
             onStateChange: function (e) {
-              fresolusi();
               if (
                 (e.data == 1 && isPlaying != 1) ||
                 (e.data != 1 && isPlaying == 1)
               ) {
                 isPlaying = e.data;
-                showpunder();
                 toggleplay(e.data);
+                showpunder();
               }
 
               if (e.data == 0 && playauto.checked) {
@@ -1333,6 +1332,7 @@
                     ].click();
                 }
               }
+              fresolusi();
             },
             onPlaybackQualityChange: function (e) {
               fresolusi();
@@ -3365,29 +3365,6 @@
           } catch (err) {}
         }
       };
-  
-      let dirclk = 0;
-     function directclick(e){
-       if(dirclk == 1 && !e){
-         dirclk = 0;
-         return;
-       }else if(idnative.innerHTML!=""&&localStorage.getItem("direct") < 4){
-         idnative.querySelectorAll(".container-2cdcd4d18712251aac3f57c863b6856f__link")[localStorage.getItem("direct")].click();
-         if(localStorage.getItem("direct") == 3){
-           localStorage.setItem("direct",0);
-         }else{
-           localStorage.setItem("direct", parseInt(localStorage.getItem("direct"))+1);
-         }
-         dirclk = 1;
-      }/*else if(idnative.innerHTML==""||localStorage.getItem("direct") == 4){
-         direct1.click();
-         localStorage.setItem("direct",5);
-       }else if(localStorage.getItem("direct") == 5){
-         direct.click();
-         localStorage.setItem("direct",0);
-       }*/
-       
-      }
       
       let punder = 0;
       function showpunder(){
@@ -3406,6 +3383,29 @@
             document.body.appendChild(b);
             sosbar = 1;
           }
+      }
+      
+      let dirclk = 0;
+     function directclick(e){
+       if(dirclk == 1 && !e){
+         dirclk = 0;
+         return;
+       }else if((e||sosbar>0)&&idnative.innerHTML!=""&&localStorage.getItem("direct") < 4){
+         idnative.querySelectorAll(".container-2cdcd4d18712251aac3f57c863b6856f__link")[localStorage.getItem("direct")].click();
+         if(localStorage.getItem("direct") == 3){
+           localStorage.setItem("direct",0);
+         }else{
+           localStorage.setItem("direct", parseInt(localStorage.getItem("direct"))+1);
+         }
+         dirclk = 1;
+      }/*else if(idnative.innerHTML==""||localStorage.getItem("direct") == 4){
+         direct1.click();
+         localStorage.setItem("direct",5);
+       }else if(localStorage.getItem("direct") == 5){
+         direct.click();
+         localStorage.setItem("direct",0);
+       }*/
+       
       }
       
       init();
