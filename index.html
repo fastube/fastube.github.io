@@ -34,7 +34,7 @@
       rel="stylesheet"
     />
 
-    <meta name="theme-color" id="theme" content="white" />
+    <meta name="theme-color" id="theme" content="#ffffff" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,7 +50,7 @@
         font-family: "Jost", sans-serif;
       }
       .header h1,
-      label,
+      label,.akun,
       .navig span:first-child,
       .xlabel {
         font-family: "Freeman", sans-serif;
@@ -281,10 +281,9 @@
       #radio5:checked + label img {
         scale: 1.05;
       }
-      .navig,
-      #navhasil {
-        min-height: 37px;
-        height: 40px;
+      
+      .hasil,.bag1{
+        min-height:35px;
       }
 
       .infodown {
@@ -292,8 +291,6 @@
         display: flex;
         translate: calc(-2 * (100% / 3));
         overflow: hidden;
-        border-bottom: var(--bs-border-width) var(--bs-border-style)
-          var(--bs-border-color);
       }
       .infodown > div {
         width: 100%;
@@ -321,7 +318,14 @@
       }
       
       #navhasil {
-        padding-bottom: 0.25rem;
+        border-top: var(--bs-border-width) var(--bs-border-style)
+          var(--bs-border-color);
+        padding: .14rem 0;
+      }
+      .navig{
+        border-bottom: var(--bs-border-width) var(--bs-border-style)
+          var(--bs-border-color);
+        padding: .14rem 0;
       }
 
       .xthumb {
@@ -332,10 +336,7 @@
         position:absolute;
         left: -300%;right: 300%;
       }
-      #divhasil {
-        border-bottom: var(--bs-border-width) var(--bs-border-style)
-          var(--bs-border-color);
-      }
+      
       #divhasil.dnone{
         position:absolute;
         top:100%;bottom: -100%;
@@ -344,8 +345,6 @@
       .hasil.h100 {
         height: 100%;
       }
-      
-      
         .atas.dnone{
           position: relative;
           overflow:hidden;
@@ -368,7 +367,7 @@
         width:100%
       }
       .header h1,.header>div{
-        padding:.5rem 0;
+        padding:.25rem 0;
       }
       .bag {
         height: 100%;
@@ -384,7 +383,7 @@
       .subrekbtn,.trendbtn,.searchbtn,.playlistbtn,
       .playauto,.movebtn,.addbtn,.downbtn,.info-btn,#mode,#terang,
       .channellabel,.bell,.xbell,#icombtn,#ideskbtn,
-      .kosong:not(.a){
+      .kosong:not(.a),#viddiv .btn:not(#xdownvid),#auddiv .btn:not(#xdownaud),.muter,select,option,#showtrend{
         cursor: pointer;
       }
       
@@ -413,11 +412,8 @@
         }
         #divhasil {
           order: 1;
-          border: 0;
         }
-        .infodown {
-          border: 0;
-        }
+    
         .xthumb {
           height: calc((100vw / 2) * ((231 * 100) / 412) / 100);
         }
@@ -433,13 +429,10 @@
           border-top: 0;
           border-bottom: var(--bs-border-width) var(--bs-border-style)
             var(--bs-border-color);
-          padding:0;
         }
-        
-        .navig {
-          margin-bottom: 0.25rem;
+        .navig,#navhasil{
+          padding: .25rem 0;
         }
-
         #chevron {
           display: none;
         }
@@ -537,6 +530,39 @@
         }
       }
       
+      
+      
+      .muter{
+        position: relative;
+        overflow: hidden;
+      }
+      .muter:before{
+        content:"";
+        position: absolute;
+        top: -35vw;bottom: -35vw;
+        left: -5%;
+                right: -5%;
+        background-image:radial-gradient(
+    circle at 30% 100%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+        animation: rotBGimg 1.5s linear infinite;
+                transition: all 0.2s linear;
+            }
+
+            @keyframes rotBGimg {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
     </style>
   </head>
   <body>
@@ -603,8 +629,8 @@
             </div>
           </div>
           <div class="bag d-flex">
-            <div class="bag1 h100 d-flex flex-column">
-              <div class="navig d-flex align-items-center border-bottom py-1">
+            <div class="bag1 d-flex flex-column">
+              <div class="navig d-flex align-items-center">
                 <span
                   id="resolusi"
                   class="col-2 d-flex align-items-center justify-content-center"
@@ -625,7 +651,7 @@
                   >
                 </span>
                 <span class="form-check-label col-2 d-flex">
-                  <img src="addlist.svg" class="addbtn m-auto h-100" />
+                  <img src="addlist.svg" class="addbtn m-auto" style="height:99%" />
                   <img
                     src="remove.svg"
                     class="movebtn m-auto d-none"
@@ -649,7 +675,7 @@
                     id="down"
                   />
                   <label class="downbtn form-check-label" for="down"
-                    ><img src="download.svg" class="h-100"
+                    ><img src="download.svg" style="height:99%"
                   /></label>
                 </span>
                 <!-- <span id="info" class="col-2"><img src="info.svg" class="h-100" style=""></span>-->
@@ -660,7 +686,7 @@
                     name="infodown"
                     value="2"
                     id="info"
-                    checked=""
+                  
                   />
                   <label class="info-btn form-check-label m-auto d-flex" for="info"
                     ><img src="info.svg" class="m-auto" style="height: 99%"
@@ -670,7 +696,7 @@
                   ><img src="lightbulb.svg" class="m-auto" style="height: 72%"
                 /></span>
               </div>
-              <div class="infodown mb-1" data-active="2">
+              <div class="infodown dnone" style="opacity:0" data-active="2">
                 <div id="iklan">iklan</div>
                 <div id="downdiv" class="h-100 overflow-y-auto d-flex">
                   <div class="w-100 pt-2">
@@ -970,10 +996,10 @@
                 </div>
               </div>
             </div>
-            <div class="hasil d-flex flex-column">
+            <div class="hasil h100 d-flex flex-column">
             <script async="async" data-cfasync="false" src="//pl23470702.highcpmgate.com/2cdcd4d18712251aac3f57c863b6856f/invoke.js"></script>
               <div id="container-2cdcd4d18712251aac3f57c863b6856f" class="d-none"></div>
-              <div id="divhasil" class="mb-1 dnone">
+              <div id="divhasil">
                 <div
                   class="divplaylist d-flex flex-column align-items-center"
                   data-index=""
@@ -996,6 +1022,7 @@
                   data-is-loaded="0"
                   data-loading="0"
                 >
+                  
                  </div>
                 <div
                   class="d-flex flex-column align-items-center trending"
@@ -1030,7 +1057,7 @@
                   data-loading="0"
                 >
                   <span class="d-flex justify-content-center mt-1"
-                    ><p class="xlabel mb-2 pb-1 text-center col-3">
+                    ><p class="xlabel mb-1 pb-1 text-center col-3">
                       Channel
                     </p></span
                   >
@@ -1082,7 +1109,7 @@
                   data-ambilnext="0"
                 >
                   <span class="d-flex justify-content-center mt-1"
-                    ><p class="xlabel mb-2 pb-1 text-center col-3">
+                    ><p class="xlabel mb-1 pb-1 text-center col-3">
                       Subscribed
                     </p></span
                   >
@@ -1124,7 +1151,7 @@
                   data-index="0"
                   class="playlistbtn form-check-label d-flex align-items-center justify-content-center col-3 flex-fill me-2"
                   for="radio1"
-                  >Playlist</label
+                  >My Playlist</label
                 >
                 <input
                   class="form-check-input"
@@ -1196,11 +1223,10 @@
       id="downloadIframe"
       style="display: none"
     ></iframe>
-    <iframe name="idirect1" id="idirect1" class="d-none"></iframe>
     <button id="stopfetch" class="d-none"></button>
-    <a id="direct" target="idirect1" href="https://www.highcpmgate.com/ka3qky4g?key=754cd053f17063ceb1903be95682cd99"></a>
-    <a id="direct1" target="idirect1" href="https://www.highcpmgate.com/ygm3havruv?key=b800a0ac83da6c55141726af72e0f108"></a>
-    
+    <a id="direct" target="_blank" href="https://www.highcpmgate.com/ka3qky4g?key=754cd053f17063ceb1903be95682cd99"></a>
+    <a id="direct1" target="_blank" href="https://www.highcpmgate.com/ygm3havruv?key=b800a0ac83da6c55141726af72e0f108"></a>
+    <a target="_blank" id="ig"></a>
     <script>
       const playauto = document.getElementById("auto");
 
@@ -1252,12 +1278,15 @@
         "8K",
       ];
       const hasilcari = document.querySelector(".hasilcari");
+      const searchbtn = document.querySelector(".searchbtn");
       const trending = document.querySelector(".trending");
       const navhasil = document.getElementById("navhasil");
       const divhasil = document.getElementById("divhasil");
       const addbtn = document.querySelector(".addbtn");
       const movebtn = document.querySelector(".movebtn");
       const infodown = document.querySelector(".infodown");
+      const chevron = document.getElementById("chevron");
+     
       let Data;
       let idpilih;
       let ytplayer;
@@ -1274,6 +1303,7 @@
       let urls;
       let urlx =[];
       let url0;
+      let listbatur;
 
       function start() {
         timeload = setTimeout(() => {
@@ -1298,7 +1328,8 @@
               if (!ytplayer) {
                 clearTimeout(timeload);
                 ytplayer = document.getElementById("ytplayer");
-               
+                if(listbatur && chevron.style.rotate==""){searchbtn.click()};
+                if(hasilcari.style.opacity == "0"){hasilcari.style.opacity="1"}
                 togglecari();
                 register();
               }
@@ -1358,7 +1389,7 @@
       }
 
        function data1() {
-        idplay = Data.id;
+       /* idplay = Data.id;
         ijudul.innerHTML = Data.judul;
         ichannel.innerHTML = Data.channel;
         ideskrip.children[0].innerHTML =
@@ -1377,7 +1408,7 @@
           Data.channelimg,
           document.getElementById("imgxi"),
           document.querySelector(".ithumb")
-        );
+        );*/
 
         if (!arrlist && localStorage.getItem("playlist") != null) {
           arrlist = localStorage.getItem("playlist");
@@ -1394,14 +1425,6 @@
         
         if(localStorage.getItem("region") != null){
           document.querySelector(".region").value = localStorage.getItem("region");
-        }
-        
-        if(!url0 && localStorage.getItem("server") != null){
-          url0 = localStorage.getItem("server");
-        }else if(!localStorage.getItem("server")){
-              url0 = urls.sort(() => Math.random() - 0.5);
-              url0 = url0[0];
-              localStorage.setItem("server",url0);
         }
         
         if(!localStorage.getItem("direct")){
@@ -1425,28 +1448,180 @@
           setTimeout(()=>xcookie(),100);
         }
       }
-
+      
+      let language = window.navigator.language || "en";
       async function init() {
         try {
           const a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/0.json?v="+new Date().getTime());
-          if (!a.data) {
+          if (!a.url) {
             throw a;
           }
           urls = a.url;
-          Data = a.data;
-          let x;
-          if(location.href.includes("#") && location.href.split("#")[1]!=""){
-           const b = await Fetch("https://raw.githubusercontent.com/fastube/data/main/"+location.href.split("#")[1]+".json?v="+new Date().getTime());
-            if(b.data){
-              Data = b.data;
-            }
+          if(!url0 && localStorage.getItem("server") != null){
+          url0 = localStorage.getItem("server");
+        }else if(!localStorage.getItem("server")){
+              url0 = urls.sort(() => Math.random() - 0.5);
+              url0 = url0[0];
+              localStorage.setItem("server",url0);
+        }
+          const queryUrl = window.location.search;
+          const params = new URLSearchParams(queryUrl);
+          let b;
+          let c;
+          if(params.size>=2 && params.has("playlist") && params.has("i")){
+            c = 1;
+            b = await Fetch(url0+"?hl="+language+"&i="+params.get("i")+"&ig="+params.get("playlist"));
+          }else if(params.size>=1 && params.has("watch")){
+            b = await Fetch(url0+"?hl="+language+"&playlist="+params.get("watch"));
+          }else{
+            b = await Fetch(url0+"?hl="+language+"&start=1");
           }
-          
-          data1();
+          if(!b.b || b.b.items.length<1){
+            throw b;
+          }
+          show1(b.b,b.c,c,params.get("playlist"));
         } catch (err) {
+          if(err.b && err.b.items.length<1){
+            alert("Video not found!");
+            setTimeout(()=>{location.href = "."},100);
+          }else{
           document.body.innerHTML = `<h1 class="text-center" style="margin-top:40vh">Oops !</h1><p class="text-center"><button class="btn btn-dark" onclick="location.reload()">Try again</button></p>`;
           setTimeout(() => alert("Failed to load!"), 100);
+          }
         }
+      }
+      
+      async function show1(b,c,type,akun){
+        const idchannels =[];
+          function idc(){
+            return new Promise((resolve) => {
+              c.items.forEach((e,i) => {
+                idchannels.push(e.id);
+                i==c.items.length-1?resolve():0;
+              });
+            });
+          }
+          await idc();
+        let show = "";
+        function xshow(){
+            return new Promise((resolve) => {
+        b.items.forEach((e,i)=>{
+          let likes = "";
+            let komens = "";
+            if (e.statistics.likeCount) {
+              likes =
+                "&#183; " + hitung(e.statistics.likeCount) + " likes";
+            }
+            if (e.statistics.commentCount) {
+              komens = hitung(e.statistics.commentCount);
+            }
+          show += `<div class="d-flex flex-column w-100 position-relative">
+                                         <div class="kosong" style="z-index:1" data-index="${i}"
+                                         data-video-id="${e.id}" data-deskrip="${
+                e.snippet.localized.description
+              }"
+                                         data-subs="${hitung(
+                                           c.items[
+                                             idchannels.indexOf(
+                                               e.snippet.channelId
+                                             )
+                                           ].statistics.videoCount
+                                         )} videos &#183; ${hitung(
+                c.items[idchannels.indexOf(e.snippet.channelId)]
+                  .statistics.subscriberCount
+              )} subscribs"
+                                         data-komen="${komens}" 
+                                         data-channelimg="${
+                                           c.items[
+                                             idchannels.indexOf(
+                                               e.snippet.channelId
+                                             )
+                                           ].snippet.thumbnails.default.url
+                                         }"
+                                         data-thumb="${
+                                           e.snippet.thumbnails.high
+                                             .url
+                                         }"
+                                         data-channel-id="${
+                                           e.snippet.channelId
+                                         }"
+                                         data-published-at="${e.snippet.publishedAt}"
+                                         ></div>
+                                        <div class="xthumb d-flex justify-content-center align-items-center overflow-hidden position-relative">
+                                          <img class="w-100 thumb">
+                                          <div class="onplay">
+                                                <div class="playing">
+                                                    
+                                                    <span
+                                                        class="playing__bar playing__bar1"
+                                                    ></span>
+                                                    <span
+                                                        class="playing__bar playing__bar2"
+                                                    ></span>
+                                                    <span
+                                                        class="playing__bar playing__bar3"
+                                                    ></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="channeldurasi d-flex px-2 justify-content-between mt-1" style="color:rgba(0,0,0,.7); font-size: .9em;line-height:1.25em;"><span class="channel">${
+                                          c.items[
+                                            idchannels.indexOf(
+                                              e.snippet.channelId
+                                            )
+                                          ].snippet.localized.title
+                                        }</span><span>${
+                e.snippet.liveBroadcastContent == "live"
+                  ? '<span class="text-danger">&#9679;</span> LIVE'
+                  : durasi(e.contentDetails.duration)
+              }</span></div>
+                                        <h5 class="judul mb-0 px-2">${
+                                          e.snippet.localized.title
+                                        }</h5>
+                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(e.statistics.viewCount)} views ${likes}</span><span>${rilis(e.snippet.publishedAt)}</span></div>
+                                      </div>`;
+              i==b.items.length-1?resolve():0;
+        });
+            });
+        }
+        await xshow();
+        
+        if(type && b.items.length>1){
+          listbatur=1;
+          hasilcari.style.opacity="0";
+          document.getElementById("ig").href = "https://www.instagram.com/"+akun;
+          hasilcari.innerHTML += `<div class="w-100 d-flex my-1">
+            <div class="muter d-flex mx-auto" onclick="document.getElementById('ig').click()">
+                    <div class="w-100 m-1 px-2 d-flex flex-column align-items-center bg-white" style="z-index:1">
+                    <p class="mb-1">This playlist is recommended by</p>
+                      <span class="d-flex align-items-center pb-2" style="font-size:1.2em"><img src="ig.png" style="height:1.1em" alt=""><p class="akun ps-1 mb-0" style="line-height:1em">${akun}</p></span>
+                    </div>
+                  </div></div>
+            <div class="divbatur d-flex flex-column align-items-center h-100 overflow-y-auto"
+                    data-imgloaded="0"></div>
+          `;
+          hasilcari.children[1].innerHTML = show;
+        setTimeout(
+            () =>
+              imgload(
+                hasilcari.querySelectorAll(".thumb")[0],
+                document.getElementById("imgx1"),
+                0,
+                hasilcari,
+                searchbtn,
+                "batur"
+              ),
+            100
+          );
+        }else{
+          if(type){
+            alert("Playlist not found!");
+          }
+          hasilcari.innerHTML = show;
+          hasilcari.querySelector(".kosong").click();
+          hasilcari.innerHTML = "";
+        }
+          data1();
       }
 
       function ceklist() {
@@ -1478,7 +1653,7 @@
           fastube.classList.toggle("p-0");
         }
         iframe.classList.toggle("h-100");
-        document.getElementById("theme").content = "black";
+        document.getElementById("theme").content = "#000000";
         document.getElementById("terang").classList.toggle("d-none");
         if (atas.classList.contains("dnone")) {
           atas.classList.toggle("dnone");
@@ -1496,7 +1671,7 @@
           fastube.classList.toggle("p-0");
         }
         iframe.classList.toggle("h-100");
-        document.getElementById("theme").content = "";
+        document.getElementById("theme").content = "#ffffff";
         document.getElementById("terang").classList.toggle("d-none");
         if (chevron.style.rotate != "") {
           atas.classList.toggle("dnone");
@@ -1533,9 +1708,7 @@
         e.keyCode == 13 ? btncari.click() : 1;
       };
 
-      let language = window.navigator.language.split("-")[0] || "en";
-      const chevron = document.getElementById("chevron");
-      const fastube = document.querySelector(
+       const fastube = document.querySelector(
         "#carousel1>.carousel-item:first-child"
       );
       const showtrend = document.getElementById("showtrend");
@@ -1742,7 +1915,7 @@
             }
             
             if (type != "subrek") {
-              if(idnative.innerHTML!=""&&i/nativeCount == 6 &&type=="trending"){
+              if(idnative.innerHTML!=""&&i/nativeCount == 6 &&type!="playlist"){
                 const j = nativeCount>4?(nativeCount-4-1):(nativeCount-1);
                 show+=`<div id="container-2cdcd4d18712251aac3f57c863b6856f"><div class="container-2cdcd4d18712251aac3f57c863b6856f__stand" data-index=${j}>`+idnative.children[1].children[j].innerHTML+"</div></div>";
                 nativeCount += 1;
@@ -1869,7 +2042,7 @@
               tampil.querySelector(".bell").style.display = "inline";
               tampil.querySelector(".xbell").style.display = "inline";
             } else if (type == "playlist") {
-              label.innerHTML = "Playlist";
+              label.innerHTML = "My Playlist";
             } else if (type == "subrek") {
               tampil.querySelector(".xlabel").innerHTML = "Subscribed";
             } else if (type == "search") {
@@ -1919,7 +2092,7 @@
             if (type == "playlist") {
               tampil.dataset.loading = "0";
               
-                label.innerHTML = "Playlist";
+                label.innerHTML = "My Playlist";
                 label = "document.querySelector('.playlistbtn').click()";
               
             } else {
@@ -1988,12 +2161,12 @@
         }
       }
 
-      const searchbtn = document.querySelector(".searchbtn");
-      btncari.onclick = (e) => {
+       btncari.onclick = (e) => {
         if (btncari.classList.contains("d-none") || !inputcari.value) {
           return;
         }
-
+        directclick(1);
+      
         inputcari.blur();
         searchbtn.innerHTML += `<div class="ms-1 spinner-border spinner-border-sm text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>`;
 
@@ -2012,7 +2185,6 @@
       };
 
       searchbtn.onclick = (e) => {
-        if (fastube.offsetWidth < minchevron) {
           if (
             (document.getElementById("radio2").dataset.bsSlideTo ==
               navhasil.dataset.active &&
@@ -2023,12 +2195,10 @@
             chevron.click();
           }
           okchevron = 0;
-        }
       };
 
       const trendbtn = document.querySelector(".trendbtn");
       trendbtn.onclick = e=>{
-          if (fastube.offsetWidth < minchevron) {
             if (
               (document.getElementById("radio3").dataset.bsSlideTo ==
                 navhasil.dataset.active &&
@@ -2039,7 +2209,9 @@
               chevron.click();
             }
             okchevron = 0;
-          }
+            if(document.querySelector(".region").value != "" && trending.dataset.isLoaded != "1"){
+                showtrend.click()
+              }
       };
       
        document.forms["formregion"].onsubmit=(e)=>{
@@ -2077,7 +2249,6 @@
         ) {
           return alert("0 items in Playlist!");
         } else if (divplaylist.dataset.isLoaded == "1") {
-          if (fastube.offsetWidth < minchevron) {
             if (
               (document.getElementById("radio1").dataset.bsSlideTo ==
                 navhasil.dataset.active &&
@@ -2088,7 +2259,7 @@
               chevron.click();
             }
             okchevron = 0;
-          }
+          
           return;
         } else if (
           btncari.classList.contains("d-none") &&
@@ -2127,7 +2298,7 @@
 
       channelbtn.onclick = function (e) {
         if (vidchannel.dataset.channelId == channelbtn.dataset.channelId) {
-          if (chevron.style.rotate == "" && fastube.offsetWidth < minchevron) {
+          if (chevron.style.rotate == "") {
             chevron.click();
           }
           return;
@@ -2146,6 +2317,7 @@
         vidchannel.querySelector(".channellabel").dataset.channelId =
           this.dataset.channelId;
         vidchannel.querySelector(".isubs").innerHTML = this.dataset.subs;
+        directclick(1);
         search(
             url0+
             "?hl=" +
@@ -2161,9 +2333,7 @@
       };
 
       vidchannel.querySelector(".channellabel").onclick = () => {
-        if (fastube.offsetWidth < minchevron) {
           chevron.click();
-        }
       };
 
       const divsubrek = document.querySelector(".divsubrek");
@@ -2177,7 +2347,7 @@
         ) {
           return alert("0 subscribed!");
         } else if (divsubrek.dataset.isLoaded == "1") {
-          if (arrsub.length > 0 && fastube.offsetWidth < minchevron) {
+          if (arrsub.length > 0) {
             if (
               (document.getElementById("radio5").dataset.bsSlideTo ==
                 navhasil.dataset.active &&
@@ -2214,7 +2384,7 @@
       };
 
       addbtn.onclick = function () {
-        if (!confirm("Add to playlist?")) {
+        if (!idplay || !confirm("Add to my playlist?")) {
           return;
         }
         directclick();
@@ -2291,7 +2461,7 @@
       };
 
       movebtn.onclick = (e) => {
-        if (!confirm("Remove from playlist?")) {
+        if (!confirm("Remove from my playlist?")) {
           return;
         }
         const arrlistx = arrlist.split(",");
@@ -2327,6 +2497,8 @@
           xtampil = document.querySelector(".divsubrek>div");
         }else if(type == "trending"){
           xtampil=document.querySelector(".divtrend")
+        }else if(type == "batur"){
+          xtampil=document.querySelector(".divbatur");
         }
         imgx.onerror = () => {
           if (
@@ -2459,8 +2631,7 @@
             e.target.classList.contains("playing_bar")
           ) {
             if (
-              chevron.style.rotate != "" &&
-              fastube.offsetWidth < minchevron
+              chevron.style.rotate != ""
             ) {
               chevron.click();
             }
@@ -2492,9 +2663,12 @@
               document.querySelectorAll(".kosong.a").forEach((elem) => {
                 elem.classList.remove("a");
               });
-
+              
+              if(ytplayer){
               player.loadVideoById(e.target.dataset.videoId);
-
+              }else{
+                e.target.parentElement.querySelector(".playing").classList.toggle("a");
+              }
               ijudul.innerHTML =
                 e.target.parentElement.querySelector(".judul").innerHTML;
               ichannel.innerHTML =
@@ -2535,23 +2709,26 @@
                 document.getElementById("imgxi"),
                 document.querySelector(".ithumb")
               );
-              socialbar();
-              if(x==hasilcari || x==vidchannel){
-                directclick();
+              
+              if(infodown.style.opacity == "0"){
+                infodown.style.opacity = "1";
               }
+              socialbar();
             }
             if (!info.checked) {
               downinfo(info, 1);
             }
 
             if (
-              chevron.style.rotate != "" &&
-              fastube.offsetWidth < minchevron
+              chevron.style.rotate != ""
             ) {
               chevron.click();
             }
             idplay = e.target.dataset.videoId;
-            ceklist();
+            if(ytplayer){
+              ceklist();
+              ceksubs();
+            }
             if (idplay == icombtn.dataset.videoId) {
               icombtn.innerHTML = "Comments (" + e.target.dataset.komen + ")";
             } else {
@@ -2559,7 +2736,7 @@
                 ? (icombtn.innerHTML = "Comments (0)")
                 : (icombtn.innerHTML = "Comments");
             }
-            ceksubs();
+            
           } else if (i == 4) {
             if (e.target.classList.contains("channellabel")) {
               channelbtn.dataset.thumb = e.target.dataset.thumb;
@@ -2942,6 +3119,10 @@
 
       let iddown = "";
       down.onclick = function (e) {
+        if(!idplay){
+          e.preventDefault();
+          return;
+        }
         downinfo(this);
         if (iddown != idplay) {
           viddiv.querySelectorAll(".btn:not(.flex-shrink-1)").forEach((e) => {
@@ -3138,7 +3319,11 @@
         this.dataset.active = e.target.dataset.index;
       };
 
-      info.onclick = function () {
+      info.onclick = function (e) {
+        if(!idplay){
+          e.preventDefault();
+          return;
+        }
         downinfo(this);
       };
 
@@ -3179,21 +3364,19 @@
           let r = await Fetch(
             url0+"?komen="+loadkom
           );
-          if(!r.d){
-            throw r;
-          }
-          r=r.d;
-
-          if (r.error && r.error.message.includes("disabled comments")) {
+          
+           if (r.details && r.details.message.includes("disabled comments")) {
             ikomen.innerHTML = `<h6 class="text-center mt-5">Forbidden !<br>The video has comments disabled</h6>`;
             this.dataset.videoId = idplay;
             throw r;
-          } else if (r == "ganti" || !r.items) {
-            if (r == "ganti") {
-              ikomen.innerHTML = "";
-            }
+          } else if (!r.d) {
             throw r;
           }
+          r=r.d;
+          if (r == "ganti") {
+              ikomen.innerHTML = "";
+              throw r;
+            }
            this.dataset.videoId = idplay;
           ikomen.innerHTML = "";
           function reply(rep) {
@@ -3212,7 +3395,7 @@
                                     <span>${hitung(
                                       e.snippet.likeCount.toString()
                                     )} likes</span>
-                                    <span>${rilis(e.snippet.updatedAt)}</span>
+                                    <span>${rilis(e.snippet.publishedAt)}</span>
                                   </div>
                                 </div></div>
                   `;
@@ -3253,7 +3436,7 @@
             } replies</span>
                                     <span>${rilis(
                                       e.snippet.topLevelComment.snippet
-                                        .updatedAt
+                                        .publishedAt
                                     )}</span>
                                   </div>
                                 </div>
@@ -3284,9 +3467,9 @@
           }
           icombtn.innerHTML = "Comments";
           if (
-            (err != "ganti" && !err.error) ||
-            (err.error.message &&
-              !err.error.message.includes("disabled comments"))
+            (err != "ganti" && !err.details) ||
+            (err.details.message &&
+              !err.details.message.includes("disabled comments"))
           ) {
             ikomen.innerHTML = `
                 <div class="mx-auto d-flex flex-column justify-content-center text-center mt-5"><h6>Oops !</h6>
@@ -3322,7 +3505,7 @@
         if (
           e.target.id == "icombtn" &&
           icombtn.dataset.loadkomen != "1" &&
-          btncari.classList.contains("d-none")
+          btncari.classList.contains("d-none") && icombtn.dataset.videoId != idplay
         ) {
           e.preventDefault();
           return;
@@ -3335,7 +3518,7 @@
       };
       
       chevron.onclick = function () {
-        if (!ytplayer) {
+        if (!ytplayer || fastube.offsetWidth >= minchevron) {
           return;
         }
         if (!atas.classList.contains("dnone")) {
@@ -3350,6 +3533,9 @@
           ].scrollTop += 1;
         }
         atas.classList.toggle("dnone");
+        if(document.querySelector(".muter")){
+         // document.querySelector(".muter>div").classList.toggle("pb-1")
+        }
       };
 
       const register = async () => {
@@ -3368,44 +3554,38 @@
       
       let punder = 0;
       function showpunder(){
-          if(punder <1){
+        if(punder <1){
             const a = document.createElement("script");
             a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
             setTimeout(()=>document.getElementsByTagName("head")[0].appendChild(a),10000);
             punder = 1;
-          }
+        }
       }
       let sosbar = 0;
       function socialbar(){
-          if(sosbar<1 && punder>0){
+        if(sosbar<1 && punder>0){
             const b = document.createElement("script");
             b.src = "//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js";
             document.body.appendChild(b);
             sosbar = 1;
-          }
+        }
       }
-      
-      let dirclk = 0;
+      const pluang = [0,1,0];
      function directclick(e){
-       if(dirclk == 1 && !e){
-         dirclk = 0;
-         return;
-       }else if((e||sosbar>0)&&idnative.innerHTML!=""&&localStorage.getItem("direct") < 4){
+       if(!e){
+         const a = pluang.sort(() => Math.random() - 0.5);
+         if(a[0] != 1){return;}
+       }
+       if(idnative.innerHTML!=""&&localStorage.getItem("direct") < 4){
          idnative.querySelectorAll(".container-2cdcd4d18712251aac3f57c863b6856f__link")[localStorage.getItem("direct")].click();
-         if(localStorage.getItem("direct") == 3){
-           localStorage.setItem("direct",0);
-         }else{
-           localStorage.setItem("direct", parseInt(localStorage.getItem("direct"))+1);
-         }
-         dirclk = 1;
-      }/*else if(idnative.innerHTML==""||localStorage.getItem("direct") == 4){
-         direct1.click();
+          localStorage.setItem("direct", parseInt(localStorage.getItem("direct"))+1);
+      }else if(localStorage.getItem("direct") <= 4){
+         direct.click();
          localStorage.setItem("direct",5);
        }else if(localStorage.getItem("direct") == 5){
-         direct.click();
+         direct1.click();
          localStorage.setItem("direct",0);
-       }*/
-       
+       }
       }
       
       init();
