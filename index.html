@@ -936,6 +936,8 @@
         }
       }
       
+      const info = document.getElementById("info");
+
       async function show1(b,c,type,akun){
         const idchannels =[];
           function idc(){
@@ -1063,8 +1065,35 @@
             alert("Playlist not found!");
           }
           hasilcari.innerHTML = show;
-          hasilcari.querySelector(".kosong").click();
-          hasilcari.innerHTML = "";
+         idplay = hasilcari.querySelector(".kosong").dataset.videoId;
+         ijudul.innerHTML =
+                hasilcari.querySelector(".judul").innerHTML;
+              ichannel.innerHTML =
+                hasilcari.querySelector(".channel").innerHTML;
+              ideskrip.children[0].scrollTop = 0;
+              ideskrip.children[0].innerHTML = hasilcari.querySelector(".kosong").dataset.deskrip;
+              isubs.innerHTML = hasilcari.querySelector(".kosong").dataset.subs;
+              iviews.innerHTML =
+                hasilcari.querySelector(".views").innerHTML;
+              channellabel.dataset.channelId = hasilcari.querySelector(".kosong").dataset.channelId;
+              channellabel.dataset.channel =
+                hasilcari.querySelector(".channel").innerHTML;
+              channellabel.dataset.thumb = hasilcari.querySelector(".kosong").dataset.channelimg;
+              channellabel.dataset.videoimg = hasilcari.querySelector(".kosong").dataset.thumb;
+              channellabel.dataset.publishedAt = hasilcari.querySelector(".kosong").dataset.publishedAt;
+              channellabel.dataset.channeldurasi =
+                hasilcari.querySelector(
+                  ".channeldurasi"
+                ).innerHTML;
+              icombtn.dataset.jml = hasilcari.querySelector(".kosong").dataset.komen;
+            hasilcari.innerHTML = "";
+            infodown.style.opacity = "1";
+            downinfo(info,1);
+          imgchannel(
+            channellabel.dataset.thumb,
+            document.getElementById("imgxi"),
+            document.querySelector(".ithumb")
+          );
         }
           data1();
       }
@@ -2056,8 +2085,6 @@
           );
         }
       }
-
-      const info = document.getElementById("info");
 
       document.querySelectorAll("#divhasil>div").forEach((x, i) => {
         x.onclick = function (e) {
