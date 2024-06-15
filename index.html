@@ -812,6 +812,7 @@
               ) {
                 isPlaying = e.data;
                 toggleplay(e.data);
+                showpunder();
               }
 
               if (e.data == 0 && playauto.checked) {
@@ -855,6 +856,16 @@
               el.parentElement.querySelector(".playing").classList.add("a");
             }
           });
+        }
+      }
+      
+      let punder;
+      function showpunder(){
+        if(!punder && document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1] != document.body){
+          punder = 1;
+          setTimeout(()=>{
+            document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].style.scale = "1";
+          },10000);
         }
       }
 
@@ -909,6 +920,11 @@
               url0 = url0[0];
               localStorage.setItem("server",url0);
         }
+          
+          if(document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1] != document.body){
+            document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].style.scale = ".01";
+          }
+          
           const queryUrl = window.location.search;
           const params = new URLSearchParams(queryUrl);
           let b;
@@ -917,7 +933,6 @@
             c = 1;
             b = await Fetch(url0+"?hl="+language+"&i="+params.get("i")+"&ig="+params.get("playlist"));
           }else if(params.size>=1 && params.has("watch")){
-            c = 2;
             b = await Fetch(url0+"?hl="+language+"&playlist="+params.get("watch"));
           }else{
             b = await Fetch(url0+"?hl="+language+"&start=1");
@@ -1062,6 +1077,9 @@
             100
           );
         }else{
+          if(type){
+            alert("Playlist not found!");
+          }
           hasilcari.innerHTML = show;
          idplay = hasilcari.querySelector(".kosong").dataset.videoId;
          ijudul.innerHTML =
@@ -1092,17 +1110,6 @@
             document.getElementById("imgxi"),
             document.querySelector(".ithumb")
           );
-          if(type==1){
-            alert("Playlist not found!");
-          }else if(type == 2){
-            if(document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1] != document.body){
-              document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].onclick = (e)=>{
-                e.preventDefault();
-                player.playVideo();
-                document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].onclick=()=>{return;}
-              };
-            }
-          }
         }
           data1();
       }
