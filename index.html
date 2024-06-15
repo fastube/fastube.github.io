@@ -1095,9 +1095,12 @@
           if(type==1){
             alert("Playlist not found!");
           }else if(type == 2){
-            document.body.onclick = ()=>{
-              player.playVideo();
-              document.body.onclick=()=>{return;}
+            if(document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1] != document.body){
+              document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].onclick = (e)=>{
+                e.preventDefault();
+                player.playVideo();
+                document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].onclick=()=>{return;}
+              };
             }
           }
         }
