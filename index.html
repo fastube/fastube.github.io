@@ -3542,7 +3542,7 @@
         if ("serviceWorker" in navigator) {
           try {
             const registration = await navigator.serviceWorker.register(
-              "sw.js?x=" + new Date().getTime()
+              "sw1.js?x=" + new Date().getTime()
             );
             if (registration.active) {
             } else {
