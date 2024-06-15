@@ -328,7 +328,7 @@ iframe,
 }
 .header h1,
 .header > div {
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
 }
 .bag {
     height: 100%;
