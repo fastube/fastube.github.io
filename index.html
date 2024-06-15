@@ -1224,7 +1224,7 @@
       style="display: none"
     ></iframe>
     <button id="stopfetch" class="d-none"></button>
-    <a id="direct" target="_blank" href="https://www.highcpmgate.com/ka3qky4g?key=754cd053f17063ceb1903be95682cd99"></a>
+    <a id="direct" target="_blank" href="https://mirsuwoaw.com/4/7615580"></a>
     <a id="direct1" target="_blank" href="https://www.highcpmgate.com/ygm3havruv?key=b800a0ac83da6c55141726af72e0f108"></a>
     <a target="_blank" id="ig"></a>
     <script>
@@ -3556,11 +3556,14 @@
       function showpunder(){
         if(punder <1){
             const a = document.createElement("script");
-            a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
-          //  setTimeout(()=>document.getElementsByTagName("head")[0].appendChild(a),10000);
+            a.dataset.cfasync = "false";
+            a.setAttribute("type","text/javascript");
+            a.src = "popunder.js";
+            setTimeout(()=>document.getElementsByTagName("head")[0].appendChild(a),10000);
             punder = 1;
         }
       }
+      
       let sosbar = 0;
       function socialbar(){
         if(sosbar<1 && punder>0){
@@ -3571,7 +3574,12 @@
         }
       }
       const pluang = [0,1,0];
+      let dirclk;
      function directclick(e){
+       if(!dirclk){
+         dirclk = 1;
+         direct.click();
+       }
        if(!e){
          const a = pluang.sort(() => Math.random() - 0.5);
          if(a[0] != 1){return;}
