@@ -3557,7 +3557,7 @@
         if(punder <1){
             const a = document.createElement("script");
             a.src = "//pl23465104.highcpmgate.com/85/00/61/85006129966e898a319d3a7864905e31.js";
-            setTimeout(()=>document.getElementsByTagName("head")[0].appendChild(a),10000);
+          //  setTimeout(()=>document.getElementsByTagName("head")[0].appendChild(a),10000);
             punder = 1;
         }
       }
@@ -3566,7 +3566,7 @@
         if(sosbar<1 && punder>0){
             const b = document.createElement("script");
             b.src = "//pl23465504.highcpmgate.com/ab/59/f8/ab59f8dffb22796e2dc49a73cdf8bcef.js";
-            document.body.appendChild(b);
+         //   document.body.appendChild(b);
             sosbar = 1;
         }
       }
@@ -3577,13 +3577,13 @@
          if(a[0] != 1){return;}
        }
        if(idnative.innerHTML!=""&&localStorage.getItem("direct") < 4){
-         idnative.querySelectorAll(".container-2cdcd4d18712251aac3f57c863b6856f__link")[localStorage.getItem("direct")].click();
+        // idnative.querySelectorAll(".container-2cdcd4d18712251aac3f57c863b6856f__link")[localStorage.getItem("direct")].click();
           localStorage.setItem("direct", parseInt(localStorage.getItem("direct"))+1);
       }else if(localStorage.getItem("direct") <= 4){
-         direct.click();
+        // direct.click();
          localStorage.setItem("direct",5);
        }else if(localStorage.getItem("direct") == 5){
-         direct1.click();
+        // direct1.click();
          localStorage.setItem("direct",0);
        }
       }
