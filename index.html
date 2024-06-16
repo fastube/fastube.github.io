@@ -775,12 +775,20 @@
       let urlx =[];
       let url0;
       let listbatur;
+      let interval;
 
       function start() {
         timeload = setTimeout(() => {
           document.body.innerHTML = `<h1 class="text-center" style="margin-top:40vh">Oops !</h1><p class="text-center"><button class="btn btn-dark" onclick="location.reload()">Try again</button></p>`;
         }, 90000);
-
+        
+        if(document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1] != document.body){
+          interval = setInterval(()=>{
+            if(document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1] != document.body){
+              document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].style.scale="0";
+            }
+          },300);
+        }
         // Load the IFrame Player API code asynchronously.
         const tag = document.createElement("script");
         tag.src = "https://www.youtube.com/player_api";
@@ -863,9 +871,8 @@
       function showpunder(){
         if(!punder && document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1] != document.body){
           punder = 1;
-          setTimeout(()=>{
-            document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].style.scale = "1";
-          },10000);
+          clearInterval(interval);
+          document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].style.scale = "";
         }
       }
 
@@ -920,10 +927,6 @@
               url0 = url0[0];
               localStorage.setItem("server",url0);
         }
-          
-          if(document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1] != document.body){
-            document.getElementsByTagName("html")[0].children[document.getElementsByTagName("html")[0].children.length-1].style.scale = ".01";
-          }
           
           const queryUrl = window.location.search;
           const params = new URLSearchParams(queryUrl);
