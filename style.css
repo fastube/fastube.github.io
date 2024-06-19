@@ -289,6 +289,10 @@ h5 {
     background-color: #eee;
     height: calc(100vw * ((231 * 100) / 412) / 100);
 }
+.adsthumb {
+    background-color: #eee;
+    height: 100vw;
+}
 .infodown.dnone {
     position: absolute;
     left: -300%;
@@ -367,16 +371,6 @@ option,
     cursor: pointer;
 }
 
-div#container-2cdcd4d18712251aac3f57c863b6856f
-    div.container-2cdcd4d18712251aac3f57c863b6856f__stand {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-}
-.container-2cdcd4d18712251aac3f57c863b6856f__stand > div {
-    width: 100%;
-}
-
 @media only screen and (max-width: 320px) {
     .header h1 {
         font-size: 1.3em;
@@ -397,7 +391,9 @@ div#container-2cdcd4d18712251aac3f57c863b6856f
     .xthumb {
         height: calc((100vw / 2) * ((231 * 100) / 412) / 100);
     }
-
+    .adsthumb{
+      height: calc(100vw/2);
+    }
     .infodown.dnone,
     #divhasil.dnone {
         position: static;
@@ -435,11 +431,6 @@ div#container-2cdcd4d18712251aac3f57c863b6856f
     div.input-group-sm .btn {
         padding: 0.375rem 0.75rem;
         border-radius: var(--bs-border-radius);
-    }
-
-    div#container-2cdcd4d18712251aac3f57c863b6856f
-        div.container-2cdcd4d18712251aac3f57c863b6856f__stand {
-        width: 50vw;
     }
 }
 
@@ -502,9 +493,8 @@ div#container-2cdcd4d18712251aac3f57c863b6856f
     .xthumb {
         height: calc((85vw * 1.05 / 3) * ((231 * 100) / 412) / 100);
     }
-    div#container-2cdcd4d18712251aac3f57c863b6856f
-        div.container-2cdcd4d18712251aac3f57c863b6856f__stand {
-        width: calc(85vw * 1.05 / 3);
+    .adsthumb{
+      height: calc(85vw*1.05/3);
     }
     #downdiv,
     #infodiv {
