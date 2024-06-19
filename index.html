@@ -1260,7 +1260,7 @@
         if(xtampil.innerHTML == ""){
           showads(xtampil);
         }
-          
+        
         let playlistnext;
 
         try {
@@ -1738,6 +1738,9 @@
               chevron.click();
             }
             okchevron = 0;
+            if(document.querySelector(".divtrend").innerHTML == ""){
+              showads(document.querySelector(".divtrend"));
+            }
             if(document.querySelector(".region").value != "" && trending.dataset.isLoaded != "1"){
                 showtrend.click()
               }
@@ -1772,6 +1775,9 @@
 
       const playlistbtn = document.querySelector(".playlistbtn");
       playlistbtn.onclick = (e) => {
+        if(divplaylist.innerHTML == ""){
+          showads(divplaylist);
+        }
         if (
           localStorage.getItem("playlist") == null ||
           localStorage.getItem("playlist") ==  ""
@@ -1870,6 +1876,9 @@
       const topbell = document.querySelector(".topbell");
       const subrekbtn = document.querySelector(".subrekbtn");
       subrekbtn.onclick = (e) => {
+        if(document.querySelector(".divsubrek>div").innerHTML == ""){
+          showads(document.querySelector(".divsubrek>div"));
+        }
         if (
           localStorage.getItem("subrek") == null ||
           localStorage.getItem("subrek") == ""
