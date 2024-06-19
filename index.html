@@ -1213,6 +1213,7 @@
       const maxResults = 50;
       
       function showads(xtampil){
+        xtampil.innerHTML = "";
         ads = ads.sort(() => Math.random() - 0.5);
         for(let j = 0;j<ads.length;j++){
                 xtampil.innerHTML += `<a target="_blank" href="${ads[j].link}" class="w-100" style="text-decoration:none">
@@ -1933,6 +1934,9 @@
         }
         localStorage.setItem("playlist", arrlist);
         togglelist();
+        if(divplaylist.querySelector(".kosong.x")){
+          divplaylist.innerHTML = "";
+        }
         divplaylist.innerHTML += `<div class="d-flex flex-column position-relative">
                                          <div class="kosong a" style="z-index:1" data-index="${
                                            divplaylist.querySelectorAll(
@@ -2011,9 +2015,13 @@
           divplaylist.dataset.imgloaded =
             parseInt(divplaylist.dataset.imgloaded) - 1;
         }
+        
         document
           .querySelectorAll(".divplaylist>div:not(.nextpage)")
           [index].remove();
+        if(!divplaylist.querySelector(".kosong")){
+          showads(divplaylist);
+        }
       };
 
       function togglelist() {
@@ -2295,7 +2303,6 @@
       function subscribe(bell, xbell) {
         bell.onclick = function () {
           if (confirm("Subscribe this channel?")) {
-        
             subs(
               this.parentElement.querySelector(".channellabel").dataset
                 .channelId,
@@ -2326,6 +2333,13 @@
         }
 
         localStorage.setItem("subrek", arrsub);
+        if(document.querySelector(
+          ".divsubrek>div"
+        ).querySelector(".kosong.x")){
+          document.querySelector(
+          ".divsubrek>div"
+        ).innerHTML="";
+        }
         document.querySelector(
           ".divsubrek>div"
         ).innerHTML += `<div class="d-flex w-100 py-1 mb-1 border align-items-center justify-content-between pe-3">
@@ -2376,9 +2390,14 @@
               document.querySelector(".divsubrek>div").dataset.imgloaded
             ) - 1;
         }
+        
         document
           .querySelectorAll(".divsubrek>div>div:not(.nextpage)")
           [index].remove();
+        
+        if(!document.querySelector(".divsubrek>div").querySelector(".kosong")){
+          showads(document.querySelector(".divsubrek>div"));
+        }
       }
 
       function ceksubs() {
