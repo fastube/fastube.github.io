@@ -2243,6 +2243,9 @@
                   `.kosong[data-video-id="${e.target.dataset.videoId}"]`
                 ).forEach((el) => {
                   el.classList.toggle("a");
+                  if(!el.parentElement.querySelector(".playing").classList.contains("a")){
+                    el.parentElement.querySelector(".playing").classList.toggle("a")
+                  }
                 });
               imgchannel(
                 e.target.dataset.channelimg,
