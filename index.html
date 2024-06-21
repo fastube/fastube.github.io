@@ -374,7 +374,7 @@
                   </div>
                 </div>
                 <div id="infodiv" class="d-flex w-100 h-100 overflow-hidden">
-                  <div class="w-100">
+                  <div class="w-100 flex-column align-items-center">
                     <h5 id="ijudul" class="px-2 mt-1 mb-0"></h5>
                     <div
                       class="d-flex mb-1 px-2 justify-content-between"
@@ -384,7 +384,7 @@
                       <span>- views · - likes</span><span></span>
                     </div>
                     <div
-                      class="ceksubs d-flex mb-1 py-1 border align-items-center justify-content-between pe-3"
+                      class="ceksubs d-flex py-1 border align-items-center justify-content-between pe-3"
                     >
                       <div
                         class="channellabel d-flex"
@@ -422,6 +422,12 @@
                         <span class="visually-hidden">Loading...</span>
                       </div>
                     </div>
+                    <div class="w-100 mb-1 border-bottom d-flex justify-content-center overflow-hidden">
+                      <script type="text/javascript">
+                          aclib.runBanner({zoneId: '8472322',});
+                      </script>
+                    </div>
+
                   </div>
                   <div class="w-100 h-100 overflow-hidden d-flex flex-column">
                     <span id="deskombtn" class="d-flex justify-content-evenly">
@@ -791,7 +797,7 @@
         const firstScriptTag = document.body.getElementsByTagName("script")[0];
         firstScriptTag.parentElement.insertBefore(tag, firstScriptTag);
       }
-      let adsload;
+      let adsload=[];
       function onYouTubePlayerAPIReady() {
         let isPlaying = 0;
         player = new YT.Player("ytplayer", {
@@ -816,7 +822,7 @@
               ) {
                 isPlaying = e.data;
                 toggleplay(e.data);
-                adcash();
+                adcash(0);
               }
 
               if (e.data == 0 && playauto.checked) {
@@ -848,15 +854,6 @@
             },
           },
         });
-        
-        function adcash(){
-          if(!adsload && aclib != document.getElementById("aclib")){
-            adsload=1;
-            setTimeout(()=>{
-              aclib.runAutoTag({ zoneId: 'ceowc35moy', });
-            },10000);
-          }
-        }
 
         function toggleplay(e) {
           document
@@ -871,6 +868,22 @@
           });
         }
       }
+      
+      function adcash(i){
+          if(!adsload[i] && aclib != document.getElementById("aclib")){
+              adsload[i]=1;
+            if(i==0){
+              aclib.runInPagePush({
+                zoneId: '8472138',
+                refreshRate: 30,
+                maxAds: 2,
+              });
+            }else if(i==1){
+              aclib.runInterstitial({zoneId: '8472134',});
+            }
+            
+          }
+        }
 
        function data1() {
         if (!arrlist && localStorage.getItem("playlist") != null) {
@@ -1733,7 +1746,7 @@
         if (btncari.classList.contains("d-none") || !inputcari.value) {
           return;
         }
-      
+        adcash(1);
         inputcari.blur();
         searchbtn.innerHTML += `<div class="ms-1 spinner-border spinner-border-sm text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>`;
 

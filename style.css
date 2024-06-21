@@ -508,6 +508,14 @@ option,
     .bi-arrow-up-square-fill {
         rotate: -90deg;
     }
+    
+    #infodiv>div:first-child{
+      display: flex;
+      overflow: hidden;
+    }
+    #infodiv>div:first-child>div{
+      width: 100%;
+    }
 }
 
 .muter {
