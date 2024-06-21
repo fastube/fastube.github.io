@@ -140,7 +140,6 @@
                     style="height: 66.2%"
                   />
                 </span>
-                <!--  <span id="list" class="col-2"><img src="playlist.svg" class="h-100" style="transform:scale(1.15)"></span>-->
                 <input
                   class="form-check-input d-none"
                   type="radio"
@@ -160,7 +159,6 @@
                     ><img src="download.svg" style="height:99%"
                   /></label>
                 </span>
-                <!-- <span id="info" class="col-2"><img src="info.svg" class="h-100" style=""></span>-->
                 <span class="col-2 d-flex">
                   <input
                     class="form-check-input"
@@ -424,7 +422,7 @@
                     </div>
                     <div class="w-100 mb-1 border-bottom d-flex justify-content-center overflow-hidden">
                       <script type="text/javascript">
-                          aclib.runBanner({zoneId: '8472322',});
+                          aclib.runBanner({zoneId: '8473138',});
                       </script>
                     </div>
 
@@ -870,16 +868,12 @@
       }
       
       function adcash(i){
-          if(!adsload[i] && aclib != document.getElementById("aclib")){
+          if(!adsload[i] && document.getElementById("aclib") && aclib != document.getElementById("aclib")){
               adsload[i]=1;
             if(i==0){
-              aclib.runInPagePush({
-                zoneId: '8472138',
-                refreshRate: 30,
-                maxAds: 2,
-              });
+              aclib.runInPagePush({zoneId: '8473130',refreshRate: 30,maxAds: 2,});
             }else if(i==1){
-              aclib.runInterstitial({zoneId: '8472134',});
+              aclib.runInterstitial({zoneId: '8473126',});
             }
             
           }
@@ -938,7 +932,7 @@
               localStorage.setItem("server",url0);
         }
         
-        if(aclib == document.getElementById("aclib")){
+        if(document.getElementById("aclib") && aclib == document.getElementById("aclib")){
           document.body.style.backgroundColor="#1f1d2b";
           document.body.innerHTML =`
             <div class="wrapper show">
