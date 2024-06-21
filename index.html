@@ -795,6 +795,8 @@
         const firstScriptTag = document.body.getElementsByTagName("script")[0];
         firstScriptTag.parentElement.insertBefore(tag, firstScriptTag);
       }
+      let tabplaying;
+      let klikinfo;
       let adsload=[];
       function onYouTubePlayerAPIReady() {
         let isPlaying = 0;
@@ -826,18 +828,19 @@
               if (e.data == 0 && playauto.checked) {
                 if (
                   parseInt(
-                    divhasil.children[navhasil.dataset.active].dataset.index
+                    divhasil.children[tabplaying].dataset.index
                   ) <
-                  divhasil.children[navhasil.dataset.active].querySelectorAll(
+                  divhasil.children[tabplaying].querySelectorAll(
                     ".kosong:not(.x)"
                   ).length -
                     1
                 ) {
-                  divhasil.children[navhasil.dataset.active]
+                  klikinfo=1;
+                  divhasil.children[tabplaying]
                     .querySelectorAll(".kosong:not(.x)")
                     [
                       parseInt(
-                        divhasil.children[navhasil.dataset.active].dataset.index
+                        divhasil.children[tabplaying].dataset.index
                       ) + 1
                     ].click();
                 }
@@ -2075,8 +2078,6 @@
 
       const ideskbtn = document.getElementById("ideskbtn");
 
-      let tabplaying;
-
       function imgload(img, imgx, url, tampil, label, type) {
         tampil.dataset.imgloading = "1";
         let xtampil = tampil;
@@ -2242,7 +2243,9 @@
             } else {
               this.dataset.index = e.target.dataset.index;
             }
-            tabplaying = navhasil.dataset.active;
+            if(!klikinfo){
+              tabplaying = navhasil.dataset.active;
+            }
             if (idplay != e.target.dataset.videoId) {
               document.querySelectorAll(".kosong.a").forEach((elem) => {
                 elem.classList.remove("a");
@@ -2302,9 +2305,10 @@
               }
           
             }
-            if (!info.checked) {
+            if (!info.checked && !klikinfo) {
               downinfo(info, 1);
             }
+            klikinfo = 0;
 
             if (
               chevron.style.rotate != ""
@@ -2922,12 +2926,7 @@
         }
         downinfo(this);
       };
-
-     /* const ads = document.getElementById("ads");
-      ads.onclick = function () {
-        downinfo(this);
-      };*/
-
+      
       let idcomloading;
       icombtn.onclick = async function (e) {
         if (this.dataset.jml == "0") {
