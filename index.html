@@ -422,7 +422,7 @@
                     </div>
                     <div class="w-100 mb-1 border-bottom d-flex justify-content-center overflow-hidden">
                       <script type="text/javascript">
-                          aclib.runBanner({zoneId: '8473138',});
+                        //  aclib.runBanner({zoneId: '8473138',});
                       </script>
                     </div>
 
@@ -871,16 +871,24 @@
       }
       
       function adcash(i){
-          if(!adsload[i] && document.getElementById("aclib") && aclib != document.getElementById("aclib")){
-              adsload[i]=1;
-            if(i==0){
-              aclib.runInPagePush({zoneId: '8473130',refreshRate: 30,maxAds: 2,});
-            }else if(i==1){
-              aclib.runInterstitial({zoneId: '8473126',});
+        if(!adsload[i] && document.getElementById("aclib") && aclib != document.getElementById("aclib")){
+          adsload[i]=1;
+          if(i==0){
+            const nd = new Date();
+            if(localStorage.getItem("punder")){
+              const s = Math.floor((nd - new Date(parseInt(localStorage.getItem("punder"))))/1000);
+              const menit = Math.floor(s/60);
+              if(menit < 1){return;}
             }
-            
+            localStorage.setItem("punder",nd.getTime());
+            setTimeout(()=>aclib.runPop({zoneId: '8477966',}),10000);
+          }else if(i==1){
+            aclib.runInterstitial({zoneId: '8473126',});
+          }else if(i==2){
+            aclib.runInPagePush({zoneId: '8473130',refreshRate: 30,maxAds: 2,});
           }
         }
+      }
 
        function data1() {
         if (!arrlist && localStorage.getItem("playlist") != null) {
@@ -2303,7 +2311,7 @@
               if(infodown.style.opacity == "0"){
                 infodown.style.opacity = "1";
               }
-          
+              adcash(2);
             }
             if (!info.checked && !klikinfo) {
               downinfo(info, 1);
