@@ -422,7 +422,7 @@
                     </div>
                     <div class="w-100 mb-1 border-bottom d-flex justify-content-center overflow-hidden">
                       <script type="text/javascript">
-                          aclib.runBanner({zoneId: '8473138',});
+                          aclib.runBanner({zoneId: '8484618',});
                       </script>
                     </div>
 
@@ -909,12 +909,12 @@
               no: jp.no
             }
             localStorage.setItem("punder",JSON.stringify(jp));
-            setTimeout(()=>aclib.runPop({zoneId: '8477966',}),10000);
+            aclib.runPop({zoneId: '8484562',});
           }else if(!adsload[1]){
-            aclib.runInterstitial({zoneId: '8473126',});
+            aclib.runInterstitial({zoneId: '8484606',});
             adsload[1]=1;
           }else if(!adsload[2]){
-            aclib.runInPagePush({zoneId: '8473130',refreshRate: 30,maxAds: 2,});
+            aclib.runInPagePush({zoneId: '8484586',refreshRate: 30,maxAds: 2,});
             adsload[2]=1;
           }
         }
