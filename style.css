@@ -110,6 +110,9 @@ h5 {
     translate: calc(-100% / 5);
     width: 500%;
     display: flex;
+    border-top: var(--bs-border-width) var(--bs-border-style)
+        var(--bs-border-color)
+    
     /* transition: transform 0.6s ease-in-out;*/
 }
 
@@ -248,6 +251,8 @@ h5 {
     display: flex;
     translate: calc(-2 * (100% / 3));
     overflow: hidden;
+    border-top: var(--bs-border-width) var(--bs-border-style)
+        var(--bs-border-color)
 }
 .infodown > div {
     width: 100%;
@@ -280,8 +285,6 @@ h5 {
     padding: 0.14rem 0;
 }
 .navig {
-    border-bottom: var(--bs-border-width) var(--bs-border-style)
-        var(--bs-border-color);
     padding: 0.14rem 0;
 }
 
@@ -289,10 +292,7 @@ h5 {
     background-color: #eee;
     height: calc(100vw * ((231 * 100) / 412) / 100);
 }
-.adsthumb {
-    background-color: #eee;
-    height: 100vw;
-}
+
 .infodown.dnone {
     position: absolute;
     left: -300%;
@@ -404,9 +404,15 @@ option,
     }
     #navhasil {
         border-top: 0;
-        border-bottom: var(--bs-border-width) var(--bs-border-style)
-            var(--bs-border-color);
     }
+    .navig{
+      border-bottom: var(--bs-border-width) var(--bs-border-style)
+        var(--bs-border-color);
+    }
+    .infodown{
+      border-top: 0;
+    }
+    
     .navig,
     #navhasil {
         padding: 0.25rem 0;

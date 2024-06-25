@@ -392,7 +392,7 @@
                         data-channeldurasi=""
                         data-videoimg=""
                       >
-                        <span class="mx-2 my-auto" style="width: 42px"
+                        <span class="mx-2 my-auto" style="width: 42px;min-height:42px"
                           ><img style="width: 100%" class="ithumb"
                         /></span>
                         <div
@@ -469,13 +469,13 @@
                         id="ideskrip"
                         class="w-50 px-2 mb-1 overflow-hidden"
                       >
-                        <div class="w-100 h-100 border rounded py-1 px-2 overflow-y-auto"
+                        <div class="w-100 h-100 border rounded py-1 px-2 overflow-x-hidden overflow-y-auto"
                         style="white-space: pre-wrap;word-wrap: break-word;font-size:.9em;"
                         ></div>
                       </div>
                       <div
                         id="ikomen"
-                        class="w-50 px-2 d-flex flex-column overflow-y-auto"
+                        class="w-50 px-2 d-flex flex-column overflow-x-hidden overflow-y-auto"
                       ></div>
                     </div>
                   </div>
@@ -521,9 +521,10 @@
                 >
                   <form name="formregion" class="d-flex flex-column align-items-center justify-content-evenly w-100 mb-1">
                   <select class="region form-select mt-2 mx-2" style="max-width:80%" aria-label="Size 3 select example" required>
-  <option value="">~ SELECT REGION ~</option><option value="DE">Germany</option><option value="US">United States</option><option value="ID">Indonesia</option><option value="AE">United Arab Emirates</option><option value="BH">Bahrain</option><option value="DZ">Algeria</option><option value="EG">Egypt</option><option value="IQ">Iraq</option><option value="JO">Jordan</option><option value="KW">Kuwait</option><option value="LB">Lebanon</option><option value="LY">Libya</option><option value="MA">Morocco</option><option value="OM">Oman</option><option value="QA">Qatar</option><option value="SA">Saudi Arabia</option><option value="TN">Tunisia</option><option value="YE">Yemen</option><option value="AZ">Azerbaijan</option><option value="BY">Belarus</option><option value="BG">Bulgaria</option><option value="BD">Bangladesh</option><option value="BA">Bosnia and Herzegovina</option><option value="CZ">Czechia</option><option value="DK">Denmark</option><option value="AT">Austria</option><option value="CH">Switzerland</option><option value="GR">Greece</option><option value="AU">Australia</option><option value="BE">Belgium</option><option value="CA">Canada</option><option value="GB">United Kingdom</option><option value="GH">Ghana</option><option value="IE">Ireland</option><option value="IN">India</option><option value="JM">Jamaica</option><option value="KE">Kenya</option><option value="MT">Malta</option><option value="NG">Nigeria</option><option value="NZ">New Zealand</option><option value="SG">Singapore</option><option value="UG">Uganda</option><option value="ZA">South Africa</option><option value="ZW">Zimbabwe</option><option value="AR">Argentina</option><option value="BO">Bolivia</option><option value="CL">Chile</option><option value="CO">Colombia</option><option value="CR">Costa Rica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="ES">Spain</option><option value="GT">Guatemala</option><option value="HN">Honduras</option><option value="MX">Mexico</option><option value="NI">Nicaragua</option><option value="PA">Panama</option><option value="PE">Peru</option><option value="PR">Puerto Rico</option><option value="PY">Paraguay</option><option value="SV">El Salvador</option><option value="UY">Uruguay</option><option value="VE">Venezuela</option><option value="EE">Estonia</option><option value="FI">Finland</option><option value="PH">Philippines</option><option value="FR">France</option><option value="SN">Senegal</option><option value="HR">Croatia</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IT">Italy</option><option value="JP">Japan</option><option value="GE">Georgia</option><option value="KZ">Kazakhstan</option><option value="KR">South Korea</option><option value="LU">Luxembourg</option><option value="LA">Laos</option><option value="LT">Lithuania</option><option value="LV">Latvia</option><option value="MK">North Macedonia</option><option value="MY">Malaysia</option><option value="NO">Norway</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="PL">Poland</option><option value="BR">Brazil</option><option value="PT">Portugal</option><option value="MD">Moldova</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="LK">Sri Lanka</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="ME">Montenegro</option><option value="RS">Serbia</option><option value="SE">Sweden</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TR">Turkey</option><option value="UA">Ukraine</option><option value="PK">Pakistan</option><option value="VN">Vietnam</option><option value="HK">Hong Kong</option><option value="TW">Taiwan</option><option value="CY">Cyprus</option><option value="KH">Cambodia</option><option value="LI">Liechtenstein</option><option value="PG">Papua New Guinea</option>
-</select>
-<button class="btn btn-dark mt-2 me-2 d-flex align-items-center" id="showtrend">Show</button></form>
+                    <option value="">~ SELECT REGION ~</option>
+                    <option value="DZ">Algeria</option><option value="AR">Argentina</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BO">Bolivia</option><option value="BA">Bosnia and Herzegovina</option><option value="BR">Brazil</option><option value="BG">Bulgaria</option><option value="KH">Cambodia</option><option value="CA">Canada</option><option value="CL">Chile</option><option value="CO">Colombia</option><option value="CR">Costa Rica</option><option value="HR">Croatia</option><option value="CY">Cyprus</option><option value="CZ">Czechia</option><option value="DK">Denmark</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="EE">Estonia</option><option value="FI">Finland</option><option value="FR">France</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GR">Greece</option><option value="GT">Guatemala</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KW">Kuwait</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MY">Malaysia</option><option value="MT">Malta</option><option value="MX">Mexico</option><option value="MD">Moldova</option><option value="ME">Montenegro</option><option value="MA">Morocco</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NG">Nigeria</option><option value="MK">North Macedonia</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SG">Singapore</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="ZA">South Africa</option><option value="KR">South Korea</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="TW">Taiwan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="YE">Yemen</option><option value="ZW">Zimbabwe</option>
+                  </select>
+                  <button class="btn btn-dark mt-2 me-2 d-flex align-items-center" id="showtrend">Show</button></form>
                   <div
                     class="divtrend pt-1 d-flex flex-column align-items-center w-100 h-100 overflow-y-auto"
                     data-imgloaded="0"
@@ -549,7 +550,7 @@
                     class="ceksubs position-sticky w-100 d-flex py-1 border align-items-center justify-content-between pe-3"
                   >
                     <div class="channellabel d-flex" data-channel-id="">
-                      <span class="mx-2 my-auto" style="width: 42px"
+                      <span class="mx-2 my-auto" style="width: 42px;min-height:42px"
                         ><img style="width: 100%" class="ithumb"
                       /></span>
                       <div
@@ -759,6 +760,7 @@
         "4K",
         "8K",
       ];
+      let language = window.navigator.language || "en";
       const hasilcari = document.querySelector(".hasilcari");
       const searchbtn = document.querySelector(".searchbtn");
       const trending = document.querySelector(".trending");
@@ -783,6 +785,8 @@
       let ads;
       let listbatur;
       let interval;
+      let tambah = [];
+      let kurang = [];
 
       function start() {
         timeload = setTimeout(() => {
@@ -809,8 +813,11 @@
               if (!ytplayer) {
                 clearTimeout(timeload);
                 ytplayer = document.getElementById("ytplayer");
-                if(listbatur && chevron.style.rotate==""){searchbtn.click()};
                 if(hasilcari.style.opacity == "0"){hasilcari.style.opacity="1"}
+               
+                if(hasilcari.querySelectorAll(".kosong")[1]&&chevron.style.rotate==""&&listbatur!=2){
+                  searchbtn.click();
+                }
                 togglecari();
                 register();
               }
@@ -822,7 +829,6 @@
               ) {
                 isPlaying = e.data;
                 toggleplay(e.data);
-                adcash(0);
               }
 
               if (e.data == 0 && playauto.checked) {
@@ -863,6 +869,7 @@
                 ).forEach((el) => {
             if (e == 1 && el.parentElement.querySelector(".playing").classList.contains("a")) {
               el.parentElement.querySelector(".playing").classList.remove("a");
+              adcash();
             } else if (e!=1&&!el.parentElement.querySelector(".playing").classList.contains("a")) {
               el.parentElement.querySelector(".playing").classList.add("a");
             }
@@ -871,25 +878,48 @@
       }
       
       function adcash(i){
-        if(!adsload[i] && document.getElementById("aclib") && aclib != document.getElementById("aclib")){
-          adsload[i]=1;
-          if(i==0){
+        if(document.getElementById("aclib") && aclib != document.getElementById("aclib")){
+          if(!adsload[0]){
+            adsload[0]=1;
             const nd = new Date();
-            if(localStorage.getItem("punder")){
-              const s = Math.floor((nd - new Date(parseInt(localStorage.getItem("punder"))))/1000);
-              const menit = Math.floor(s/60);
-              if(menit < 1){return;}
+            let jp={time:"",jml:0,no:0};
+            let exp = 0;
+            if(localStorage.getItem("punder") != null){
+              jp = JSON.parse(localStorage.getItem("punder"));
             }
-            localStorage.setItem("punder",nd.getTime());
+              const s = Math.floor((nd - new Date(jp.time))/1000);
+              const menit = Math.floor(s/60);
+    
+              if(menit < 1&&jp.jml<7){
+                if(jp.no=="1"){
+                  adsload.pop();
+                }
+                return;
+              }else if(jp.jml>6){
+                jp.no=1;
+                jp.jml=-1;
+                exp = 1000*60*60*3;
+              }else{
+                jp.no=0;
+              }
+            
+            jp = {
+              time: nd.getTime()+exp,
+              jml: parseInt(jp.jml)+1,
+              no: jp.no
+            }
+            localStorage.setItem("punder",JSON.stringify(jp));
             setTimeout(()=>aclib.runPop({zoneId: '8477966',}),10000);
-          }else if(i==1){
+          }else if(!adsload[1]){
             aclib.runInterstitial({zoneId: '8473126',});
-          }else if(i==2){
+            adsload[1]=1;
+          }else if(!adsload[2]){
             aclib.runInPagePush({zoneId: '8473130',refreshRate: 30,maxAds: 2,});
+            adsload[2]=1;
           }
         }
       }
-
+      
        function data1() {
         if (!arrlist && localStorage.getItem("playlist") != null) {
           arrlist = localStorage.getItem("playlist");
@@ -906,6 +936,9 @@
         
         if(localStorage.getItem("region") != null){
           document.querySelector(".region").value = localStorage.getItem("region");
+        }else if(document.querySelector("option[value='"+language.split("-")[1]+"']")){
+           document.querySelector(".region").value = language.split("-")[1];
+           localStorage.setItem("region",language.split("-")[1]);
         }
         
         if(document.cookie.includes("=")){
@@ -926,15 +959,15 @@
         }
       }
       
-      let language = window.navigator.language || "en";
       async function init() {
         try {
-          const a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/0.json?v="+new Date().getTime());
+          const a = await Fetch("https://raw.githubusercontent.com/fastube/data/main/data.json?v="+new Date().getTime());
           if (!a.url) {
             throw a;
           }
           urls = a.url;
           ads = a.ads;
+          tambah = a.tambah;
           if(!url0 && localStorage.getItem("server") != null){
           url0 = localStorage.getItem("server");
         }else if(!localStorage.getItem("server")){
@@ -968,27 +1001,30 @@
           const queryUrl = window.location.search;
           const params = new URLSearchParams(queryUrl);
           let b;
-          let c;
           if(params.size>=2 && params.has("playlist") && params.has("i")){
-            c = 1;
             b = await Fetch(url0+"?hl="+language+"&i="+params.get("i")+"&ig="+params.get("playlist"));
+           if(!b.a&&!params.has("xig")){
+              listbatur = 1;
+            }else if(b.a){
+              alert("Playlist not found!");
+            }
           }else if(params.size>=1 && params.has("watch")){
             b = await Fetch(url0+"?hl="+language+"&playlist="+params.get("watch"));
+            if(b.b && b.b.items[0].id == params.get("watch")){
+              listbatur = 2;
+            }else{
+              alert("Video not found!");
+            }
           }else{
             b = await Fetch(url0+"?hl="+language+"&start=1");
           }
           if(!b.b || b.b.items.length<1){
             throw b;
           }
-          show1(b.b,b.c,c,params.get("playlist"));
+          show1(b.b,b.c,listbatur,params.get("playlist"));
         } catch (err) {
-          if(err.b && err.b.items.length<1){
-            alert("Video not found!");
-            setTimeout(()=>{location.href = "."},100);
-          }else{
-          document.body.innerHTML = `<h1 class="text-center" style="margin-top:40vh">Oops !</h1><p class="text-center"><button class="btn btn-dark" onclick="location.reload()">Try again</button></p>`;
-          setTimeout(() => alert("Failed to load!"), 100);
-          }
+            document.body.innerHTML = `<h1 class="text-center" style="margin-top:40vh">Oops !</h1><p class="text-center"><button class="btn btn-dark" onclick="location.reload()">Try again</button></p>`;
+            setTimeout(() => alert("Failed to load!"), 100);
         }
       }
       
@@ -1010,15 +1046,24 @@
             return new Promise((resolve) => {
               let adsCount = 1;
         b.items.forEach((e,i)=>{
+          let kali = 1;
+            if(tambah.includes(e.snippet.channelId) || tambah.includes(e.id)){
+              kali = 32;
+            }else if(kurang.includes(e.snippet.channelId) || kurang.includes(e.id)){
+              kali = .03;
+            }
+          
           let likes = "";
             let komens = "";
             if (e.statistics.likeCount) {
               likes =
-                "&#183; " + hitung(e.statistics.likeCount) + " likes";
+                "&#183; " + hitung(""+parseInt(e.statistics.likeCount)*kali) + " likes";
             }
             if (e.statistics.commentCount) {
               komens = hitung(e.statistics.commentCount);
             }
+            
+            
           /*  if(i / 3 == adsCount){
                 let j = 0;
                 if(adsCount % 2 != 0){
@@ -1049,8 +1094,9 @@
                                                e.snippet.channelId
                                              )
                                            ].statistics.videoCount
-                                         )} videos &#183; ${hitung(
-                c.items[idchannels.indexOf(e.snippet.channelId)]
+                                         )} videos &#183; ${tambah.includes(e.snippet.channelId)||kurang.includes(e.snippet.channelId)?hitung(""+
+                parseInt(c.items[idchannels.indexOf(e.snippet.channelId)]
+                  .statistics.subscriberCount)*kali):hitung(c.items[idchannels.indexOf(e.snippet.channelId)]
                   .statistics.subscriberCount
               )} subscribs"
                                          data-komen="${komens}" 
@@ -1101,7 +1147,7 @@
                                         <h5 class="judul mb-0 px-2">${
                                           e.snippet.localized.title
                                         }</h5>
-                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(e.statistics.viewCount)} views ${likes}</span><span>${rilis(e.snippet.publishedAt)}</span></div>
+                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(""+parseInt(e.statistics.viewCount)*kali)} views ${likes}</span><span>${rilis(e.snippet.publishedAt)}</span></div>
                                       </div>`;
               i==b.items.length-1?resolve():0;
         });
@@ -1109,8 +1155,8 @@
         }
         await xshow();
         
-        if(type && b.items.length>1){
-          listbatur=1;
+        if(type==1 && b.items.length>1){
+          listbatur = 1;
           hasilcari.style.opacity="0";
           document.getElementById("ig").href = "https://www.instagram.com/"+akun;
           hasilcari.innerHTML += `<div class="w-100 d-flex my-1">
@@ -1124,52 +1170,34 @@
                     data-imgloaded="0"></div>
           `;
           hasilcari.children[1].innerHTML = show;
-        setTimeout(
-            () =>
-              imgload(
-                hasilcari.querySelectorAll(".thumb")[0],
-                document.getElementById("imgx1"),
-                0,
-                hasilcari,
-                searchbtn,
-                "batur"
-              ),
-            100
-          );
         }else{
-          if(type){
-            alert("Playlist not found!");
-          }
           hasilcari.innerHTML = show;
-         idplay = hasilcari.querySelector(".kosong").dataset.videoId;
-         ijudul.innerHTML =
-                hasilcari.querySelector(".judul").innerHTML;
-              ichannel.innerHTML =
-                hasilcari.querySelector(".channel").innerHTML;
-              ideskrip.children[0].scrollTop = 0;
-              ideskrip.children[0].innerHTML = hasilcari.querySelector(".kosong").dataset.deskrip;
-              isubs.innerHTML = hasilcari.querySelector(".kosong").dataset.subs;
-              iviews.innerHTML =
-                hasilcari.querySelector(".views").innerHTML;
-              channellabel.dataset.channelId = hasilcari.querySelector(".kosong").dataset.channelId;
-              channellabel.dataset.channel =
-                hasilcari.querySelector(".channel").innerHTML;
-              channellabel.dataset.thumb = hasilcari.querySelector(".kosong").dataset.channelimg;
-              channellabel.dataset.videoimg = hasilcari.querySelector(".kosong").dataset.thumb;
-              channellabel.dataset.publishedAt = hasilcari.querySelector(".kosong").dataset.publishedAt;
-              channellabel.dataset.channeldurasi =
-                hasilcari.querySelector(
-                  ".channeldurasi"
-                ).innerHTML;
-              icombtn.dataset.jml = hasilcari.querySelector(".kosong").dataset.komen;
-            hasilcari.innerHTML = "";
-            showads(hasilcari);
+          if(hasilcari.querySelectorAll(".kosong")[1]){
+              hasilcari.style.opacity="0";
+            }
+    
+          if(type==2||!hasilcari.querySelectorAll(".kosong")[1]){
+            hasilcari.querySelector(".kosong").click();
             infodown.style.opacity = "1";
-            downinfo(info,1);
-          imgchannel(
-            channellabel.dataset.thumb,
-            document.getElementById("imgxi"),
-            document.querySelector(".ithumb")
+            imgchannel(
+              channellabel.dataset.thumb,
+              document.getElementById("imgxi"),
+              document.querySelector(".ithumb")
+            );
+          }
+          //  showads(hasilcari);
+        }
+        
+        if(hasilcari.querySelector(".kosong")){
+          let xtype="search";
+          if(listbatur==1){xtype="batur"}
+          imgload(
+            hasilcari.querySelectorAll(".thumb")[0],
+            document.getElementById("imgx1"),
+            0,
+            hasilcari,
+            searchbtn,
+            xtype
           );
         }
           data1();
@@ -1377,7 +1405,6 @@
             
             await xids();
           
-          
           if (type == "search" && !next) {
             inputcari.blur();
           }
@@ -1467,16 +1494,7 @@
             if (i >= maxResults) {
               return;
             }
-            let likes = "";
-            let komens = "";
-            if (type != "subrek" && d.items[i].statistics.likeCount) {
-              likes =
-                "&#183; " + hitung(d.items[i].statistics.likeCount) + " likes";
-            }
-            if (type != "subrek" && d.items[i].statistics.commentCount) {
-              komens = hitung(d.items[i].statistics.commentCount);
-            }
-
+            
             let xvideoid;
             if (type == "trending") {
               xvideoid = e.id;
@@ -1484,6 +1502,22 @@
               xvideoid = e;
             } else if (type != "subrek") {
               xvideoid = e.id.videoId;
+            }
+            
+            let kali = 1;
+            if(tambah.includes(d.items[i].snippet.channelId) || tambah.includes(xvideoid)){
+              kali = 32;
+            }else if(kurang.includes(d.items[i].snippet.channelId) || kurang.includes(xvideoid)){
+              kali = .03;
+            }
+            let likes = "";
+            let komens = "";
+            if (type != "subrek" && d.items[i].statistics.likeCount) {
+              likes =
+                "&#183; " + hitung(""+parseInt(d.items[i].statistics.likeCount)*kali) + " likes";
+            }
+            if (type != "subrek" && d.items[i].statistics.commentCount) {
+              komens = hitung(d.items[i].statistics.commentCount);
             }
             
             if (type != "subrek") {
@@ -1520,8 +1554,9 @@
                                                d.items[i].snippet.channelId
                                              )
                                            ].statistics.videoCount
-                                         )} videos &#183; ${hitung(
-                c.items[idchannels.indexOf(d.items[i].snippet.channelId)]
+                                         )} videos &#183; ${tambah.includes(d.items[i].snippet.channelId)||kurang.includes(d.items[i].snippet.channelId)?hitung(""+
+                parseInt(c.items[idchannels.indexOf(d.items[i].snippet.channelId)]
+                  .statistics.subscriberCount)*kali):hitung(c.items[idchannels.indexOf(d.items[i].snippet.channelId)]
                   .statistics.subscriberCount
               )} subscribs"
                                          data-komen="${komens}" 
@@ -1576,7 +1611,7 @@
                                         <h5 class="judul mb-0 px-2">${
                                           d.items[i].snippet.localized.title
                                         }</h5>
-                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(d.items[i].statistics.viewCount)} views ${likes}</span><span>${rilis(d.items[i].snippet.publishedAt)}</span></div>
+                                        <div class="views d-flex mb-2 px-2 justify-content-between" style="color:rgba(0,0,0,.7);font-size: .8em;"><span>${hitung(""+parseInt(d.items[i].statistics.viewCount)*kali)} views ${likes}</span><span>${rilis(d.items[i].snippet.publishedAt)}</span></div>
                                       </div>`;
             } else {
               show += `
@@ -1751,14 +1786,20 @@
         if (btncari.classList.contains("d-none") || !inputcari.value) {
           return;
         }
-        adcash(1);
+        
         inputcari.blur();
         searchbtn.innerHTML += `<div class="ms-1 spinner-border spinner-border-sm text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>`;
-
+        let region= "";
+        if(document.querySelector(".region").value){
+          region = "&region="+document.querySelector(".region").value;
+        }else if(localStorage.getItem("region")){
+          region = localStorage.getItem("region");
+        }
+        adcash();
         search(
           url0 +
             "?hl=" +
-            language +
+            language +region+
             "&search=" +
             encodeURI(inputcari.value),
           0,
@@ -1813,6 +1854,7 @@
           return;
         }
         showtrend.innerHTML += ` <div class="ms-1 spinner-border spinner-border-sm text-white" role="status"><span class="visually-hidden">Loading...</span></div>`;
+        adcash();
         search(
             url0+
             "?hl=" +
@@ -1864,7 +1906,7 @@
 
         divplaylist.innerHTML = "";
         playlistbtn.innerHTML += `<div class="ms-1 spinner-border spinner-border-sm text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>`;
-
+        adcash();
         search(
           0,
           0,
@@ -1908,11 +1950,17 @@
         vidchannel.querySelector(".channellabel").dataset.channelId =
           this.dataset.channelId;
         vidchannel.querySelector(".isubs").innerHTML = this.dataset.subs;
-  
+        let region= "";
+        if(document.querySelector(".region").value){
+          region = "&region="+document.querySelector(".region").value;
+        }else if(localStorage.getItem("region")){
+          region = localStorage.getItem("region");
+        }
+        adcash();
         search(
             url0+
             "?hl=" +
-            language +
+            language +region+
             "&channel=" +
             this.dataset.channelId,
           0,
@@ -1967,6 +2015,7 @@
         divsubrek.querySelector(
           ".xlabel"
         ).innerHTML += `<div class="ms-1 spinner-border spinner-border-sm text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>`;
+        adcash();
         search(
           0,
           0,
@@ -2130,7 +2179,7 @@
             imgx.src;
 
           xtampil.dataset.imgloaded = parseInt(xtampil.dataset.imgloaded) + 1;
-
+          
           if (
             parseInt(xtampil.dataset.imgloaded) <
               xtampil.querySelectorAll(".thumb").length &&
@@ -2311,19 +2360,19 @@
               if(infodown.style.opacity == "0"){
                 infodown.style.opacity = "1";
               }
-              adcash(2);
+      
             }
             if (!info.checked && !klikinfo) {
               downinfo(info, 1);
             }
             klikinfo = 0;
 
+            idplay = e.target.dataset.videoId;
             if (
               chevron.style.rotate != ""
             ) {
               chevron.click();
             }
-            idplay = e.target.dataset.videoId;
             if(ytplayer){
               ceklist();
               ceksubs();
@@ -2701,6 +2750,12 @@
           infodown.classList.toggle("dnone");
           divhasil.parentElement.classList.toggle("h100");
           infodown.parentElement.classList.toggle("h100");
+          document.querySelectorAll("#divhasil > div")[
+            navhasil.dataset.active
+          ].scrollTop -= 1;
+          document.querySelectorAll("#divhasil>div")[
+              navhasil.dataset.active
+            ].scrollTop += 1;
         }
 
         if (
@@ -2961,7 +3016,7 @@
         ikomen.innerHTML = "";
         idcomloading = idplay;
         togglecari();
-      
+        adcash();
         try {
           const loadkom = idplay;
           let r = await Fetch(
@@ -3121,20 +3176,20 @@
       };
       
       chevron.onclick = function () {
-        if (!ytplayer || fastube.offsetWidth >= minchevron) {
+        if (!ytplayer || (!idplay&&chevron.style.rotate!="") || fastube.offsetWidth >= minchevron) {
           return;
         }
         if (!atas.classList.contains("dnone")) {
           this.style.rotate = "180deg";
-          document.querySelectorAll("#divhasil > div")[
-            navhasil.dataset.active
-          ].scrollTop -= 1;
         } else {
           this.style.rotate = "";
-          document.querySelectorAll("#divhasil>div")[
+        }
+        document.querySelectorAll("#divhasil > div")[
+            navhasil.dataset.active
+          ].scrollTop -= 1;
+        document.querySelectorAll("#divhasil>div")[
             navhasil.dataset.active
           ].scrollTop += 1;
-        }
         atas.classList.toggle("dnone");
       };
 
