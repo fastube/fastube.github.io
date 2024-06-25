@@ -1702,6 +1702,7 @@
 
       function eror(err, next, tampil, label, type) {
         if (!next) {
+          okchevron = 1;
           label.click();
           if (type == "search") {
             label.innerHTML = "Search";
@@ -2199,7 +2200,7 @@
             );
           } else if (
             tampil.dataset.ambilnext != "1" &&
-            tampil.dataset.nextToken != "undefined" &&
+            tampil.dataset.nextToken != "undefined" && xtampil.querySelector(".nextpage") &&
             xtampil.querySelector(".nextpage").getBoundingClientRect().top <
               bottom + document.querySelector(".kosong").offsetHeight
           ) {
@@ -2235,7 +2236,7 @@
           } else if (
             tampil.dataset.imgloading != "1" &&
             tampil.dataset.ambilnext == "0" &&
-            tampil.dataset.nextToken != "undefined" &&
+            tampil.dataset.nextToken != "undefined" && xtampil.querySelector(".nextpage") &&
             xtampil.querySelector(".nextpage").getBoundingClientRect().top <
               bottom + document.querySelector(".kosong").offsetHeight
           ) {
@@ -2608,7 +2609,7 @@
         var hours = 0;
         var minutes = 0;
         var seconds = 0;
-
+        if(!duration){return "<span class=\"text-danger\">&#9679;</span> UPCOMING";}
         // Remove PT from string ref: https://developers.google.com/youtube/v3/docs/videos#contentDetails.duration
         duration = duration.replace("PT", "");
 
