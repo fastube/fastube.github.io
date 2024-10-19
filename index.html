@@ -2551,7 +2551,7 @@
 
       function Fetch(url, options, type) {
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 30000);
+        const timeout = setTimeout(() => controller.abort(), 90000);
         let ganti;
         stopfetch.onclick = () => {
           ganti = 1;
@@ -2855,7 +2855,7 @@
           }),
         };
         try {
-          const r = await Fetch("https://co.wuk.sh/api/json", options);
+          const r = await Fetch("https://api.cobalt.tools/api/json", options);
 
           if (!r.url) {
             throw r;
@@ -2896,7 +2896,7 @@
         } catch (err) {
           downvid.classList.toggle("d-none");
           xdownvid.classList.toggle("d-none");
-
+          console.log(err);
           setTimeout(() => alert(err), 100);
         }
       };
@@ -2925,7 +2925,7 @@
           }),
         };
         try {
-          const r = await Fetch("https://co.wuk.sh/api/json", options);
+          const r = await Fetch("https://api.cobalt.tools/api/json", options);
 
           if (!r.url) {
             throw r;
@@ -2965,7 +2965,7 @@
         } catch (err) {
           downaud.classList.toggle("d-none");
           xdownaud.classList.toggle("d-none");
-
+          console.log(err);
           setTimeout(() => alert(err), 100);
         }
       };
