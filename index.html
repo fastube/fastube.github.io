@@ -710,6 +710,7 @@
     ></iframe>
     <button id="stopfetch" class="d-none"></button>
     <a target="_blank" id="ig"></a>
+    <a href="https://youtubetowav.io/" target="_blank" id="downsite"></a>
     <script>
       const playauto = document.getElementById("auto");
 
@@ -2784,14 +2785,19 @@
       }
 
       const down = document.getElementById("down");
-
+      const downsite = document.getElementById("downsite");
+      
       let iddown = "";
       down.onclick = function (e) {
-        if(!idplay){
           e.preventDefault();
+        if(!idplay){
           return;
         }
-        downinfo(this);
+        navigator.clipboard.writeText(player.getVideoUrl()).then(()=>{
+          alert("The link has been copied.");
+          downsite.click()
+        });
+       /* downinfo(this);
         if (iddown != idplay) {
           viddiv.querySelectorAll(".btn:not(.flex-shrink-1)").forEach((e) => {
             if (player.getAvailableQualityLevels().length > 0 &&
@@ -2810,7 +2816,7 @@
           if (player.getAvailableQualityLevels()&&player.getAvailableQualityLevels().length > 0) {
             iddown = idplay;
           }
-        }
+        }*/
       };
 
       viddiv.onclick = function (e) {
@@ -2841,6 +2847,7 @@
         const options = {
           method: "POST",
           headers: {
+            Authorization: "Api-Key aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
             Accept: "application/json",
             "Content-Type": "application/json",
           },
@@ -2855,7 +2862,7 @@
           }),
         };
         try {
-          const r = await Fetch("https://api.cobalt.tools/api/json", options);
+          const r = await Fetch("https://api.cobalt.tools", options);
 
           if (!r.url) {
             throw r;
