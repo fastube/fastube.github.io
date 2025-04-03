@@ -243,7 +243,7 @@
                             class="btn btn-outline-secondary"
                             type="button"
                             data-resol="hd2160"
-                            data-value="2160"
+                            data-value="4k"
                             data-index="5"
                           >
                             4K
@@ -252,7 +252,7 @@
                             class="btn btn-outline-secondary"
                             type="button"
                             data-resol="highres"
-                            data-value="max"
+                            data-value="8k"
                             data-index="6"
                           >
                             8K
@@ -262,21 +262,15 @@
                           id="downvid"
                           class="btn btn-dark flex-shrink-1 d-flex justify-content-around align-items-center"
                         >
-                          <span>READY</span>
+                          <span>Download</span>
                           <img src="dl-white.svg" style="height: 1.4em" />
                         </button>
-                        <button
-                          id="startvid"
-                          class="btn btn-success d-none flex-shrink-1 d-flex justify-content-around align-items-center"
-                        >
-                          <span>START</span>
-                          <img src="dl-white.svg" style="height: 1.4em" />
-                        </button>
+                        <div id="startvid" style="border:2px solid var(--bs-info-border-subtle);" class="d-none bg-light position-relative rounded overflow-hidden"><button style="width:8.3em" class="btn">Progress 0%</button><div class="position-absolute top-0 w-100 h-100 bg-info" style="right:100%"></div></div>
                         <button
                           id="xdownvid"
                           class="btn btn-dark flex-shrink-1 d-none"
                         >
-                          <span>READY</span>
+                          <span>Download</span>
                           <div
                             class="ms-1 spinner-border spinner-border-sm m-auto"
                             role="status"
@@ -295,17 +289,17 @@
                     </h6>
                     <div
                       id="auddiv"
-                      data-active="0"
-                      class="d-flex flex-column px-2"
+                      data-active="4"
+                      class="input-group flex-column px-2"
                     >
                       <span class="mb-1">
                         <button
-                          class="btn btn-outline-secondary active"
+                          class="btn btn-outline-secondary"
                           type="button"
-                          data-value="best"
+                          data-value="aac"
                           data-index="0"
                         >
-                          best
+                          AAC
                         </button>
                         <button
                           class="btn btn-outline-secondary"
@@ -313,7 +307,7 @@
                           data-value="mp3"
                           data-index="1"
                         >
-                          mp3
+                          MP3
                         </button>
                         <button
                           class="btn btn-outline-secondary"
@@ -321,7 +315,7 @@
                           data-value="ogg"
                           data-index="2"
                         >
-                          ogg
+                          OGG
                         </button>
                         <button
                           class="btn btn-outline-secondary"
@@ -329,43 +323,61 @@
                           data-value="wav"
                           data-index="3"
                         >
-                          wav
+                          WAV
                         </button>
                         <button
-                          class="btn btn-outline-secondary"
+                          class="btn btn-outline-secondary active"
                           type="button"
                           data-value="opus"
                           data-index="4"
                         >
-                          opus
+                          OPUS
                         </button>
                       </span>
-                      <div class="d-flex justify-content-end">
+                      <div class="d-flex justify-content-between">
+                        <span>
+                          <button
+                          class="btn btn-outline-secondary"
+                          type="button"
+                          data-value="m4a"
+                          data-index="5"
+                        >
+                          M4A
+                        </button>
+                        <button
+                          class="btn btn-outline-secondary"
+                          type="button"
+                          data-value="flac"
+                          data-index="6"
+                        >
+                          FLAC
+                        </button>
+                        </span>
                         <button
                           id="downaud"
                           class="btn btn-dark flex-shrink-1 d-flex justify-content-around align-items-center"
                         >
-                          <span>READY</span>
+                          <span>Download</span>
                           <img src="dl-white.svg" style="height: 1.4em" />
                         </button>
-                        <button
-                          id="startaud"
-                          class="btn btn-success d-none flex-shrink-1 d-flex justify-content-around align-items-center"
-                        >
-                          <span>START</span>
-                          <img src="dl-white.svg" style="height: 1.4em" />
-                        </button>
+                        <div id="startaud" style="border:2px solid var(--bs-info-border-subtle);" class="d-none bg-light position-relative rounded overflow-hidden"><button style="width:8.3em" class="btn">Progress 0%</button><div class="position-absolute top-0 w-100 h-100 bg-info" style="right:100%;"></div></div>
                         <button
                           id="xdownaud"
                           class="btn btn-dark flex-shrink-1 d-none"
                         >
-                          <span>READY</span>
+                          <span>Download</span>
                           <div
                             class="ms-1 spinner-border spinner-border-sm m-auto"
                             role="status"
                           >
                             <span class="visually-hidden">Loading...</span>
                           </div>
+                        </button>
+                      </div>
+                      <div class="my-5 d-flex justify-content-center">
+                        <button id="downsub" class="btn btn-dark flex-shrink-1 d-flex justify-content-between align-items-center">
+                          <span>Download Subtitles</span>
+                          <img src="dl-white.svg" style="height: 1.4em" />
                         </button>
                       </div>
                     </div>
@@ -703,14 +715,13 @@
         <button type="button" data-slide-to="2">cccc</button>
       </div>
     </div>
-    <iframe
-      name="downloadIframe"
-      id="downloadIframe"
-      style="display: none"
-    ></iframe>
+    <iframe name="downloadIframe" id="downloadIframe" class="d-none"></iframe>
+    <a href="" target="downloadIframe" download class="d-none linkdl"></a>
+    <iframe name="downloadIframe2" id="downloadIframe2" class="d-none"></iframe>
+    <a href="" target="downloadIframe2" download class="d-none linkdl"></a>
     <button id="stopfetch" class="d-none"></button>
     <a target="_blank" id="ig"></a>
-    <a href="https://youtubetowav.io/" target="_blank" id="downsite"></a>
+    <a target="_blank" id="subsite"></a>
     <script>
       const playauto = document.getElementById("auto");
 
@@ -1803,9 +1814,9 @@
         search(
           url0 +
             "?hl=" +
-            language +region+
+            language + region +
             "&search=" +
-            encodeURI("video "+inputcari.value),
+            encodeURI(inputcari.value+" | Video "+inputcari.value),
           0,
           hasilcari,
           searchbtn,
@@ -2552,7 +2563,7 @@
 
       function Fetch(url, options, type) {
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 90000);
+        let timeout = setTimeout(() => controller.abort(), 90000);
         let ganti;
         stopfetch.onclick = () => {
           ganti = 1;
@@ -2743,7 +2754,7 @@
         }
         return "just now";
       }
-      const viddiv = document.getElementById("viddiv");
+      
       function downinfo(a, b) {
         if (
           (infodown.classList.contains("dnone") ||
@@ -2761,13 +2772,13 @@
               navhasil.dataset.active
             ].scrollTop += 1;
         }
-
+        
         if (
           infodown.dataset.active == a.value &&
           infodown.classList.contains("dnone") &&
           fastube.offsetWidth < minchevron
         ) {
-          a.checked = false;
+          setTimeout(_=>a.checked = false,10);
         } else {
           infodown.style.translate = -parseInt(a.value) * (100 / 3) + "%";
           if (
@@ -2776,8 +2787,9 @@
             chevron.style.rotate == ""
           ) {
             chevron.click();
+            setTimeout(_=>a.checked = true,10);
           } else {
-            a.checked = true;
+            setTimeout(_=>a.checked = true,10);
           }
         }
 
@@ -2786,18 +2798,16 @@
 
       const down = document.getElementById("down");
       const downsite = document.getElementById("downsite");
-      
+      const viddiv = document.getElementById("viddiv");
+     
       let iddown = "";
       down.onclick = function (e) {
           e.preventDefault();
         if(!idplay){
           return;
         }
-        navigator.clipboard.writeText(player.getVideoUrl()).then(()=>{
-          alert("The link has been copied.");
-          downsite.click()
-        });
-       /* downinfo(this);
+
+        downinfo(this);
         if (iddown != idplay) {
           viddiv.querySelectorAll(".btn:not(.flex-shrink-1)").forEach((e) => {
             if (player.getAvailableQualityLevels().length > 0 &&
@@ -2816,181 +2826,89 @@
           if (player.getAvailableQualityLevels()&&player.getAvailableQualityLevels().length > 0) {
             iddown = idplay;
           }
-        }*/
-      };
-
-      viddiv.onclick = function (e) {
-        if (
-          e.target.classList.contains("disabled") ||
-          !e.target.dataset.index ||
-          this.dataset.active == e.target.dataset.index ||
-          downvid.classList.contains("d-none")
-        ) {
-          return;
-        }
-        
-        this.querySelectorAll(".btn:not(#downvid)")[
-          this.dataset.active
-        ].classList.toggle("active");
-        e.target.classList.toggle("active");
-        this.dataset.active = e.target.dataset.index;
-      };
-
-       const startvid = document.getElementById("startvid");
-       const xdownvid = document.getElementById("xdownvid");
-      downvid.onclick = async function (e) {
-        downvid.classList.toggle("d-none");
-        xdownvid.classList.toggle("d-none");
-        let codec = "";
-        viddiv.dataset.active > 3 ? (codec = "av1") : 0;
-
-        const options = {
-          method: "POST",
-          headers: {
-            Authorization: "Api-Key aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            url: "https://m.youtube.com/watch?v=" + idplay,
-            vCodec: codec,
-            vQuality:
-              viddiv.querySelectorAll(".btn:not(#downvid)")[
-                viddiv.dataset.active
-              ].dataset.value,
-            filenamePattern: "basic",
-          }),
-        };
-        try {
-          const r = await Fetch("https://api.cobalt.tools", options);
-
-          if (!r.url) {
-            throw r;
-          }
-
-          const downloadLink = document.createElement("a");
-
-          downloadLink.href = r.url;
-          downloadLink.setAttribute("download", "");
-          downloadLink.target = "downloadIframe";
-         
-          xdownvid.classList.toggle("d-none");
-          startvid.classList.remove("d-none");
-          xdownvid.innerHTML = `<span>START</span>
-                          <div
-                            class="ms-1 spinner-border spinner-border-sm m-auto"
-                            role="status"
-                          >
-                            <span class="visually-hidden">Loading...</span>
-                          </div>`;
-            
-          startvid.onclick=()=>{
-            downloadLink.click();
-            xdownvid.classList.remove("d-none");
-            startvid.classList.toggle("d-none");
-            setTimeout(() => {
-              downvid.classList.toggle("d-none");
-              xdownvid.classList.toggle("d-none");
-              xdownvid.innerHTML = `<span>READY</span>
-                          <div
-                            class="ms-1 spinner-border spinner-border-sm m-auto"
-                            role="status"
-                          >
-                            <span class="visually-hidden">Loading...</span>
-                          </div>`;
-            }, 4000);
-          }
-        } catch (err) {
-          downvid.classList.toggle("d-none");
-          xdownvid.classList.toggle("d-none");
-          console.log(err);
-          setTimeout(() => alert(err), 100);
         }
       };
-
-      const downaud = document.getElementById("downaud");
-      const startaud = document.getElementById("startaud");
-      const xdownaud = document.getElementById("xdownaud");
-      downaud.onclick = async function (e) {
-        downaud.classList.toggle("d-none");
-        xdownaud.classList.toggle("d-none");
-
-        const options = {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            url: "https://m.youtube.com/watch?v=" + idplay,
-            isAudioOnly: "true",
-            aFormat:
-              auddiv.querySelectorAll(".btn:not(#downaud)")[
-                auddiv.dataset.active
-              ].dataset.value,
-            filenamePattern: "basic",
-          }),
-        };
-        try {
-          const r = await Fetch("https://api.cobalt.tools/api/json", options);
-
-          if (!r.url) {
-            throw r;
+      
+      document.querySelectorAll("#downdiv .w-100 > div").forEach(el=>{
+        el.onclick = function(e){
+          if (
+            e.target.classList.contains("disabled") ||
+            !e.target.dataset.index ||
+            this.dataset.active == e.target.dataset.index ||
+            downvid.classList.contains("d-none")
+          ) {
+            return;
           }
-          const downloadLink = document.createElement("a");
-
-          downloadLink.href = r.url;
-          downloadLink.setAttribute("download", "");
-          downloadLink.target = "downloadIframe";
           
-          xdownaud.classList.toggle("d-none");
-          startaud.classList.remove("d-none");
-          xdownaud.innerHTML = `<span>START</span>
-                          <div
-                            class="ms-1 spinner-border spinner-border-sm m-auto"
-                            role="status"
-                          >
-                            <span class="visually-hidden">Loading...</span>
-                          </div>`;
+          this.querySelectorAll(".btn:not(.btn-dark)")[
+            this.dataset.active
+          ].classList.toggle("active");
+          e.target.classList.toggle("active");
+          this.dataset.active = e.target.dataset.index;
+        };
+        
+      });
+      
+      document.querySelectorAll("#downdiv .btn-dark.justify-content-around").forEach((el,j)=>{
+        el.onclick = async function (e) {
+          const ddiv = this.parentElement.parentElement;
+          const xdown = this.parentElement.querySelector(".btn-dark:not(.justify-content-around)");
+          const start = this.parentElement.querySelector(".bg-light");
+          
+          this.classList.toggle("d-none");
+          xdown.classList.toggle("d-none");
+          ddiv.classList.toggle("noClick");
+          
+          try{
+            let r = await Fetch("https://p.oceansaver.in/ajax/download.php?button=1&start=1&end=1&iframe_source=https://video-download-api.com/&url="+"https://www.youtube.com/watch?v="+idplay+"&format="+ddiv.querySelectorAll(".btn:not(.btn-dark)")[ddiv.dataset.active].dataset.value);
+            if (!r.id) {
+              throw r;
+            }
+            xdown.classList.toggle("d-none");
+            start.classList.toggle("d-none");
             
-          startaud.onclick=()=>{
-            downloadLink.click();
-            xdownaud.classList.remove("d-none");
-            startaud.classList.toggle("d-none");
-            setTimeout(() => {
-              downaud.classList.toggle("d-none");
-              xdownaud.classList.toggle("d-none");
-              xdownaud.innerHTML = `<span>READY</span>
-                          <div
-                            class="ms-1 spinner-border spinner-border-sm m-auto"
-                            role="status"
-                          >
-                            <span class="visually-hidden">Loading...</span>
-                          </div>`;
-            }, 4000);
+            start.querySelector("div").style.right = "100%";
+            start.querySelector(".btn").innerHTML = '<span style="opacity:0">1</span>Progress 0%<span style="opacity:0">0</span>';
+            r = await Fetch(r.progress_url);
+            if(!r.progress){
+              throw r;
+            }
+            document.querySelectorAll(".linkdl")[j].href = r.download_url;
+            document.querySelectorAll(".linkdl")[j].click();
+            let i = 1;
+            const inval = setInterval(_=>{
+              start.querySelector("div").style.right = r.progress/10-i+"%";
+              start.querySelector(".btn").textContent = 'Progress '+i+'%';
+              i==100?stopinval():i++;
+            },20);
+            function stopinval(){
+              clearInterval(inval);
+            }
+            
+            setTimeout(_=>{
+              start.classList.toggle("d-none");
+              this.classList.toggle("d-none");
+              ddiv.classList.toggle("noClick");
+              return;
+            },4000);
+          }catch(err){
+            if(!start.classList.contains("d-none")){
+              start.classList.toggle("d-none")
+            }else{
+              xdown.classList.toggle("d-none");
+            }
+            this.classList.toggle("d-none");
+            ddiv.classList.toggle("noClick");
+            console.log(err);
+            setTimeout(() => {err.message?alert(err.message):alert(err)}, 100);
           }
-        } catch (err) {
-          downaud.classList.toggle("d-none");
-          xdownaud.classList.toggle("d-none");
-          console.log(err);
-          setTimeout(() => alert(err), 100);
         }
-      };
-
-      auddiv.onclick = function (e) {
-        if (
-          !e.target.dataset.index ||
-          this.dataset.active == e.target.dataset.index ||
-          downaud.classList.contains("d-none")
-        ) {
-          return;
-        }
-        this.querySelectorAll(".btn:not(#downaud)")[
-          this.dataset.active
-        ].classList.toggle("active");
-        e.target.classList.toggle("active");
-        this.dataset.active = e.target.dataset.index;
-      };
+      });
+      
+      document.getElementById("downsub").onclick = _=>{
+        document.getElementById("subsite").href = "https://views4you.com/tools/youtube-subtitles-downloader/?url=https://www.youtube.com/watch?v="+idplay;
+        document.getElementById("subsite").click();
+      }
 
       info.onclick = function (e) {
         if(!idplay){
@@ -3271,6 +3189,7 @@
           btncari.click();
         },
       });
+    
     
     </script>
   </body>

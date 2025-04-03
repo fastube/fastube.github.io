@@ -648,3 +648,7 @@ option,
   color: #fff;
   cursor: pointer;
 } 
+
+.noClick .btn-outline-secondary{
+  pointer-events: none;
+}
