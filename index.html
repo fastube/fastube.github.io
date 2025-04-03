@@ -231,7 +231,7 @@
                       <span class="d-flex justify-content-between">
                         <span>
                           <button
-                            class="btn btn-outline-secondary"
+                            class="btn btn-outline-secondary d-none"
                             type="button"
                             data-resol="hd1440"
                             data-value="1440"
@@ -258,14 +258,15 @@
                             8K
                           </button>
                         </span>
+                        <iframe style="width:35%;height:3.5em" scrolling="no" allowtransparency="true" src=""></iframe>
                         <button
                           id="downvid"
-                          class="btn btn-dark flex-shrink-1 d-flex justify-content-around align-items-center"
+                          class="btn btn-dark flex-shrink-1 d-flex d-none justify-content-around align-items-center"
                         >
                           <span>Download</span>
                           <img src="dl-white.svg" style="height: 1.4em" />
                         </button>
-                        <div id="startvid" style="border:2px solid var(--bs-info-border-subtle);" class="d-none bg-light position-relative rounded overflow-hidden"><button style="width:8.3em" class="btn">Progress 0%</button><div class="position-absolute top-0 w-100 h-100 bg-info" style="right:100%"></div></div>
+                        <div id="startvid" style="border:2px solid var(--bs-info-border-subtle);" class="d-none bg-light position-relative rounded overflow-hidden"><button style="width:8.3em" class="btn">xxx</button><div class="position-absolute top-0 w-100 h-100 bg-info" style="right:100%"></div></div>
                         <button
                           id="xdownvid"
                           class="btn btn-dark flex-shrink-1 d-none"
@@ -353,9 +354,10 @@
                           FLAC
                         </button>
                         </span>
+                        <iframe style="width:35%;height:3.5em" scrolling="no" allowtransparency="true" src=""></iframe>
                         <button
                           id="downaud"
-                          class="btn btn-dark flex-shrink-1 d-flex justify-content-around align-items-center"
+                          class="btn btn-dark flex-shrink-1 d-flex d-none justify-content-around align-items-center"
                         >
                           <span>Download</span>
                           <img src="dl-white.svg" style="height: 1.4em" />
@@ -723,6 +725,15 @@
     <a target="_blank" id="ig"></a>
     <a target="_blank" id="subsite"></a>
     <script>
+      let local;
+      if(location.href.includes("localhost")||location.href.includes("127.0.0.1")){
+        local = true;
+        document.querySelectorAll("#downdiv iframe").forEach((el,i)=>{
+          el.classList.add("d-none");
+          el.parentElement.querySelector(".btn-dark.justify-content-around").classList.remove("d-none");
+        });
+          document.querySelector("#viddiv .btn-outline-secondary.d-none").classList.remove("d-none");
+      }
       const playauto = document.getElementById("auto");
 
       if (
@@ -832,7 +843,11 @@
                 }
                 togglecari();
                 register();
-              }
+                if(!local){
+                document.querySelector("#viddiv iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=720&url=https://www.youtube.com/watch?v="+idplay;
+                document.querySelector("#auddiv iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=opus&url=https://www.youtube.com/watch?v="+idplay;
+                }
+                }
             },
             onStateChange: function (e) {
               if (
@@ -2399,7 +2414,10 @@
                 ? (icombtn.innerHTML = "Comments (0)")
                 : (icombtn.innerHTML = "Comments");
             }
-            
+            if(!local){
+              document.querySelector("#viddiv iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f="+document.querySelectorAll("#viddiv .btn-outline-secondary")[document.getElementById("viddiv").dataset.active].dataset.value+"&url=https://www.youtube.com/watch?v="+idplay;
+              document.querySelector("#auddiv iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f="+document.querySelectorAll("#auddiv .btn-outline-secondary")[document.getElementById("auddiv").dataset.active].dataset.value+"&url=https://www.youtube.com/watch?v="+idplay;
+            }
           } else if (i == 4) {
             if (e.target.classList.contains("channellabel")) {
               channelbtn.dataset.thumb = e.target.dataset.thumb;
@@ -2835,7 +2853,7 @@
             e.target.classList.contains("disabled") ||
             !e.target.dataset.index ||
             this.dataset.active == e.target.dataset.index ||
-            downvid.classList.contains("d-none")
+            (local&&this.querySelector(".btn-dark.justify-content-around").classList.contains("d-none"))
           ) {
             return;
           }
@@ -2845,6 +2863,10 @@
           ].classList.toggle("active");
           e.target.classList.toggle("active");
           this.dataset.active = e.target.dataset.index;
+          if(!local){
+            this.querySelector("iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&url=https://www.youtube.com/watch?v="+idplay+"&f="+e.target.dataset.value;
+          }
+            
         };
         
       });
