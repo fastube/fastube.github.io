@@ -827,8 +827,8 @@
       let adsload=[];
       function onYouTubePlayerAPIReady() {
         if(!ytplayer&&!local){
-          document.querySelector("#viddiv iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=720&url=https://www.youtube.com/watch?v="+idplay;
-          document.querySelector("#auddiv iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=opus&url=https://www.youtube.com/watch?v="+idplay;
+          document.querySelector("#viddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=720&url=https://www.youtube.com/watch?v="+idplay;
+          document.querySelector("#auddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=opus&url=https://www.youtube.com/watch?v="+idplay;
         }
         let isPlaying = 0;
         player = new YT.Player("ytplayer", {
@@ -2415,8 +2415,8 @@
                 : (icombtn.innerHTML = "Comments");
             }
             if(!local){
-              document.querySelector("#viddiv iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f="+document.querySelectorAll("#viddiv .btn-outline-secondary")[document.getElementById("viddiv").dataset.active].dataset.value+"&url=https://www.youtube.com/watch?v="+idplay;
-              document.querySelector("#auddiv iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f="+document.querySelectorAll("#auddiv .btn-outline-secondary")[document.getElementById("auddiv").dataset.active].dataset.value+"&url=https://www.youtube.com/watch?v="+idplay;
+              document.querySelector("#viddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f="+document.querySelectorAll("#viddiv .btn-outline-secondary")[document.getElementById("viddiv").dataset.active].dataset.value+"&url=https://www.youtube.com/watch?v="+idplay;
+              document.querySelector("#auddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f="+document.querySelectorAll("#auddiv .btn-outline-secondary")[document.getElementById("auddiv").dataset.active].dataset.value+"&url=https://www.youtube.com/watch?v="+idplay;
             }
           } else if (i == 4) {
             if (e.target.classList.contains("channellabel")) {
@@ -2864,7 +2864,7 @@
           e.target.classList.toggle("active");
           this.dataset.active = e.target.dataset.index;
           if(!local){
-            this.querySelector("iframe").src = "https://p.oceansaver.in/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&url=https://www.youtube.com/watch?v="+idplay+"&f="+e.target.dataset.value;
+            this.querySelector("iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&url=https://www.youtube.com/watch?v="+idplay+"&f="+e.target.dataset.value;
           }
             
         };
@@ -2882,7 +2882,7 @@
           ddiv.classList.toggle("noClick");
           
           try{
-            let r = await Fetch("https://p.oceansaver.in/ajax/download.php?button=1&start=1&end=1&iframe_source=https://video-download-api.com/&url="+"https://www.youtube.com/watch?v="+idplay+"&format="+ddiv.querySelectorAll(".btn:not(.btn-dark)")[ddiv.dataset.active].dataset.value);
+            let r = await Fetch("https://p.savenow.to/ajax/download.php?button=1&start=1&end=1&iframe_source=https://video-download-api.com/&url="+"https://www.youtube.com/watch?v="+idplay+"&format="+ddiv.querySelectorAll(".btn:not(.btn-dark)")[ddiv.dataset.active].dataset.value);
             if (!r.id) {
               throw r;
             }
