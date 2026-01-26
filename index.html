@@ -828,7 +828,7 @@
       function onYouTubePlayerAPIReady() {
         if(!ytplayer&&!local){
           document.querySelector("#viddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=720&url=https://www.youtube.com/watch?v="+idplay;
-          document.querySelector("#auddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=opus&url=https://www.youtube.com/watch?v="+idplay;
+          document.querySelector("#auddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=m4a&url=https://www.youtube.com/watch?v="+idplay;
         }
         let isPlaying = 0;
         player = new YT.Player("ytplayer", {
