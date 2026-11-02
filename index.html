@@ -290,7 +290,7 @@
                     </h6>
                     <div
                       id="auddiv"
-                      data-active="5"
+                      data-active="2"
                       class="input-group flex-column px-2"
                     >
                       <span class="mb-1">
@@ -311,7 +311,7 @@
                           MP3
                         </button>
                         <button
-                          class="btn btn-outline-secondary"
+                          class="btn btn-outline-secondary active"
                           type="button"
                           data-value="ogg"
                           data-index="2"
@@ -338,7 +338,7 @@
                       <div class="d-flex justify-content-between">
                         <span>
                           <button
-                          class="btn btn-outline-secondary active"
+                          class="btn btn-outline-secondary"
                           type="button"
                           data-value="m4a"
                           data-index="5"
@@ -828,7 +828,7 @@
       function onYouTubePlayerAPIReady() {
         if(!ytplayer&&!local){
           document.querySelector("#viddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=720&url=https://www.youtube.com/watch?v="+idplay;
-          document.querySelector("#auddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=m4a&url=https://www.youtube.com/watch?v="+idplay;
+          document.querySelector("#auddiv iframe").src = "https://p.savenow.to/api/button/?color=46B4FF&linkUrl=https://fastube.github.io/close.html&f=ogg&url=https://www.youtube.com/watch?v="+idplay;
         }
         let isPlaying = 0;
         player = new YT.Player("ytplayer", {
@@ -845,7 +845,7 @@
                 if(hasilcari.querySelectorAll(".kosong")[1]&&chevron.style.rotate==""&&listbatur!=2){
                   searchbtn.click();
                 }
-                togglecari();
+                tlecari();
                 register();
                 }
             },
@@ -855,10 +855,10 @@
                 (e.data != 1 && isPlaying == 1)
               ) {
                 isPlaying = e.data;
-                toggleplay(e.data);
+                tgleplay(e.data);
               }
 
-              if (e.data == 0 && playauto.checked) {
+              if (e.data == 0 && playaut.checked) {
                 if (
                   parseInt(
                     divhasil.children[tabplaying].dataset.index
